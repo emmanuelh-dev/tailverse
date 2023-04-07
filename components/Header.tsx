@@ -1,10 +1,11 @@
 import type { FC } from "react";
 import Link from "next/link";
-
+import { useState } from "react";
 import { BiMenu } from "react-icons/bi";
 
 import { Disclosure } from "@headlessui/react";
-
+import Register from "./Register";
+import Login from "./Login";
 const navigation = [
   { name: "Buttons", href: "/buttons" },
   { name: "Loaders", href: "/loaders" },
@@ -15,6 +16,24 @@ const navigation = [
 ];
 
 export const Header: FC = ({}) => {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLogInOpen, setIsLogInOpen] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const handleOpenRegister = () => {
+    setIsRegisterOpen(true);
+  };
+
+  const handleCloseRegister = () => {
+    setIsRegisterOpen(false);
+  };
+  const handleOpenLogIn = () => {
+    setIsLogInOpen(true);
+  };
+
+  const handleCloseLogIn = () => {
+    setIsLogInOpen(false);
+  };
   return (
     <header className="bg-white dark:bg-black">
       <div className="min-h-full">
@@ -23,8 +42,7 @@ export const Header: FC = ({}) => {
             <>
               <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black ">
                 <div
-                  className="flex items-center container mx-auto px-4 max-w-8xl sm:px-6 overflow-hidden justify-between w-full
-                "
+                  className="flex items-center container mx-auto px-4 max-w-8xl sm:px-6 overflow-hidden justify-between w-full"
                 >
                   <div className="flex-shrink-0 ">
                     <Link href="/">
@@ -46,6 +64,24 @@ export const Header: FC = ({}) => {
                           </Link>
                         )
                       )}
+
+                      <div>
+                        <button
+                          onClick={handleOpenRegister}
+                          className="bg-gradient-to-r from-pink-500 to-violet-500 text-lg text-white font-bold p-2 rounded-xl"
+                        >
+                          Sign up
+                        </button>
+                        <Register
+                          open={isRegisterOpen}
+                          onClose={handleCloseRegister}
+                        />
+                        <button className="dark:text-white mx-4" onClick={handleOpenLogIn}>
+                          Log In
+                        </button>
+                        <Login  open={isLogInOpen}
+                          onClose={handleCloseLogIn}/>
+                      </div>
                     </div>
                   </div>
                 </div>
