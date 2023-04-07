@@ -22,7 +22,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
       body: JSON.stringify({ email, password  }),
     });
     if (response.ok) {
-        toast.success('Successfully created!');
+        toast.success('The user has successfully authenticated and is now logged in to the app.');
         onClose();
       } else {
         toast('Oh no.');

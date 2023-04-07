@@ -23,7 +23,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
       body: JSON.stringify({ username, email, password  }),
     });
     if (response.ok) {
-      toast.success('Successfully created!');
+      toast.success('Congratulations! The user has been added to the system!');
       onClose();
     } else {
       toast('Oh no.');
