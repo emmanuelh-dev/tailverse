@@ -33,19 +33,19 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
   return (
     <>
       {open && (
-        <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center">
-          <div className="bg-white dark:bg-semi-black p-6 rounded-xl max-w-[18rem]">
-            <h2 className="mb-2 font-bold dark:text-white text-center text-2xl">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen">
+          <div className="bg-white dark:bg-semi-black p-6 rounded-xl border border-[#E54C9E] max-w-[18rem]">
+            <h2 className="mb-2 text-2xl font-bold text-center dark:text-[#4B7FF0]">
               Sign up
             </h2>
-            <p className="text-lg dark:text-white font-light text-center">
+            <p className="text-lg font-light text-center dark:text-white">
               Create a free account with your email.
             </p>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
                   htmlFor="username"
-                  className="block mb-2 dark:text-white font-bold "
+                  className="block mb-2 font-bold dark:text-white "
                 >
                   Username:
                 </label>
@@ -53,7 +53,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
                   id="username"
                   type="text"
                   placeholder="Username"
-                  className="dark:text-white w-full dark:bg-semi-black border-b py-2 px-3 leading-tight focus:outline-none focus:shadow-outline border-neutral-400"
+                  className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -62,7 +62,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block mb-2 dark:text-white font-bold "
+                  className="block mb-2 font-bold dark:text-white "
                 >
                   Mail:
                 </label>
@@ -70,7 +70,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
                   id="email"
                   type="text"
                   placeholder="Mail Address"
-                  className="dark:text-white w-full dark:bg-semi-black border-b py-2 px-3 leading-tight focus:outline-none focus:shadow-outline border-neutral-400"
+                  className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -78,7 +78,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
               <div className="mb-4">
                 <label
                   htmlFor="password"
-                  className="block mb-2 dark:text-white font-bold"
+                  className="block mb-2 font-bold dark:text-white"
                 >
                   Password:
                 </label>
@@ -86,7 +86,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
                   id="password"
                   type="password"
                   placeholder="Contraseña"
-                  className="w-full dark:bg-semi-black border-b py-2 px-3 leading-tight focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
+                  className="w-full px-3 py-2 leading-tight border-b dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -95,13 +95,13 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="mr-2 px-4 py-2 text-sm font-medium rounded-md text-white bg-red-600 w-1/2"
+                  className="w-1/2 px-4 py-2 mr-2 text-sm font-medium text-white bg-[#E54C9E] rounded-md"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-1/2"
+                  className="w-1/2 px-4 py-2 text-sm font-medium text-white bg-[#4B7FF0] border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Registrarse
                 </button>
