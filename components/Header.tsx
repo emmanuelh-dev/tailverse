@@ -13,6 +13,7 @@ const navigation = [
   { name: "Cards", href: "/cards" },
   { name: "Forms", href: "/forms" },
   { name: "All", href: "/all" },
+  { name: "New", href: "/new" },
 ];
 
 export const Header: FC = ({}) => {
