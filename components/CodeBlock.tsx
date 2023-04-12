@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import Head from "next/head";
-const CodeBlock = () => {
-  const [code, setCode] = useState(`
-  <div class="bg-pink-400 p-8">
-    <h1 class="text-4xl font-bold">Hello world!</h1>
-    <p class="text-xl text-white">This is sample text.</p>
-  </div>
-
-  `);
-
+interface Props {
+  code: string;
+  setCode: any;
+}
+const CodeBlock = ({ code, setCode }: Props) => {
   return (
-    <div className="flex pt-14">
+    <div className="lg:flex pt-14 h-screen w-screen">
       <Head>
         <link
           rel="stylesheet"
@@ -19,12 +15,14 @@ const CodeBlock = () => {
         />
       </Head>
       <LiveProvider code={code} scope={{}}>
-        <div className="w-1/2 bg-black">
-          <LiveEditor onChange={setCode} className=""/>
+        <div className="w-full h-full overflow-scroll bg-neutral-100 dark:bg-neutral-900 max-h-full flex">
+          <LiveEditor onChange={setCode} />
           <LiveError />
         </div>
-        <div className="w-1/2 bg-black ">
-          <LivePreview />
+        <div className="w-full bg-neutral-100 dark:bg-neutral-900 h-full flex items-center justify-center">
+          <div>
+            <LivePreview />
+          </div>
         </div>
       </LiveProvider>
     </div>

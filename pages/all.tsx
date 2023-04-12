@@ -1,12 +1,47 @@
-import Layout from "@/layout/Layout2"
-const all = () => {
-  return (
-    <div>
-        <Layout title="All tailwind components">
-          <div><h1>Todos los componentes</h1></div>
-        </Layout>
-    </div>
-  )
+import Layout from "@/layout/Layout2";
+import { GetServerSideProps } from "next";
+import Head from "next/head";
+import Card from "@/components/Card";
+interface Component {
+  source: string;
+  id: number;
+}
+interface Props {
+  components: Component[];
 }
 
-export default all
+const All = ({ components }: Props) => {
+  return (
+    <div>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+        />
+      </Head>
+      <Layout title="All tailwind components">
+        <div className="pt-14 container mx-auto">
+          <h1>Todos los componentes</h1>
+          <div className="flex flex-wrap">
+            {components.map((component) => (
+              <Card source={component.source} key={component.id} />
+            ))}
+          </div>
+        </div>
+      </Layout>
+    </div>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const res = await fetch("http://localhost:3000/components");
+  const components = await res.json();
+  console.log(components);
+  return {
+    props: {
+      components,
+    },
+  };
+};
+
+export default All;

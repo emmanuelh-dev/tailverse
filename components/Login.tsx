@@ -1,6 +1,5 @@
 import { useState } from "react";
-import toast from 'react-hot-toast';
-
+import {loginUser} from "@/utils/authUtils"
 type LoginModalProps = {
   open: boolean;
   onClose: () => void;
@@ -11,22 +10,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
   const [password, setPassword] = useState<string>("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(process.env.API_URL)
-
-    const response = await fetch(`http://localhost:3000/users/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password  }),
-    });
-    if (response.ok) {
-        toast.success('The user has successfully authenticated and is now logged in to the app.');
-        onClose();
-      } else {
-        toast('Oh no.');
-      }
+    const login = await loginUser({ email, password });
   };
 
   return (
@@ -89,6 +73,8 @@ function LoginModal({ open, onClose }: LoginModalProps) {
           </div>
         </div>
       )}
+
+
     </>
   );
 }

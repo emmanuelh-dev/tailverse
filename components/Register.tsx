@@ -1,6 +1,6 @@
 import { useState } from "react";
-import toast from 'react-hot-toast';
-
+import toast from "react-hot-toast";
+import { registerUser, loginUser } from "@/utils/authUtils";
 type RegistroModalProps = {
   open: boolean;
   onClose: () => void;
@@ -13,20 +13,20 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(process.env.API_URL)
 
-    const response = await fetch(`http://localhost:3000/users/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, email, password  }),
-    });
-    if (response.ok) {
-      toast.success('Congratulations! The user has been added to the system!');
-      onClose();
+    const registerResult = await registerUser({ username, email, password });
+
+    if (registerResult) {
+      // Si el registro fue exitoso, hacemos login
+      const loginResult = await loginUser({ email, password });
+
+      if (loginResult) {
+        // Si el login también fue exitoso, hacemos algo aquí...
+      } else {
+        // Si el login falló, hacemos algo aquí...
+      }
     } else {
-      toast('Oh no.');
+      // Si el registro falló, hacemos algo aquí...
     }
   };
 
@@ -46,6 +46,7 @@ function RegistroModal({ open, onClose }: RegistroModalProps) {
                 <label
                   htmlFor="username"
                   className="block mb-2 font-bold dark:text-white "
+                  typeof=""
                 >
                   Username:
                 </label>

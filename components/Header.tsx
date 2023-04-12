@@ -1,25 +1,17 @@
 import type { FC } from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BiMenu } from "react-icons/bi";
-
+import UserComponent from "./UserComponent";
 import { Disclosure } from "@headlessui/react";
 import Register from "./Register";
 import Login from "./Login";
-const navigation = [
-  { name: "Buttons", href: "/buttons" },
-  { name: "Loaders", href: "/loaders" },
-  { name: "Inputs", href: "/inputs" },
-  { name: "Cards", href: "/cards" },
-  { name: "Forms", href: "/forms" },
-  { name: "All", href: "/all" },
-  { name: "New", href: "/new" },
-];
+const navigation = require("@/data/navigation.json");
 
 export const Header: FC = ({}) => {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isLogInOpen, setIsLogInOpen] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
+  const [isLogInOpen, setIsLogInOpen] = useState<boolean>(false);
+  const [user, setUser] = useState<string>("");
 
   const handleOpenRegister = () => {
     setIsRegisterOpen(true);
@@ -35,6 +27,17 @@ export const Header: FC = ({}) => {
   const handleCloseLogIn = () => {
     setIsLogInOpen(false);
   };
+
+  const checkUserInLocalStorage = () => {
+    const user = localStorage.getItem("user");
+    return user;
+  };
+
+  // Call checkUserInLocalStorage when the component is mounted
+  useEffect(() => {
+    setUser(checkUserInLocalStorage());
+  }, []);
+
   return (
     <header className="bg-white dark:bg-black">
       <div className="min-h-full">
@@ -42,18 +45,16 @@ export const Header: FC = ({}) => {
           {({ open }) => (
             <>
               <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black ">
-                <div
-                  className="flex items-center container mx-auto px-4 max-w-8xl sm:px-6 overflow-hidden justify-between w-full"
-                >
+                <div className="flex items-center container mx-auto px-4 max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link href="/">
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 text-lg font-bold uppercase">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-lg font-bold uppercase">
                         tailwindcomponents
                       </span>
                     </Link>
                   </div>
                   <div className="hidden md:block bg-white dark:bg-black">
-                    <div className="ml-10 flex items-baseline space-x-4 ">
+                    <div className="ml-10 flex items-center space-x-4 ">
                       {navigation.map(
                         (item: { name: string; href: string }) => (
                           <Link
@@ -65,24 +66,34 @@ export const Header: FC = ({}) => {
                           </Link>
                         )
                       )}
-
-                      <div>
-                        <button
-                          onClick={handleOpenRegister}
-                          className="bg-gradient-to-r from-pink-500 to-violet-500 text-lg text-white font-bold p-2 rounded-xl"
-                        >
-                          Sign up
-                        </button>
-                        <Register
-                          open={isRegisterOpen}
-                          onClose={handleCloseRegister}
-                        />
-                        <button className="dark:text-white mx-4" onClick={handleOpenLogIn}>
-                          Log In
-                        </button>
-                        <Login  open={isLogInOpen}
-                          onClose={handleCloseLogIn}/>
-                      </div>
+                      {user ? (
+                        <div>
+                          <UserComponent user={user} />
+                        </div>
+                      ) : (
+                        <div>
+                          <button
+                            onClick={handleOpenRegister}
+                            className="bg-gradient-to-r from-pink-500 to-violet-500 text-lg text-white font-bold p-2 rounded-xl"
+                          >
+                            Sign up
+                          </button>
+                          <Register
+                            open={isRegisterOpen}
+                            onClose={handleCloseRegister}
+                          />
+                          <button
+                            className="dark:text-white mx-4"
+                            onClick={handleOpenLogIn}
+                          >
+                            Log In
+                          </button>
+                          <Login
+                            open={isLogInOpen}
+                            onClose={handleCloseLogIn}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
