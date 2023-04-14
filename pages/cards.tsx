@@ -6,13 +6,13 @@ interface Component {
   source: string;
   id: number;
   author: string;
-  type:string;
+  type: string;
 }
 interface Props {
   components: Component[];
 }
 
-const All = ({ components }: Props) => {
+const cards = ({ components }: Props) => {
   return (
     <div>
       <Head>
@@ -21,12 +21,17 @@ const All = ({ components }: Props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
         />
       </Head>
-      <Layout title="All tailwind components">
+      <Layout title="cards tailwind components">
         <div className="pt-14 container mx-auto">
           <h1>Todos los componentes</h1>
           <div className="flex flex-wrap">
             {components.map((component) => (
-              <Card source={component.source} key={component.id} userName={component.author} type={component.type}/>
+              <Card
+                source={component.source}
+                key={component.id}
+                userName={component.author}
+                type={component.type}
+              />
             ))}
           </div>
         </div>
@@ -36,8 +41,17 @@ const All = ({ components }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type: "Cards" }),
+  };
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
+    requestOptions
+  );
   const components = await res.json();
+
   return {
     props: {
       components,
@@ -45,4 +59,4 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   };
 };
 
-export default All;
+export default cards;

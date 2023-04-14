@@ -6,15 +6,20 @@ interface Props {
 }
 
 const UserComponent = ({ user }: Props) => {
+  const userUrl = localStorage.getItem("user");
   return (
-    <div>
+    <div className=" flex items-center dark:text-white text-lg">
+      <div>
+        <Link href="/new">New</Link>
+      </div>
       <Menu
         as="div"
         className=" ml-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl text-white"
       >
         <div>
-          <Menu.Button className="flex max-w-xs items-center bg-gradient-to-r from-pink-500 to-violet-500  focus:outline-none text-sm font-bold rounded-lg p-2">
-          {user}          </Menu.Button>
+          <Menu.Button className="flex max-w-xs items-center bg-gradient-to-r from-pink-500 to-violet-500  focus:outline-none font-bold rounded-lg p-2">
+            {user}
+          </Menu.Button>
         </div>
         <Transition
           as={Fragment}
@@ -28,7 +33,7 @@ const UserComponent = ({ user }: Props) => {
           <Menu.Items className="absolute origin-bottom py-1 bg-neutral-100 dark:bg-neutral-800 flex flex-col rounded-b-xl">
             <Menu.Item>
               <Link
-                href="#"
+                href={`/user/${userUrl}`}
                 className=" hover:bg-neutral-300 dark:hover:bg-neutral-900 px-2 dark:text-white font-bold rounded-xl"
               >
                 Profile
@@ -41,6 +46,14 @@ const UserComponent = ({ user }: Props) => {
               >
                 Settings
               </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <button
+                onClick={() => localStorage.removeItem("user")}
+                className=" hover:bg-neutral-300 dark:hover:bg-neutral-900 px-2 dark:text-white font-bold rounded-xl"
+              >
+                Log Out
+              </button>
             </Menu.Item>
           </Menu.Items>
         </Transition>

@@ -29,17 +29,19 @@ export const Header: FC = ({}) => {
   };
 
   const checkUserInLocalStorage = () => {
-    const user = localStorage.getItem("user");
-    return user;
+    return localStorage.getItem("user");
   };
 
   // Call checkUserInLocalStorage when the component is mounted
   useEffect(() => {
-    setUser(checkUserInLocalStorage());
-  }, []);
+    const storedUser = checkUserInLocalStorage();
+    if (typeof storedUser === "string") {
+      setUser(storedUser);
+    }
+  }, [user]);
 
   return (
-    <header className="bg-white dark:bg-black">
+    <header className="bg-white dark:bg-black fixed z-[100] text-lg">
       <div className="min-h-full">
         <Disclosure as="nav">
           {({ open }) => (
@@ -60,7 +62,7 @@ export const Header: FC = ({}) => {
                           <Link
                             href={item.href}
                             key={item.name}
-                            className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2  text-sm font-medium"
+                            className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2 font-medium"
                           >
                             {item.name}
                           </Link>

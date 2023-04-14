@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Header } from "@/components/Header";
 interface Props {
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 const Layout = ({ title, children }: Props) => {

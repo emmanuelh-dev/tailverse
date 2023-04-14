@@ -6,17 +6,22 @@ import Modal from "@/components/Modal";
 
 function ProtectedCode() {
   const router = useRouter();
-  const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
-  const [code, setCode] = useState(`
+  let token: string | null = null;
+  let user: string | null = null;
+  try {
+    token = localStorage.getItem("token");
+    user = localStorage.getItem("user");
+  } catch (error) {
+    console.error(error);
+  }
+  const [modalOpen, setModalOpen] = useState<boolean>(true);
+  const [contentType, setContentType] = useState<string>("");
+  const [code, setCode] = useState<string>(`
     <div class="bg-pink-400 p-8">
       <h1 class="text-4xl font-bold">Hello world!</h1>
       <p class="text-xl text-white">This is sample text.</p>
     </div>
   `);
-
-  const [modalOpen, setModalOpen] = useState<boolean>(true);
-  const [contentType, setContentType] = useState<string>("");
 
   useEffect(() => {
     if (!token) {
@@ -33,7 +38,7 @@ function ProtectedCode() {
       type: contentType,
       rate: 0,
     };
-    fetch("http://localhost:3000/components", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,21 +48,17 @@ function ProtectedCode() {
     })
       .then((response) => {
         // Procesa la respuesta de la API
-        console.log(response);
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
-  const handleModalSubmit = (selectedContentType: string) => {
-    setContentType(selectedContentType);
-    setModalOpen(false);
-  };
+  // setModalOpen(false);
 
   // Renderiza el componente CodeBlock y el botón de enviar
   return (
-    <Layout>
+    <Layout title="Create a new component">
       <div className="max-h-screen flex items-center justify-center">
         <div className="static">
           <CodeBlock code={code} setCode={setCode} />
@@ -68,12 +69,7 @@ function ProtectedCode() {
             Seleccionar tipo de contenido
           </button>
           {!contentType && modalOpen && (
-            <Modal
-              onClose={() => setModalOpen(false)}
-              onSubmit={handleModalSubmit}
-              setContentType={setContentType}
-              contentType={contentType}
-            />
+            <Modal setContentType={setContentType} contentType={contentType} />
           )}
 
           <button

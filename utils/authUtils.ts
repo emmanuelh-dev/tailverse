@@ -1,4 +1,4 @@
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 type RegisterUserArgs = {
   username: string;
@@ -19,7 +19,10 @@ export const registerUser = async ({
   email,
   password,
 }: RegisterUserArgs): Promise<RegisterUserResult> => {
-  const response = await fetch(`http://localhost:3000/users/register`, {
+  console.log("username", username);
+  console.log("email", email);
+  console.log("password", password);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +43,7 @@ export const loginUser = async ({
   email,
   password,
 }: LoginUserArgs): Promise<LoginUserResult> => {
-  const response = await fetch(`http://localhost:3000/users/login`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`,{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +57,6 @@ export const loginUser = async ({
     localStorage.setItem("token", token);
     localStorage.setItem("user", user.username);
 
-    console.log(data);
     toast.success(
       "The user has successfully authenticated and is now logged in to the app."
     );
