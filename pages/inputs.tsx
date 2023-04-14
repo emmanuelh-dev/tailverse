@@ -42,7 +42,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       body: JSON.stringify({ type: "Inputs" }),
     };
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}///components/getByType`,
+      `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
       requestOptions
     );
     const components = await res.json();
