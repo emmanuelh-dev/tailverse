@@ -36,13 +36,23 @@ const All = ({ components }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
-  const components = await res.json();
-  return {
-    props: {
-      components,
-    },
-  };
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+    const components = await res.json();
+    return {
+      props: {
+        components,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching components:", error);
+    return {
+      props: {
+        components: [],
+      },
+    };
+  }
 };
+
 
 export default All;

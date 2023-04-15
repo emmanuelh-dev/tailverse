@@ -34,8 +34,10 @@ const inputs = ({ components }: Props) => {
     </div>
   );
 };
+export default inputs;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  try {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,11 +48,18 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       requestOptions
     );
     const components = await res.json();
-  
+
     return {
       props: {
         components,
       },
     };
-  };
-  export default inputs;
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        components: [],
+      },
+    };
+  }
+};

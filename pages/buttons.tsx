@@ -6,7 +6,7 @@ interface Component {
   source: string;
   id: number;
   author: string;
-  type:string;
+  type: string;
 }
 interface Props {
   components: Component[];
@@ -26,7 +26,12 @@ const buttons = ({ components }: Props) => {
           <h1>Todos los componentes</h1>
           <div className="flex flex-wrap">
             {components.map((component) => (
-              <Card source={component.source} key={component.id} userName={component.author} type={component.type}/>
+              <Card
+                source={component.source}
+                key={component.id}
+                userName={component.author}
+                type={component.type}
+              />
             ))}
           </div>
         </div>
@@ -36,6 +41,7 @@ const buttons = ({ components }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  try {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,10 +52,20 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       requestOptions
     );
     const components = await res.json();
+
     return {
       props: {
         components,
       },
     };
-  };
-  export default buttons;
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        components: [],
+      },
+    };
+  }
+};
+
+export default buttons;

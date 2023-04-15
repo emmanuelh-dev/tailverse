@@ -41,21 +41,31 @@ const cards = ({ components }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "Forms" }),
-  };
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
-    requestOptions
-  );
-  const components = await res.json();
+  try {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "Forms" }),
+    };
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
+      requestOptions
+    );
+    const components = await res.json();
 
-  return {
-    props: {
-      components,
-    },
-  };
+    return {
+      props: {
+        components,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        components: [],
+      },
+    };
+  }
 };
+
 export default cards;

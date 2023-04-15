@@ -52,16 +52,32 @@ const index = ({ components }: Props) => {
     </div>
   );
 };
+export default index;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
-  const components = await res.json();
+  try {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "Inputs" }),
+    };
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
+      requestOptions
+    );
+    const components = await res.json();
 
-  return {
-    props: {
-      components,
-    },
-  };
+    return {
+      props: {
+        components,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        components: [],
+      },
+    };
+  }
 };
-
-export default index;
