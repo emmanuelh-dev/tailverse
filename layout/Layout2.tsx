@@ -11,6 +11,7 @@ const Layout = ({ title, children }: Props) => {
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         <link rel="shortcut icon" href="/icon.jpg" />
       </Head>
       <Header />
