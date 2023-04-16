@@ -1,8 +1,18 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Layout from "@/layout/Layout";
+import Card from "@/components/Card";
+
+// Update the type of components to be an array of Component objects
+interface Component {
+  source: string;
+  id: number;
+  author: string;
+  type: string;
+}
+
 type User = {
-  username: any;
+  username: string; // Change any to string for better type safety
   name: string;
   email: string;
   id: number;
@@ -10,6 +20,7 @@ type User = {
 
 type Props = {
   user: User;
+  components: Component[];
 };
 
 type Params = {
@@ -20,13 +31,19 @@ type StaticProps = {
   props: Props;
 };
 
-const User = ({ user }: Props) => {
+const User = ({ user, components }: Props) => {
   return (
     <Layout>
-      <div>
-      <h1>{user.username}</h1>
-      <p>Email: {user.email}</p>
-    </div>
+      <div className="pt-20">
+        <h1 className="dark:text-white font-bold py-10">{user.username}</h1>
+        <p>Email: {user.email}</p>
+      </div>
+      <div className="flex flex-wrap">
+        {components.map((component) => (
+          // Use userName instead of username for consistency
+          <Card source={component.source} key={component.id} userName={component.author} type={component.type} />
+        ))}
+      </div>
     </Layout>
   );
 };
@@ -44,25 +61,24 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: "blocking" };
 };
 
-export const getStaticProps: GetStaticProps<Props, Params> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: params?.username }), // Usamos el operador opcional para acceder a username
+    body: JSON.stringify({ username: params?.username, author : params?.username }),
   };
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/users/getUserByUsername`,
-    requestOptions
-  );
-
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUserByUsername`, requestOptions);
   const user: User = await res.json();
+
+  // Fetch components by author username
+  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components/getByAuthor`, requestOptions);
+  const components: Component[] = await componentRes.json();
 
   return {
     props: {
       user,
+      components,
     },
   };
 };

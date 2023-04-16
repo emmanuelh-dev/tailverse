@@ -59,7 +59,6 @@ export const loginUser = async ({
     );
     return true;
   } else {
-    console.log(response)
     toast("Oh no. Something went wrong.");
     return false;
   }
