@@ -20,7 +20,6 @@ function LoginModal({ open, onClose }: LoginModalProps) {
       onClose();
     } else {
       // Si el register falló, hacemos algo aquí...
-      console.log("no mame mijo")
     }
   };
 

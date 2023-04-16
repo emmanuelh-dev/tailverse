@@ -28,11 +28,9 @@ export const registerUser = async ({
   });
 
   if (response.ok) {
-    console.log(response);
     toast.success("Congratulations! The user has been added to the system!");
     return true;
   } else {
-    console.log(response);
     toast("Oh no. Something went wrong.");
     return false;
   }
@@ -62,7 +60,7 @@ export const loginUser = async ({
     return true;
   } else {
     console.log(response)
-    toast("Oh no. Something went wrong.", response);
+    toast("Oh no. Something went wrong.");
     return false;
   }
 };

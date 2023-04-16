@@ -1,4 +1,4 @@
-import Layout from "@/layout/Layout2";
+import Layout from "@/layout/Layout";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Card from "@/components/Card";

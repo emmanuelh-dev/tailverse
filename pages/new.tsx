@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import CodeBlock from "../components/CodeBlock";
 import Layout from "@/layout/Layout2";
 import Modal from "@/components/Modal";
+import { toast } from "react-hot-toast";
 
 function ProtectedCode() {
   const router = useRouter();
@@ -23,36 +24,39 @@ function ProtectedCode() {
     </div>
   `);
 
-  useEffect(() => {
-    if (!token) {
-      // Si no hay un token en localStorage, redirige al usuario a la página de inicio de sesión
-      router.push("/");
-    }
-  }, [router, token]);
-
-  const handlePostToApi = () => {
-    const requestBody = {
-      name: "Input user id 3 RGB mamalon",
-      author: user,
-      source: code,
-      type: contentType,
-      rate: 0,
-    };
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(requestBody),
-    })
-      .then((response) => {
-        // Procesa la respuesta de la API
+    const handlePostToApi = () => {
+      const requestBody = {
+        name: "Input user id 3 RGB mamalon",
+        author: user,
+        source: code,
+        type: contentType,
+        rate: 0,
+      };
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestBody),
       })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+        .then((response) => {
+          toast.success("Congratulations! The component has been added to the system!");
+        })
+        .catch((error) => {
+          console.error(error);
+          toast("Oh no. Something went wrong.");
+          return false;
+        });
+    };
+    
+    useEffect(() => {
+      if (!token) {
+        // Si no hay un token en localStorage, redirige al usuario a la página de inicio de sesión
+        router.push("/");
+      }
+    }, [router, token, user, code, contentType]);  
+    
   return (
     <Layout title="Create a new component">
       <div className="max-h-screen flex items-center justify-center">
@@ -61,7 +65,7 @@ function ProtectedCode() {
           {!contentType && modalOpen && (
             <Modal setContentType={setContentType} contentType={contentType} />
           )}
-
+  
           <button
             onClick={handlePostToApi}
             className="fixed bg-black dark:bg-white z-50 bottom-11 lg:left-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
