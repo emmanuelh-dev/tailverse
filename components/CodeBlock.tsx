@@ -7,7 +7,7 @@ interface Props {
 }
 const CodeBlock = ({ code, setCode }: Props) => {
   return (
-    <div className="lg:flex pt-14 h-screen w-screen">
+    <div className="lg:flex h-screen w-screen bg-neutral-100 dark:bg-neutral-950">
       <Head>
         <link
           rel="stylesheet"
@@ -15,11 +15,13 @@ const CodeBlock = ({ code, setCode }: Props) => {
         />
       </Head>
       <LiveProvider code={code} scope={{}}>
-        <div className="w-full h-full overflow-scroll bg-neutral-100 dark:bg-neutral-900 max-h-full flex">
-          <LiveEditor onChange={setCode} />
-          <LiveError />
+        <div className="w-full overflow-y-scroll bg-neutral-100 dark:bg-neutral-950 h-screen">
+          <div className="pt-16">
+            <LiveEditor onChange={setCode} className="w-full" />
+            <LiveError />
+          </div>
         </div>
-        <div className="w-full bg-neutral-100 dark:bg-neutral-900 h-full flex items-center justify-center">
+        <div className="w-full bg-neutral-100 dark:bg-neutral-950 h-full flex items-center justify-center">
           <div>
             <LivePreview />
           </div>

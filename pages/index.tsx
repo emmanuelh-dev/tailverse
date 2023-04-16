@@ -41,7 +41,7 @@ const index = ({ components }: Props) => {
             <h2 className="dark:text-white font-bold text-center text-6xl py-10">
               Meet our contributors
             </h2>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid md:grid-cols-4 gap-2">
               {components.map((component) => (
                 <CardUser key={component.id} username={component.username} />
               ))}
@@ -56,28 +56,21 @@ export default index;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   try {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "Inputs" }),
-    };
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,
-      requestOptions
-    );
-    const components = await res.json();
-
-    return {
-      props: {
-        components,
-      },
-    };
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
+  const components = await res.json();
+  return {
+    props: {
+      components,
+    },
+  };
   } catch (error) {
-    console.error(error);
     return {
       props: {
-        components: [],
+        components:[],
       },
     };
   }
+
+
 };
+

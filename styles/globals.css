@@ -1,19 +1,16 @@
 :root {
   --primary: #ffff;
   --semi: #9999;
-
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #000;
     --semi: #111;
   }
 }
-
 /* Estilos para la barra de desplazamiento */
 ::-webkit-scrollbar {
-  width: 12px; /* ancho de la barra de desplazamiento */
+  width: 4px; /* ancho de la barra de desplazamiento */
 }
 
 /* Estilos para la pista de la barra de desplazamiento */

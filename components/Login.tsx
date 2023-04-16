@@ -9,9 +9,6 @@ type LoginModalProps = {
 
 function LoginModal({ open, onClose }: LoginModalProps) {
   const handleSubmit = async (values: { email: string; password: string }) => {
-    console.log(values.email);
-    console.log(values.password);
-
     const login = await loginUser(values);
     if (login) {
       // Si el login también fue exitoso, hacemos algo aquí...
@@ -24,8 +21,8 @@ function LoginModal({ open, onClose }: LoginModalProps) {
   return (
     <>
       {open && (
-        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen">
-          <div className="bg-white dark:bg-semi-black p-6 border border-pink-500 rounded-xl max-w-[18rem]">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen max-sm:bg-semi-black">
+          <div className="bg-white dark:bg-semi-black p-6 lg:border border-pink-500 rounded-xl max-w-[18rem]">
             <h2 className="mb-2 text-2xl font-bold text-center dark:text-white">
               Log In
             </h2>

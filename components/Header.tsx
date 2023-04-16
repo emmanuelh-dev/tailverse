@@ -46,8 +46,8 @@ export const Header: FC = ({}) => {
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black ">
-                <div className="flex items-center container mx-auto px-4 max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
+              <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black px-4">
+                <div className="flex items-center container mx-auto max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link href="/">
                       <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-lg font-bold uppercase">
@@ -126,6 +126,53 @@ export const Header: FC = ({}) => {
                       </ul>
                     </Link>
                   ))}
+                  <div className="flex flex-col border-t dark:border-white p-4">
+                    {user ? (
+                      <div>
+                        <Link
+                          href={`/user/${user}`}
+                          className=" hover:bg-neutral-300 dark:hover:bg-neutral-950 dark:text-white font-bold rounded-xl"
+                        >
+                          {user}
+                        </Link>
+                        <Link
+                          href="/new"
+                          className="dark:text-white font-bold w-full block"
+                        >
+                          New
+                        </Link>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            localStorage.removeItem("user");
+                          }}
+                          className=" hover:bg-neutral-300 dark:hover:bg-neutral-950 dark:text-white font-bold rounded-xl"
+                        >
+                          Log Out
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col">
+                        <button
+                          onClick={handleOpenRegister}
+                          className="bg-gradient-to-r from-pink-500 to-violet-500 text-lg text-white font-bold p-2 rounded-xl"
+                        >
+                          Sign up
+                        </button>
+                        <Register
+                          open={isRegisterOpen}
+                          onClose={handleCloseRegister}
+                        />
+                        <button
+                          className="dark:text-white mx-4 mt-2"
+                          onClick={handleOpenLogIn}
+                        >
+                          Log In
+                        </button>
+                        <Login open={isLogInOpen} onClose={handleCloseLogIn} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </Disclosure.Panel>
             </>

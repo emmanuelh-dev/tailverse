@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { registerUser } from "@/utils/authUtils";
+import { registerUser, loginUser } from "@/utils/authUtils";
 import { useState } from "react";
 
 type LoginModalProps = {
@@ -8,27 +8,29 @@ type LoginModalProps = {
 };
 
 function LoginModal({ open, onClose }: LoginModalProps) {
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async (values: {
     username: string;
     email: string;
     password: string;
   }) => {
-    const login = await registerUser(values);
-    if (login) {
-      // Si el login también fue exitoso, hacemos algo aquí...
+    const register = await registerUser(values);
+    if (register) {
+      const login = await loginUser(values);
       onClose();
     } else {
-      // Si el login falló, hacemos algo aquí...
+      // Si el register falló, hacemos algo aquí...
+      console.log("no mame mijo")
     }
   };
 
   return (
     <>
       {open && (
-        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen">
-          <div className="bg-white dark:bg-semi-black p-6 border border-[#E54C9E] rounded-xl max-w-[18rem]">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen max-sm:bg-semi-black">
+          <div className="bg-white dark:bg-semi-black p-6 lg:border border-pink-500 lg:rounded-xl lg:max-w-[18rem]">
             <h2 className="mb-2 text-2xl font-bold text-center dark:text-white">
-              Log In
+              Register
             </h2>
             <Formik
               initialValues={{ username: "", email: "", password: "" }}
@@ -62,11 +64,11 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       id="username"
                       name="username"
                       type="text"
-                      placeholder="Mail Address"
+                      placeholder="Nickname"
                       className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
                     />
                     <ErrorMessage
-                      name="email"
+                      name="username"
                       component="div"
                       className="text-red-500"
                     />
@@ -98,18 +100,33 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                     >
                       Password:
                     </label>
-                    <Field
-                      id="password"
-                      name="password"
-                      type="password"
-                      placeholder="Contraseña"
-                      className="w-full px-3 py-2 leading-tight border-b dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
-                    />
-                    <ErrorMessage
-                      name="password"
-                      component="div"
-                      className="text-red-500"
-                    />
+                    <div className="flex">
+                      <Field
+                        id="password"
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        className="w-full px-3 py-2 leading-tight border-b dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
+                      />
+                      <ErrorMessage
+                        name="password"
+                        component="div"
+                        className="text-red-500"
+                      />
+                      <button
+                        className="dark:text-white"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (showPassword === false) {
+                            setShowPassword(true);
+                          } else {
+                            setShowPassword(false);
+                          }
+                        }}
+                      >
+                        Show
+                      </button>
+                    </div>
                   </div>
                   <div className="flex justify-end">
                     <button
@@ -117,13 +134,13 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       onClick={onClose}
                       className="w-1/2 px-4 py-2 mr-2 text-sm font-medium text-white bg-[#E54C9E] rounded-md"
                     >
-                      Cancelar
+                      Cancel
                     </button>
                     <button
                       type="submit"
                       className="w-1/2 px-4 py-2 text-sm font-medium text-white bg-[#4B7FF0] border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
-                      LogIn
+                      Register
                     </button>
                   </div>
                 </Form>

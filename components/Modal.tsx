@@ -15,7 +15,7 @@ const Modal = ({ setContentType, contentType }: Props) => {
         <h1 className="font-bold dark:text-white text-6xl text-center py-10">
           Select your type
         </h1>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 justify-center">
           {filteredType.map((item: { name: string; href: string }) => (
             <button
               onClick={(e) => {
@@ -23,7 +23,7 @@ const Modal = ({ setContentType, contentType }: Props) => {
                 setContentType(e.currentTarget.dataset.type);
               }}
               key={item.name}
-              className="text-neutral-600 hover:text-black dark:hover:text-white px-3 py-2 text-sm font-medium dark:text-white bg-neutral-100 dark:bg-neutral-900 w-44 h-44 hover:scale-105"
+              className="text-neutral-600 hover:text-black dark:hover:text-white px-3 py-2 text-sm font-medium dark:text-white bg-neutral-100 dark:bg-neutral-950 w-44 h-44 hover:scale-105"
               data-type={item.name}
             >
               {item.name}
