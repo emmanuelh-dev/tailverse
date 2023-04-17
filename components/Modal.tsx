@@ -11,7 +11,7 @@ const Modal = ({ setContentType, contentType, setCode }: Props) => {
   const filteredType = type.filter(
     (item: { name: string }) => item.name !== "all"
   );
-  const renderCodeInput = (contentType: string) => {
+  const renderCodeInput = (contentType: string | any) => {
     switch (contentType) {
       case "buttons":
         setCode(`<button class="bg-white font-bold">Button code</button>`);
