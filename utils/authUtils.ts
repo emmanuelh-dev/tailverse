@@ -57,6 +57,7 @@ export const loginUser = async ({
     toast.success(
       "The user has successfully authenticated and is now logged in to the app."
     );
+    window.location.reload();
     return true;
   } else {
     toast("Oh no. Something went wrong.");

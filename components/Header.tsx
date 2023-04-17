@@ -145,6 +145,7 @@ export const Header: FC = ({}) => {
                           onClick={(e) => {
                             e.preventDefault();
                             localStorage.removeItem("user");
+                            window.location.reload();
                           }}
                           className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
                         >
