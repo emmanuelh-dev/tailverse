@@ -25,7 +25,15 @@ const Card = ({ source, userName, type }: Props) => {
   };
 
   return (
-    <div className="mb-4 bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center w-[23rem] h-[23rem] mx-auto">
+    <div
+      className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center w-[23rem] h-[23rem] mx-auto"
+      style={{
+        overflow: "auto", // para agregar desplazamiento
+        display: "flex", // para centrar el contenido
+        alignItems: "center", // para centrar verticalmente
+        justifyContent: "center", // para centrar horizontalmente
+      }}
+    >
       <div
         dangerouslySetInnerHTML={{ __html: source }}
         className="rounded-xl"

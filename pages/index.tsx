@@ -37,6 +37,8 @@ const index = ({ components }: Props) => {
               </div>
             </div>
           </div>
+
+          
           <section className="max-w-6xl mx-auto">
             <h2 className="dark:text-white font-bold text-center text-6xl py-10">
               Meet our contributors
