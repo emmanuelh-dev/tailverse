@@ -1,10 +1,11 @@
 import "@/styles/globals.css";
 import toast, { Toaster } from "react-hot-toast";
 import type { AppProps } from "next/app";
-
+import { Analytics } from "@vercel/analytics/react";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Analytics />
       <Component {...pageProps} />
       <Toaster
         toastOptions={{
