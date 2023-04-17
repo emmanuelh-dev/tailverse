@@ -45,11 +45,11 @@ const Card = ({ source, userName, type }: Props) => {
         {userName}
       </Link>
       <Link
-        href={`/${type}`}
+        href={`/${type.toLowerCase()}`}
         className="absolute bottom-4 left-1 dark:text-neutral-200 px-4 py-2 mr-2 text-xl"
         rel="noopener noreferrer"
       >
-        {type}
+        {type.toLowerCase()}
       </Link>
     </div>
   );

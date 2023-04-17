@@ -25,9 +25,9 @@ const terms = () => {
         <h3 className="font-bold text-2xl py-2">User-generated Content</h3>
         <p className="py-2">
           Users may generate content on this website as long as it meets the
-          website's standards and does not infringe on copyrights or other
+          websites standards and does not infringe on copyrights or other
           rights. The owner of this website reserves the right to remove any
-          user-generated content that does not meet the website's standards or
+          user-generated content that does not meet the website s standards or
           infringes on copyrights or other rights.
         </p>
         <h3 className="font-bold text-2xl py-2">Tailwind Components</h3>

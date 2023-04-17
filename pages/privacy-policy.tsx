@@ -24,12 +24,11 @@ const privacy = () => {
           </li>
           <li>
             <strong>Information protection:</strong> We are committed to
-            protecting our users' personal information and take reasonable
+            protecting our users personal information and take reasonable
             security measures to ensure its safety.
           </li>
           <li>
-            <strong>Information sharing:</strong> We do not share our users'
-            personal information with third parties except when necessary to
+            <strong>Information sharing:</strong> We do not share our users            personal information with third parties except when necessary to
             provide our services or comply with the law.
           </li>
         </ul>
