@@ -14,7 +14,7 @@ const Layout = ({ title, children }: Props) => {
         <link rel="shortcut icon" href="/icon.jpg" />
       </Head>
       <Header />
-      <div className="min-h-screen bg-white dark:bg-black">{children}</div>
+      <div className="min-h-screen bg-white dark:bg-black px-4">{children}</div>
     </>
   );
 };
