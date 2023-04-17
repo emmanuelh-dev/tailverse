@@ -34,7 +34,7 @@ const UserComponent = ({ user }: Props) => {
             <Menu.Item>
               <Link
                 href={`/user/${userUrl}`}
-                className=" hover:bg-neutral-300 dark:hover:bg-neutral-950 px-2 dark:text-white font-bold rounded-xl"
+                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
               >
                 Profile
               </Link>
@@ -42,7 +42,7 @@ const UserComponent = ({ user }: Props) => {
             <Menu.Item>
               <Link
                 href="#"
-                className=" hover:bg-neutral-300 dark:hover:bg-neutral-950 px-2 dark:text-white font-bold rounded-xl"
+                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
               >
                 Settings
               </Link>
@@ -52,7 +52,7 @@ const UserComponent = ({ user }: Props) => {
                 onClick={(e) =>{ 
                   e.preventDefault();
                   localStorage.removeItem("user")}}
-                className=" hover:bg-neutral-300 dark:hover:bg-neutral-950 px-2 dark:text-white font-bold rounded-xl"
+                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
               >
                 Log Out
               </button>

@@ -131,7 +131,7 @@ export const Header: FC = ({}) => {
                       <div>
                         <Link
                           href={`/user/${user}`}
-                          className=" hover:bg-neutral-300 dark:hover:bg-neutral-950yarn start:dev dark:text-white font-bold rounded-xl"
+                          className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
                         >
                           {user}
                         </Link>
@@ -146,7 +146,7 @@ export const Header: FC = ({}) => {
                             e.preventDefault();
                             localStorage.removeItem("user");
                           }}
-                          className=" hover:bg-neutral-300 dark:hover:bg-neutral-950yarn start:dev dark:text-white font-bold rounded-xl"
+                          className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
                         >
                           Log Out
                         </button>

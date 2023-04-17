@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'regal-blue': '#243c5a',
-        'semi-black': '#111'
+        'semi-black': '#0a0a0a'
       },
     },
   },

@@ -2,7 +2,7 @@ import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Layout from "@/layout/Layout";
 import Card from "@/components/Card";
-
+import Head from "next/head";
 // Update the type of components to be an array of Component objects
 interface Component {
   source: string;
@@ -32,8 +32,16 @@ type StaticProps = {
 };
 
 const User = ({ user, components }: Props) => {
-  return (
+  return (<div>
+    
+    <Head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+    />
+  </Head>
     <Layout>
+      
       <div className="pt-20">
         <h1 className="dark:text-white font-bold py-10">{user.username}</h1>
         <p>Email: {user.email}</p>
@@ -45,6 +53,7 @@ const User = ({ user, components }: Props) => {
         ))}
       </div>
     </Layout>
+  </div>
   );
 };
 
