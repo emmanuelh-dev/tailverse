@@ -26,8 +26,8 @@ function LoginModal({ open, onClose }: LoginModalProps) {
   return (
     <>
       {open && (
-        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen max-sm:bg-bg-semi-black">
-          <div className="bg-white dark:bg-bg-semi-black p-6 lg:border border-pink-500 lg:rounded-xl lg:max-w-[18rem]">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen max-sm:bg-semi-black">
+          <div className="bg-white dark:bg-semi-black p-6 lg:border border-pink-500 lg:rounded-xl lg:max-w-[18rem]">
             <h2 className="mb-2 text-2xl font-bold text-center dark:text-white">
               Register
             </h2>
@@ -64,7 +64,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       name="username"
                       type="text"
                       placeholder="Nickname"
-                      className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
+                      className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
                     />
                     <ErrorMessage
                       name="username"
@@ -84,7 +84,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       name="email"
                       type="text"
                       placeholder="Mail Address"
-                      className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
+                      className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
                     />
                     <ErrorMessage
                       name="email"
@@ -105,7 +105,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                         name="password"
                         type={showPassword ? "text" : "password"}
                         placeholder="Password"
-                        className="w-full px-3 py-2 leading-tight border-b dark:bg-bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
+                        className="w-full px-3 py-2 leading-tight border-b dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
                       />
                       <ErrorMessage
                         name="password"
