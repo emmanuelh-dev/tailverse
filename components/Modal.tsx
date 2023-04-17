@@ -2,15 +2,38 @@ import React from "react";
 const type = require("@/data/navigation.json");
 
 interface Props {
-  contentType: any;
+  contentType: string;
   setContentType: any;
+  setCode: any;
 }
 
-const Modal = ({ setContentType, contentType }: Props) => {
+const Modal = ({ setContentType, contentType, setCode }: Props) => {
   const filteredType = type.filter(
-    (item: { name: string }) => item.name !== "o"
+    (item: { name: string }) => item.name !== "all"
   );
-
+  const renderCodeInput = (contentType: string) => {
+    switch (contentType) {
+      case "buttons":
+        setCode(`<button class="bg-white font-bold">Button code</button>`);
+        break;
+      case "inputs":
+        setCode(`<input type="text" placeholder="Input code" />`);
+        break;
+      case "cards":
+        setCode(` <div class="bg-white w-48 h-64 rounded-lg"> </div>`);
+        break;
+      case "forms":
+        return <input type="text" placeholder="Form code" />;
+      case "all":
+        setCode(`    <div class="bg-pink-400 p-8">
+        <h1 class="text-4xl font-bold">Hello world!</h1>
+        <p class="text-xl text-white">This is sample text.</p>
+      </div>`);
+        break;
+      default:
+        return null;
+    }
+  };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen justify-center z-[100] bg-white dark:bg-black">
       <div className="max-w-xl mx-auto">
@@ -21,12 +44,12 @@ const Modal = ({ setContentType, contentType }: Props) => {
           {filteredType.map((item: { name: string; href: string }) => (
             <button
               onClick={(e) => {
-                e.preventDefault();
                 setContentType(e.currentTarget.dataset.type);
+                renderCodeInput(e.currentTarget.dataset.type);
               }}
               key={item.name}
               className="text-neutral-600 hover:text-black dark:hover:text-white px-3 py-2 text-sm font-medium dark:text-white bg-neutral-100 dark:bg-semi-black w-44 h-44 hover:scale-105"
-              data-type={item.name.toLowerCase()} // Aplicamos toLowerCase() a la propiedad data-type
+              data-type={item.name.toLowerCase()}
             >
               {item.name.toLowerCase()}
             </button>

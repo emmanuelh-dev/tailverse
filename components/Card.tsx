@@ -25,7 +25,7 @@ const Card = ({ source, userName, type }: Props) => {
   };
 
   return (
-    <div className="mb-4 bg-neutral-100 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center w-[23rem] h-[23rem] mx-auto">
+    <div className="mb-4 bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center w-[23rem] h-[23rem] mx-auto">
       <div
         dangerouslySetInnerHTML={{ __html: source }}
         className="rounded-xl"

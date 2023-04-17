@@ -23,7 +23,7 @@ const index = ({ components }: Props) => {
         />
       </Head>
       <Layout title="index tailwind components">
-        <div className="pt-14 container mx-auto">
+        <div className="pt-14 container mx-auto min-h-screen">
           <div className="">
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-7xl ">
               <div>

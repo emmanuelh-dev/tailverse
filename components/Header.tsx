@@ -51,7 +51,7 @@ export const Header: FC = ({}) => {
                   <div className="flex-shrink-0 ">
                     <Link href="/">
                       <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-lg font-bold uppercase">
-                        tailwindcomponents
+                        tailverse
                       </span>
                     </Link>
                   </div>

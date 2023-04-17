@@ -24,48 +24,50 @@ function ProtectedCode() {
     </div>
   `);
 
-    const handlePostToApi = () => {
-      const requestBody = {
-        name: "Input user id 3 RGB mamalon",
-        author: user,
-        source: code,
-        type: contentType,
-        rate: 0,
-      };
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(requestBody),
-      })
-        .then((response) => {
-          toast.success("Congratulations! The component has been added to the system!");
-        })
-        .catch((error) => {
-          console.error(error);
-          toast("Oh no. Something went wrong.");
-          return false;
-        });
+  const handlePostToApi = () => {
+    const requestBody = {
+      name: "Input user id 3 RGB mamalon",
+      author: user,
+      source: code,
+      type: contentType,
+      rate: 0,
     };
-    
-    useEffect(() => {
-      if (!token) {
-        // Si no hay un token en localStorage, redirige al usuario a la página de inicio de sesión
-        router.push("/");
-      }
-    }, [router, token, user, code, contentType]);  
-    
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(requestBody),
+    })
+      .then((response) => {
+        toast.success(
+          "Congratulations! The component has been added to the system!"
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+        toast("Oh no. Something went wrong.");
+        return false;
+      });
+  };
+
+  useEffect(() => {
+    if (!token) {
+      // Si no hay un token en localStorage, redirige al usuario a la página de inicio de sesión
+      router.push("/");
+    }
+  }, [router, token, user, code, contentType]);
+
   return (
     <Layout title="Create a new component">
       <div className="max-h-screen flex items-center justify-center">
         <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />
           {!contentType && modalOpen && (
-            <Modal setContentType={setContentType} contentType={contentType} />
+            <Modal setContentType={setContentType} contentType={contentType} setCode={setCode}/>
           )}
-  
+
           <button
             onClick={handlePostToApi}
             className="fixed bg-black dark:bg-white z-50 bottom-11 lg:left-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"

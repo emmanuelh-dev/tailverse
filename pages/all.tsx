@@ -21,8 +21,8 @@ const All = ({ components }: Props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
         />
       </Head>
-      <Layout title="All tailwind components">
-        <div className="pt-14 container mx-auto">
+      <Layout title="All Tailverse components">
+        <div className="pt-14 container mx-auto min-h-screen">
           <h1>Todos los componentes</h1>
           <div className="flex flex-wrap">
             {components.map((component) => (
