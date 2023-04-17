@@ -11,7 +11,7 @@ const CodeBlock = ({ code, setCode }: Props) => {
       <Head>
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         />
       </Head>
       <LiveProvider code={code} scope={{}}>

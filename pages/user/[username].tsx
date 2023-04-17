@@ -37,7 +37,7 @@ const User = ({ user, components }: Props) => {
     <Head>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
     />
   </Head>
     <Layout>
