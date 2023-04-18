@@ -12,11 +12,10 @@ const Layout = ({ title, children }: Props) => {
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <link rel="icon" type="image/png" href="/img/logo.png"/>
-
-</Head>
+        <link rel="icon" type="image/png" href="/img/logo.png" />
+      </Head>
       <Header />
-      <div className=" bg-white dark:bg-black px-4">{children}</div>
+      <div className=" bg-white dark:bg-black px-4 overflow-hidden">{children}</div>
       <Footer />
     </>
   );
