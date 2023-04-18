@@ -7,6 +7,7 @@ interface Component {
   id: number;
   author: string;
   type: string;
+  rate:number;
 }
 interface Props {
   components: Component[];
@@ -31,6 +32,7 @@ const All = ({ components }: Props) => {
                 key={component.id}
                 userName={component.author}
                 type={component.type}
+                rate={component.rate}
               />
             ))}
           </div>

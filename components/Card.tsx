@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import { AiOutlineCopy, AiFillCopy } from "react-icons/ai";
-import { AiOutlineEdit } from "react-icons/ai";
+import {
+  AiOutlineCopy,
+  AiFillCopy,
+  AiOutlineEdit,
+  AiOutlineHeart,
+} from "react-icons/ai";
+import { FaHeart } from "react-icons/fa";
 
 import Link from "next/link";
 
@@ -9,11 +14,23 @@ interface Props {
   source: string;
   userName: string;
   type: string;
+  rate?: number;
 }
 
-const Card = ({ source, userName, type }: Props) => {
+const Card = ({ source, userName, type, rate }: Props) => {
   const [copied, setCopied] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const [rates, setRates] = useState(liked ? rate! + 1 : rate || 0);
 
+  const handleLike = () => {
+    setLiked(!liked);
+    setRates(prevRates => liked ? prevRates - 1 : prevRates + 1);
+    if (!liked) {
+      toast.success("Liked");
+    } else {
+      toast.error("Unliked");
+    }
+  };
   const handleCopy = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(source).then(() => {
@@ -28,9 +45,7 @@ const Card = ({ source, userName, type }: Props) => {
   const newSource = source.replace(/screen/g, "full");
 
   return (
-    <div
-      className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center min-w-[23rem] min-h-[23rem] mx-auto"
-    >
+    <div className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center min-w-[23rem] min-h-[23rem] mx-auto">
       <div
         dangerouslySetInnerHTML={{ __html: newSource }}
         className="rounded-xl py-16"
@@ -56,12 +71,22 @@ const Card = ({ source, userName, type }: Props) => {
       >
         {type.toLowerCase()}
       </Link>
-      <button
-        onClick={() => toast("We are working on this section")} // Agrega aquí la función que quieres que se ejecute al hacer clic en el botón
-        className="absolute bottom-4 right-1 dark:text-white py-2 px-4 text-xl"
-      >
-        <AiOutlineEdit />
-      </button>
+      <div className="flex justify-center absolute right-6 bottom-4">
+
+        <button
+          onClick={handleLike}
+          className="dark:text-neutral-200 mr-2 text-2xl flex items-center"
+          title="Copy content to clipboard"
+        >
+          {rates} {liked ? <FaHeart /> : <AiOutlineHeart />}
+        </button>
+        <button
+          onClick={() => toast("We are working on this section")}
+          className="dark:text-white text-xl"
+        >
+          <AiOutlineEdit />
+        </button>
+      </div>
     </div>
   );
 };
