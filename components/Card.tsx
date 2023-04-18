@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineCopy, AiFillCopy } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
+
 import Link from "next/link";
 
 interface Props {
@@ -60,6 +62,12 @@ const Card = ({ source, userName, type }: Props) => {
       >
         {type.toLowerCase()}
       </Link>
+      <button
+        onClick={() => toast("We are working on this section")} // Agrega aquí la función que quieres que se ejecute al hacer clic en el botón
+        className="absolute bottom-4 right-1 text-white py-2 px-4 text-xl"
+      >
+        <AiOutlineEdit />
+      </button>
     </div>
   );
 };
