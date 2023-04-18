@@ -21,7 +21,7 @@ const CodeBlock = ({ code, setCode }: Props) => {
             <LiveError />
           </div>
         </div>
-        <div className="w-full bg-neutral-100 dark:bg-semi-black h-full flex items-center justify-center">
+        <div className="w-full bg-neutral-100 dark:bg-semi-black h-full flex items-center justify-center overflow-scroll">
           <div>
             <LivePreview />
           </div>

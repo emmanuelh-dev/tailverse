@@ -23,6 +23,7 @@ const Card = ({ source, userName, type }: Props) => {
       prompt("Copy to clipboard: Ctrl+C or Cmd+C, Enter", source);
     }
   };
+  const newSource = source.replace(/screen/g, "full");
 
   return (
     <div
@@ -35,7 +36,7 @@ const Card = ({ source, userName, type }: Props) => {
       // }}
     >
       <div
-        dangerouslySetInnerHTML={{ __html: source }}
+        dangerouslySetInnerHTML={{ __html: newSource }}
         className="rounded-xl p-16"
       ></div>
       <button

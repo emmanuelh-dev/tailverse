@@ -55,6 +55,51 @@ const Modal = ({ setContentType, contentType, setCode }: Props) => {
             </button>
           ))}
         </div>
+        <div className="dark:text-white">
+          <h2 className="font-bold">Best practices for this app:</h2>
+          <ul>
+            <li>
+              Use external images and assets instead of embedding them directly
+              in the app.
+            </li>
+            <li>
+              Avoid using excessively large components that may negatively
+              impact performance.
+            </li>
+            <li>
+              Do not use screen-based sizes (e.g. <span className="font-bold">screen-width</span>,
+              <span className="font-bold">screen-height</span>, etc.) in styles.
+            </li>
+            <li>
+              Always follow the React component format, with proper closing tags
+              for all elements.
+            </li>
+            <li>
+              Use appropriate semantic HTML tags for each element to improve
+              accessibility.
+            </li>
+            <li>
+              Keep the code organized and maintain good code style and
+              formatting practices.
+            </li>
+            <li>
+              Minimize the use of global styles and prioritize
+              component-specific styles.
+            </li>
+            <li>
+              Ensure that the app is responsive and functions properly across a
+              range of devices and screen sizes.
+            </li>
+            <li>
+              Test the app thoroughly and handle errors and exceptions
+              gracefully.
+            </li>
+            <li>
+              Consider incorporating security measures to protect user data and
+              prevent vulnerabilities.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -25,6 +25,11 @@ function ProtectedCode() {
   `);
 
   const handlePostToApi = () => {
+    // Verificar si el código contiene "w-screen" o "h-screen"
+    if (code.includes("w-screen") || code.includes("h-screen")) {
+      toast.error("Please remove 'w-screen' or 'h-screen' from the code.");
+      return;
+    }
     const requestBody = {
       name: "Input user id 3 RGB mamalon",
       author: user,
@@ -65,7 +70,11 @@ function ProtectedCode() {
         <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />
           {!contentType && modalOpen && (
-            <Modal setContentType={setContentType} contentType={contentType} setCode={setCode}/>
+            <Modal
+              setContentType={setContentType}
+              contentType={contentType}
+              setCode={setCode}
+            />
           )}
 
           <button
