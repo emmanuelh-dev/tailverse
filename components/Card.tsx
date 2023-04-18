@@ -29,17 +29,11 @@ const Card = ({ source, userName, type }: Props) => {
 
   return (
     <div
-      className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center min-w-[18rem] min-h-[18rem] mx-auto"
-      // style={{
-      //   overflow: "auto", // para agregar desplazamiento
-      //   display: "flex", // para centrar el contenido
-      //   alignItems: "center", // para centrar verticalmente
-      //   justifyContent: "center", // para centrar horizontalmente
-      // }}
+      className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center min-w-[23rem] min-h-[23rem] mx-auto"
     >
       <div
         dangerouslySetInnerHTML={{ __html: newSource }}
-        className="rounded-xl p-16"
+        className="rounded-xl py-16"
       ></div>
       <button
         onClick={handleCopy}
@@ -64,7 +58,7 @@ const Card = ({ source, userName, type }: Props) => {
       </Link>
       <button
         onClick={() => toast("We are working on this section")} // Agrega aquí la función que quieres que se ejecute al hacer clic en el botón
-        className="absolute bottom-4 right-1 text-white py-2 px-4 text-xl"
+        className="absolute bottom-4 right-1 dark:text-white py-2 px-4 text-xl"
       >
         <AiOutlineEdit />
       </button>

@@ -45,7 +45,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "Cards"}),
+      body: JSON.stringify({ type: "cards"}),
     };
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/components/getByType`,

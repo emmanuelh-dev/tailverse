@@ -6,7 +6,7 @@ interface Component {
   source: string;
   id: number;
   author: string;
-  type:string;
+  type: string;
 }
 interface Props {
   components: Component[];
@@ -23,10 +23,15 @@ const All = ({ components }: Props) => {
       </Head>
       <Layout title="All Tailverse components">
         <div className="pt-14 container mx-auto min-h-screen">
-          <h1>Todos los componentes</h1>
+          <h1>All components</h1>
           <div className="flex flex-wrap">
             {components.map((component) => (
-              <Card source={component.source} key={component.id} userName={component.author} type={component.type}/>
+              <Card
+                source={component.source}
+                key={component.id}
+                userName={component.author}
+                type={component.type}
+              />
             ))}
           </div>
         </div>
@@ -53,6 +58,5 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     };
   }
 };
-
 
 export default All;
