@@ -48,8 +48,7 @@ const Component = ({ components }: Props) => {
       name: "Input user id 3 RGB mamalon",
       author: components[0].author,
       source: code,
-      type: components[0].type,
-      rate: 0,
+      type: components[0].type.toLowerCase(),
     };
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/components/updateComponent`, {
       method: "POST",
@@ -59,17 +58,20 @@ const Component = ({ components }: Props) => {
       },
       body: JSON.stringify(requestBody),
     })
-    .then((response) => {
-      console.log(response);
+      .then((response) => {
+        console.log(response);
 
-      if (response.ok) {
-        toast.success("Congratulations! The component has been update to the system!");
-      } else {
-        throw new Error("Network response was not ok.");
-      }
-    }).catch((error) => {
-      console.log(error);
-    })
+        if (response.ok) {
+          toast.success(
+            "Congratulations! The component has been update to the system!"
+          );
+        } else {
+          throw new Error("Network response was not ok.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -85,13 +87,12 @@ const Component = ({ components }: Props) => {
           <CodeBlock code={code} setCode={setCode} />
         </div>
         <button
-  onClick={handlePostToApi}
-  className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
-  style={{ display: user === components[0].author ? "block" : "none" }}
->
-  Edit component
-</button>
-
+          onClick={handlePostToApi}
+          className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
+          style={{ display: user === components[0].author ? "block" : "none" }}
+        >
+          Edit component
+        </button>
       </Layout>
     </div>
   );

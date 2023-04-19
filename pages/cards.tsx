@@ -14,6 +14,7 @@ interface Props {
 }
 
 const cards = ({ components }: Props) => {
+  components.sort((a, b) => b.rate - a.rate);
   return (
     <div>
       <Head>

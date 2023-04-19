@@ -49,10 +49,12 @@ const UserComponent = ({ user }: Props) => {
             </Menu.Item>
             <Menu.Item>
               <button
-                onClick={(e) =>{ 
-                  e.preventDefault();
-                  localStorage.removeItem("user")}}
-                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
+                onClick={() => {
+                  console.log("hola");
+                  localStorage.removeItem("user");
+                  window.location.reload();
+                }}
+                className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
               >
                 Log Out
               </button>

@@ -31,8 +31,11 @@ type Params = {
 type StaticProps = {
   props: Props;
 };
-
 const User = ({ user, components }: Props) => {
+  const ranking = components.reduce(
+    (accumulator, component) => accumulator + component.rate,
+    0
+  );
   return (
     <div>
       <Head>
@@ -41,23 +44,29 @@ const User = ({ user, components }: Props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         />
       </Head>
-      <Layout>
-        <div className="pt-20">
-          <h1 className="dark:text-white font-bold py-10">{user.username}</h1>
-          <p>Email: {user.email}</p>
-        </div>
-        <div className="flex flex-wrap">
-          {components.map((component) => (
-            // Use userName instead of username for consistency
-            <Card
-              source={component.source}
-              key={component.id}
-              userName={component.author}
-              type={component.type}
-              rate={component.rate}
-              id={component.id}
-            />
-          ))}
+      <Layout title={`User ${user.username}`}>
+        <div className="container mx-auto">
+          <div className="container mx-auto text-4xl">
+            <div className="pt-20 text-white">
+              <h1 className="font-bold text-4xl max-sm:text-center lg:text-8xl">{user.username}</h1>
+              <p className=" text-4xl"><span className="font-bold">People like their posts</span> : {ranking}</p>
+              <p>Email: {user.email}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap">
+            {components.map((component) => (
+              <Card
+                source={component.source}
+                key={component.id}
+                userName={component.author}
+                type={component.type.toLowerCase()}
+                rate={component.rate}
+                id={component.id}
+              />
+            ))}
+          </div>
+          <div>Ranking: {ranking}</div>
         </div>
       </Layout>
     </div>

@@ -142,8 +142,8 @@ export const Header: FC = ({}) => {
                           New
                         </Link>
                         <button
-                          onClick={(e) => {
-                            e.preventDefault();
+                          onClick={() => {
+                            console.log("hola")
                             localStorage.removeItem("user");
                             window.location.reload();
                           }}

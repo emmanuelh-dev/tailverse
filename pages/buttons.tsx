@@ -14,6 +14,8 @@ interface Props {
 }
 
 const buttons = ({ components }: Props) => {
+    // Ordenar los componentes por su ranking (de forma descendente)
+    components.sort((a, b) => b.rate - a.rate);
   return (
     <div>
       <Head>
