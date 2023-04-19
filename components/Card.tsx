@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import {
   AiOutlineCopy,
@@ -14,23 +14,56 @@ interface Props {
   source: string;
   userName: string;
   type: string;
-  rate?: number;
+  rate: number;
+  id: number;
 }
 
-const Card = ({ source, userName, type, rate }: Props) => {
+const Card = ({ source, userName, type, rate, id }: Props) => {
   const [copied, setCopied] = useState(false);
   const [liked, setLiked] = useState(false);
-  const [rates, setRates] = useState(liked ? rate! + 1 : rate || 0);
+  const [rates, setRates] = useState<number>(rate);
 
-  const handleLike = () => {
-    setLiked(!liked);
-    setRates(prevRates => liked ? prevRates - 1 : prevRates + 1);
-    if (!liked) {
-      toast.success("Liked");
-    } else {
-      toast.error("Unliked");
+  useEffect(() => {
+    const likedInLocalStorage = localStorage.getItem(`liked_${id}`);
+    if (likedInLocalStorage !== null) {
+      setLiked(likedInLocalStorage === "true");
+    }
+  }, [id]);
+
+  const handleLike = async () => {
+    const newLiked = !liked;
+    const newRates = newLiked ? rates + 1 : rates - 1;
+
+    setLiked(newLiked);
+    setRates(newRates);
+    localStorage.setItem(`liked_${id}`, newLiked.toString());
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/components/updateComponentRate`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: id, rate: newRates }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      toast.success(newLiked ? "Liked" : "Unliked");
+    } catch (error) {
+      console.error("Error:", error);
+      setLiked(liked);
+      setRates(rates);
+      localStorage.setItem(`liked_${id}`, liked.toString());
+      toast.error(
+        newLiked ? "Could not like the item" : "Could not unlike the item"
+      );
     }
   };
+
   const handleCopy = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(source).then(() => {
@@ -72,7 +105,6 @@ const Card = ({ source, userName, type, rate }: Props) => {
         {type.toLowerCase()}
       </Link>
       <div className="flex justify-center absolute right-6 bottom-4">
-
         <button
           onClick={handleLike}
           className="dark:text-neutral-200 mr-2 text-2xl flex items-center"
@@ -80,12 +112,13 @@ const Card = ({ source, userName, type, rate }: Props) => {
         >
           {rates} {liked ? <FaHeart /> : <AiOutlineHeart />}
         </button>
-        <button
+        <Link
+          href={`/item/${id}`}
           onClick={() => toast("We are working on this section")}
           className="dark:text-white text-xl"
         >
           <AiOutlineEdit />
-        </button>
+        </Link>
       </div>
     </div>
   );

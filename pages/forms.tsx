@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Card from "@/components/Card";
 interface Component {
+  rate: number;
   source: string;
   id: number;
   author: string;
@@ -26,12 +27,8 @@ const cards = ({ components }: Props) => {
           <h1>Todos los componentes</h1>
           <div className="flex flex-wrap">
             {components.map((component) => (
-              <Card
-                source={component.source}
-                key={component.id}
-                userName={component.author}
-                type={component.type}
-              />
+              <Card source={component.source} key={component.id} userName={component.author} type={component.type} rate={component.rate} id={component.id}/>
+
             ))}
           </div>
         </div>

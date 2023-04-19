@@ -32,28 +32,32 @@ type StaticProps = {
 };
 
 const User = ({ user, components }: Props) => {
-  return (<div>
-    
-    <Head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-    />
-  </Head>
-    <Layout>
-      
-      <div className="pt-20">
-        <h1 className="dark:text-white font-bold py-10">{user.username}</h1>
-        <p>Email: {user.email}</p>
-      </div>
-      <div className="flex flex-wrap">
-        {components.map((component) => (
-          // Use userName instead of username for consistency
-          <Card source={component.source} key={component.id} userName={component.author} type={component.type} />
-        ))}
-      </div>
-    </Layout>
-  </div>
+  return (
+    <div>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        />
+      </Head>
+      <Layout>
+        <div className="pt-20">
+          <h1 className="dark:text-white font-bold py-10">{user.username}</h1>
+          <p>Email: {user.email}</p>
+        </div>
+        <div className="flex flex-wrap">
+          {components.map((component) => (
+            // Use userName instead of username for consistency
+            <Card
+              source={component.source}
+              key={component.id}
+              userName={component.author}
+              type={component.type}
+            />
+          ))}
+        </div>
+      </Layout>
+    </div>
   );
 };
 
@@ -70,18 +74,29 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: "blocking" };
 };
 
-export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: params?.username, author : params?.username }),
+    body: JSON.stringify({
+      username: params?.username,
+      author: params?.username,
+    }),
   };
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUserByUsername`, requestOptions);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/users/getUserByUsername`,
+    requestOptions
+  );
   const user: User = await res.json();
 
   // Fetch components by author username
-  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components/getByAuthor`, requestOptions);
+  const componentRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/components/getByAuthor`,
+    requestOptions
+  );
   const components: Component[] = await componentRes.json();
 
   return {

@@ -7,7 +7,7 @@ interface Component {
   id: number;
   author: string;
   type: string;
-  rate:number;
+  rate: number;
 }
 interface Props {
   components: Component[];
@@ -28,6 +28,7 @@ const All = ({ components }: Props) => {
           <div className="flex flex-wrap">
             {components.map((component) => (
               <Card
+                id={component.id}
                 source={component.source}
                 key={component.id}
                 userName={component.author}

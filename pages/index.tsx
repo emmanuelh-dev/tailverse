@@ -37,8 +37,6 @@ const index = ({ components }: Props) => {
               </div>
             </div>
           </div>
-
-          
           <section className="max-w-6xl mx-auto">
             <h2 className="dark:text-white font-bold text-center text-6xl py-10">
               Meet our contributors
@@ -58,21 +56,20 @@ export default index;
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
-  const components = await res.json();
-  return {
-    props: {
-      components,
-    },
-  };
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`
+    );
+    const components = await res.json();
+    return {
+      props: {
+        components,
+      },
+    };
   } catch (error) {
     return {
       props: {
-        components:[],
+        components: [],
       },
     };
   }
-
-
 };
-

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import Head from "next/head";
 interface Props {
-  code: string;
-  setCode: any;
+  code?: string;
+  setCode?: any;
 }
 const CodeBlock = ({ code, setCode }: Props) => {
   return (
