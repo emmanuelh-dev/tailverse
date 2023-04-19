@@ -27,21 +27,21 @@ const Footer = () => {
                 <div>
                     <h3 className="text-white text-xl">Stay updated</h3>
                     <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <a
+                    <li>
+                        <Link
+                          href="/terms"
                           className="text-white text-sm hover:text-white/70"
-                          href="https://www.lexingtonthemes.com/license"
                         >
-                          License
-                        </a>
+                          Terms of use
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                          href="/privacy-policy"
                           className="text-white text-sm hover:text-white/70"
-                          href="https://www.lexingtonthemes.com/documentation"
                         >
-                          Documentation
-                        </a>
+                          Privacy Policy
+                        </Link>
                       </li>
                     </ul>
                   </div>

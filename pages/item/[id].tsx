@@ -75,26 +75,28 @@ const Component = ({ components }: Props) => {
   };
 
   return (
-    <div>
+    <Layout title="Create a new component">
       <Head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         />
       </Head>
-      <Layout title={`Component ${components[0].id}`}>
-        <div className="h-screen overflow-hidden">
+      <div className="h-screen flex items-center justify-center">
+        <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />
+          <button
+            onClick={handlePostToApi}
+            className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
+            style={{
+              display: user === components[0].author ? "block" : "none",
+            }}
+          >
+            Edit component
+          </button>
         </div>
-        <button
-          onClick={handlePostToApi}
-          className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
-          style={{ display: user === components[0].author ? "block" : "none" }}
-        >
-          Edit component
-        </button>
-      </Layout>
-    </div>
+      </div>
+    </Layout>
   );
 };
 

@@ -62,7 +62,7 @@ export const Header: FC = ({}) => {
                           <Link
                             href={item.href}
                             key={item.name}
-                            className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2 font-medium"
+                            className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
                           >
                             {item.name}
                           </Link>
@@ -101,7 +101,7 @@ export const Header: FC = ({}) => {
                 </div>
 
                 <div className="-mr-2 flex md:hidden right-10 top-3 ">
-                  <Disclosure.Button className=" inline-flex items-center  p-2 text-neutral-400 hover:bg-neutral-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-600">
+                  <Disclosure.Button className="inline-flex items-center  p-2 text-neutral-400 hover:bg-neutral-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-600">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <span>
@@ -131,13 +131,13 @@ export const Header: FC = ({}) => {
                       <div>
                         <Link
                           href={`/user/${user}`}
-                          className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
+                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl"
                         >
                           {user}
                         </Link>
                         <Link
                           href="/new"
-                          className="dark:text-white font-bold w-full block"
+                          className="dark:text-white font-bold w-full block bg-gradient-to-r from-pink-500 to-blue-500 py-2 text-center rounded-xl"
                         >
                           New
                         </Link>
@@ -147,7 +147,7 @@ export const Header: FC = ({}) => {
                             localStorage.removeItem("user");
                             window.location.reload();
                           }}
-                          className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
+                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl"
                         >
                           Log Out
                         </button>
