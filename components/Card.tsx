@@ -104,10 +104,10 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
       >
         {type.toLowerCase()}
       </Link>
-      <div className="flex justify-center absolute right-6 bottom-4">
+      <div className="flex justify-center absolute right-6 bottom-4 items-center text-2xl">
         <button
           onClick={handleLike}
-          className="dark:text-neutral-200 mr-2 text-2xl flex items-center"
+          className="dark:text-neutral-200 mr-2 flex items-center"
           title="Copy content to clipboard"
         >
           {rates} {liked ? <FaHeart /> : <AiOutlineHeart />}
@@ -115,7 +115,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
         <Link
           href={`/item/${id}`}
           onClick={() => toast("We are working on this section")}
-          className="dark:text-white text-xl"
+          className="dark:text-white"
         >
           <AiOutlineEdit />
         </Link>

@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { loginUser } from "@/utils/authUtils";
+import { loginUser, useTokenObserver } from "@/utils/authUtils";
 import { useState } from "react";
 
 type LoginModalProps = {
@@ -17,7 +17,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
       // Si el login falló, hacemos algo aquí...
     }
   };
-
+  useTokenObserver();
   return (
     <>
       {open && (

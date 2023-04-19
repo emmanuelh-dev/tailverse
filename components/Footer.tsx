@@ -24,10 +24,10 @@ const Footer = () => {
               </div>
               <div className="grid gap-8 grid-cols-2 lg:mt-24 mt-12 xl:col-span-3">
                 <div className="md:gap-8 md:grid md:grid-cols-2">
-                <div>
+                  <div>
                     <h3 className="text-white text-xl">Stay updated</h3>
                     <ul className="space-y-2 mt-4" role="list">
-                    <li>
+                      <li>
                         <Link
                           href="/terms"
                           className="text-white text-sm hover:text-white/70"
@@ -70,44 +70,35 @@ const Footer = () => {
                     <h3 className="text-white text-xl">Other projects</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
-                        <a
+                        <Link
                           className="text-white text-sm hover:text-white/70"
                           href="https://bysmax.com"
                         >
                           BysMax
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div className="md:gap-8 md:grid md:grid-cols-2">
-
                   <div className="mt-12 md:mt-0">
                     <h3 className="text-white text-xl">Emmanuel H.</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
-                        <a
-                          className="text-white text-sm hover:text-white/70"
-                          href="https://www.instagram.com/emmanuelh.dev/"
-                        >
-                          Instagram
-                        </a>
-                      </li>
-                      <li>
-                        <a
+                        <Link
                           className="text-white text-sm hover:text-white/70"
                           href="https://github.com/emmanuelh-dev"
                         >
                           GitHub
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           className="text-white text-sm hover:text-white/70"
                           href="https://www.linkedin.com/in/emmanuelhdev/"
                         >
                           Linkedin
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -115,20 +106,20 @@ const Footer = () => {
                     <h3 className="text-white text-xl">Juan Pablo.</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
-                        <a
+                        <Link
                           className="text-white text-sm hover:text-white/70"
                           href="https://www.instagram.com/emmanuelh.dev/"
                         >
                           Instagram
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           className="text-white text-sm hover:text-white/70"
                           href="https://www.linkedin.com/in/juan-pablo-hurtado-548230243/"
                         >
                           Linkedin
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -139,12 +130,18 @@ const Footer = () => {
           <div className="w-full items-center  max-w-7xl mx-auto px-4">
             <div className="md:flex md:items-center md:justify-between">
               <div className="flex justify-center md:order-2 space-x-6">
-                <a
+                <Link
                   className="text-white text-sm hover:text-white/70 duration-500 ease-in-out p-3 transform transition"
                   href="https://www.linkedin.com/in/emmanuelhdev/"
                 >
-                  <span className="">@emmanuelhdev</span>
-                </a>
+                  @emmanuelhdev
+                </Link>
+                <Link
+                  className="text-white text-sm hover:text-white/70 duration-500 ease-in-out p-3 transform transition"
+                  href="https://www.linkedin.com/in/juan-pablo-hurtado-548230243/"
+                >
+                  @juan-pablo-hurtado-548230243
+                </Link>
               </div>
               <div className="mt-8 md:mt-0 md:order-1">
                 <p className="text-center">
