@@ -21,9 +21,9 @@ function LoginModal({ open, onClose }: LoginModalProps) {
   return (
     <>
       {open && (
-        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen max-sm:bg-semi-black">
-          <div className="bg-white dark:bg-semi-black p-6 lg:border border-pink-500 rounded-xl max-w-[18rem]">
-            <h2 className="mb-2 text-2xl font-bold text-center dark:text-white">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen dark:bg-black bg-white">
+          <div className="bg-white dark:bg-black min-w-[20rem]">
+            <h2 className="mb-2 text-4xl font-bold text-center dark:text-white">
               Log In
             </h2>
             <Formik
@@ -50,7 +50,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                   <div className="mb-4">
                     <label
                       htmlFor="email"
-                      className="block mb-2 font-bold dark:text-white"
+                      className="block mb-2 font-bold dark:text-white text-sm w-full"
                     >
                       Mail:
                     </label>
@@ -59,7 +59,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       name="email"
                       type="text"
                       placeholder="Mail Address"
-                      className="w-full px-3 py-2 leading-tight border-b dark:text-white dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400"
+                      className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-full appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                     <ErrorMessage
                       name="email"
@@ -70,7 +70,7 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                   <div className="mb-4">
                     <label
                       htmlFor="password"
-                      className="block mb-2 font-bold dark:text-white"
+                      className="block mb-2 font-bold dark:text-white text-sm"
                     >
                       Password:
                     </label>
@@ -79,25 +79,25 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                       name="password"
                       type="password"
                       placeholder="Contraseña"
-                      className="w-full px-3 py-2 leading-tight border-b dark:bg-semi-black focus:outline-none focus:shadow-outline border-neutral-400 dark:text-white"
+                      className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-full appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                     />
                     <ErrorMessage
                       name="password"
                       component="div"
-                      className="text-red-500"
+                      className="text-red-600"
                     />
                   </div>
-                  <div className="flex justify-end">
+                  <div>
                     <button
                       type="button"
                       onClick={onClose}
-                      className="w-1/2 px-4 py-2 mr-2 text-sm font-medium text-white bg-[#E54C9E] rounded-md"
+                      className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                     >
                       cancel
                     </button>
                     <button
                       type="submit"
-                      className="w-1/2 px-4 py-2 text-sm font-medium text-white bg-[#4B7FF0] border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                     >
                       LogIn
                     </button>
