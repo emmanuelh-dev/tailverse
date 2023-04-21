@@ -41,7 +41,7 @@ export const Header: FC = ({}) => {
   }, [user]);
 
   return (
-    <header className="bg-white dark:bg-black fixed z-[100] text-sm ">
+    <header className="bg-white dark:bg-black fixed z-[100] text-sm">
       <div className="min-h-full">
         <Disclosure as="nav">
           {({ open }) => (
@@ -49,10 +49,11 @@ export const Header: FC = ({}) => {
               <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black px-4">
                 <div className="flex items-center container mx-auto max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
-                    <Link href="/">
-                      <span className="text-black dark:text-white uppercase font-black text-lg">
-                        tailverse
-                      </span>
+                    <Link
+                      href="/"
+                      className="text-black dark:text-white uppercase font-black text-lg py-8"
+                    >
+                      tailverse
                     </Link>
                   </div>
                   <div className="hidden md:block bg-white dark:bg-black">
@@ -60,7 +61,7 @@ export const Header: FC = ({}) => {
                       {navigation.map(
                         (item: { name: string; href: string }) => (
                           <Link
-                            href={item.href}
+                            href={`/type/${item.href}`}
                             key={item.name}
                             className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
                           >
@@ -68,8 +69,14 @@ export const Header: FC = ({}) => {
                           </Link>
                         )
                       )}
+                      <Link
+                        className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
+                        href="/all"
+                      >
+                        All
+                      </Link>
                       {user ? (
-                        <div className="my-9">
+                        <div className="">
                           <UserComponent user={user} />
                         </div>
                       ) : (
@@ -118,7 +125,7 @@ export const Header: FC = ({}) => {
               <Disclosure.Panel className="md:hidden ">
                 <div className="space-y-1 px-2 top-16 pb-3 sm:px-3 fixed bg-white dark:bg-black w-full">
                   {navigation.map((item: { name: string; href: string }) => (
-                    <Link href={item.href} key={item.name}>
+                    <Link href={`/type/${item.href}`} key={item.name}>
                       <ul className="">
                         <li className="text-neutral-300 hover:bg-neutral-600 hover:text-white px-3 py-2  text-xl font-medium">
                           {item.name}
@@ -126,6 +133,12 @@ export const Header: FC = ({}) => {
                       </ul>
                     </Link>
                   ))}
+                  <Link
+                    className="text-neutral-300 hover:bg-neutral-600 hover:text-white px-3 py-2  text-xl font-medium block w-full"
+                    href="/all"
+                  >
+                    All
+                  </Link>
                   <div className="flex flex-col border-t dark:border-white p-4">
                     {user ? (
                       <div>
@@ -143,7 +156,6 @@ export const Header: FC = ({}) => {
                         </Link>
                         <button
                           onClick={() => {
-                            console.log("hola");
                             localStorage.removeItem("user");
                             window.location.reload();
                           }}

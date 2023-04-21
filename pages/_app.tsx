@@ -10,14 +10,14 @@ export default function App({ Component, pageProps }: AppProps) {
       <Toaster
         toastOptions={{
           className: "",
-          style: {
-            border: "1px solid",
-            borderColor: "pink", // Agregar borde rosa
-            padding: "16px",
-            color: "white", // Cambiar color del texto a blanco
-            background: "black",
-            textAlign: "center",
-          },
+          // style: {
+          //   border: "1px solid",
+          //   borderColor: "pink", // Agregar borde rosa
+          //   padding: "16px",
+          //   color: "white", // Cambiar color del texto a blanco
+          //   background: "black",
+          //   textAlign: "center",
+          // },
         }}
       />
     </>

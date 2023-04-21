@@ -26,7 +26,10 @@ type Props = {
 const index = ({ components, users }: Props) => {
   const totalComponents = components.length;
   const totalUsers = users.length;
-  const totalRates = components.reduce((sum, component) => sum + component.rate, 0);
+  const totalRates = components.reduce(
+    (sum, component) => sum + component.rate,
+    0
+  );
 
   return (
     <div>
@@ -50,16 +53,20 @@ const index = ({ components, users }: Props) => {
                 </p>
                 <div className="grid grid-cols-3 gap-2 max-w-5xl mx-auto">
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
-                    <span className="font-bold text-6xl">{totalComponents}</span>
+                    <span className="font-bold text-6xl">
+                      {totalComponents}
+                    </span>
                     <p className="text-lg">Community-made UI elements</p>
                   </div>
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">{totalUsers}</span>
-                    <p  className="text-lg">Contributors</p>
+                    <p className="text-lg">Contributors</p>
                   </div>
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">100%</span>
-                    <p  className="text-lg">Free for personal and commercial use</p>
+                    <p className="text-lg">
+                      Free for personal and commercial use
+                    </p>
                   </div>
                 </div>
               </div>
@@ -87,7 +94,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({}) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
   const users: User[] = await res.json();
 
-  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+  const componentRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/components`
+  );
   const components: Component[] = await componentRes.json();
 
   return {

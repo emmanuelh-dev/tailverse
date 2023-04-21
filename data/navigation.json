@@ -3,6 +3,5 @@
   { "name": "Inputs", "href": "/inputs" },
   { "name": "Cards", "href": "/cards" },
   { "name": "Forms", "href": "/forms" },
-  { "name": "Clip-text", "href": "/clip-text" },
-  { "name": "All", "href": "/all" }
+  { "name": "Clip-text", "href": "/clip-text" }
 ]
