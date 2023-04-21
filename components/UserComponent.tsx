@@ -8,16 +8,18 @@ interface Props {
 const UserComponent = ({ user }: Props) => {
   const userUrl = localStorage.getItem("user");
   return (
-    <div className=" flex items-center dark:text-white text-lg">
+    <div className="flex items-center dark:text-white">
       <div>
-        <Link href="/new">New</Link>
+        <Link
+          href="/new"
+          className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full text-sm"
+        >
+          New +
+        </Link>
       </div>
-      <Menu
-        as="div"
-        className=" ml-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-xl text-white"
-      >
+      <Menu as="div">
         <div>
-          <Menu.Button className="flex max-w-xs items-center bg-gradient-to-r from-pink-500 to-violet-500  focus:outline-none font-bold rounded-lg p-2">
+          <Menu.Button className="text-black uppercase font-bold dark:text-white pl-2">
             {user}
           </Menu.Button>
         </div>
@@ -50,7 +52,6 @@ const UserComponent = ({ user }: Props) => {
             <Menu.Item>
               <button
                 onClick={() => {
-                  console.log("hola");
                   localStorage.removeItem("user");
                   window.location.reload();
                 }}

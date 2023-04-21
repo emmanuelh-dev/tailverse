@@ -50,7 +50,7 @@ export const Header: FC = ({}) => {
                 <div className="flex items-center container mx-auto max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link href="/">
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 text-lg font-bold uppercase">
+                      <span className="text-black dark:text-white uppercase font-black text-lg">
                         tailverse
                       </span>
                     </Link>
@@ -69,15 +69,15 @@ export const Header: FC = ({}) => {
                         )
                       )}
                       {user ? (
-                        <div>
+                        <div className="my-9">
                           <UserComponent user={user} />
                         </div>
                       ) : (
                         <div className="flex">
                           <button
                             onClick={handleOpenRegister}
-                            className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-3 rounded-full  text-sm"
-                            >
+                            className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full  text-sm"
+                          >
                             Sign up
                           </button>
                           <Register
@@ -131,19 +131,19 @@ export const Header: FC = ({}) => {
                       <div>
                         <Link
                           href={`/user/${user}`}
-                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl"
+                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl uppercase"
                         >
                           {user}
                         </Link>
                         <Link
                           href="/new"
-                          className="dark:text-white font-bold w-full block bg-gradient-to-r from-pink-500 to-blue-500 py-2 text-center rounded-xl"
+                          className="items-center justify-center px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black block w-full"
                         >
                           New
                         </Link>
                         <button
                           onClick={() => {
-                            console.log("hola")
+                            console.log("hola");
                             localStorage.removeItem("user");
                             window.location.reload();
                           }}
@@ -157,7 +157,7 @@ export const Header: FC = ({}) => {
                         <button
                           onClick={handleOpenRegister}
                           className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full inline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
-                          >
+                        >
                           Sign up
                         </button>
                         <Register

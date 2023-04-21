@@ -103,7 +103,7 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-white text-xl">Juan Pablo.</h3>
+                    <h3 className="text-white text-xl">Juan Pablo</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
@@ -116,7 +116,7 @@ const Footer = () => {
                       <li>
                         <Link
                           className="text-white text-sm hover:text-white/70"
-                          href="https://www.linkedin.com/in/juan-pablo-hurtado-548230243/"
+                          href="https://www.linkedin.com/in/juanpablohurtado/"
                         >
                           Linkedin
                         </Link>
@@ -138,9 +138,9 @@ const Footer = () => {
                 </Link>
                 <Link
                   className="text-white text-sm hover:text-white/70 duration-500 ease-in-out p-3 transform transition"
-                  href="https://www.linkedin.com/in/juan-pablo-hurtado-548230243/"
+                  href="https://www.linkedin.com/in/juanpablohurtado/"
                 >
-                  @juan-pablo-hurtado-548230243
+                  @juanpablohurtado
                 </Link>
               </div>
               <div className="mt-8 md:mt-0 md:order-1">

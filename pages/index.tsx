@@ -1,19 +1,33 @@
 import Layout from "@/layout/Layout";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import CardUser from "@/components/CardUser";
+
 interface Component {
-  username: any;
   source: string;
   id: number;
   author: string;
   type: string;
-}
-interface Props {
-  components: Component[];
+  rate: number;
 }
 
-const index = ({ components }: Props) => {
+type User = {
+  username: string;
+  name: string;
+  email: string;
+  id: number;
+};
+
+type Props = {
+  users: User[];
+  components: Component[];
+};
+
+const index = ({ components, users }: Props) => {
+  const totalComponents = components.length;
+  const totalUsers = users.length;
+  const totalRates = components.reduce((sum, component) => sum + component.rate, 0);
+
   return (
     <div>
       <Head>
@@ -34,6 +48,20 @@ const index = ({ components }: Props) => {
                   Create, share, and use beautiful custom elements made with
                   tailwindcss.
                 </p>
+                <div className="grid grid-cols-3 gap-2 max-w-5xl mx-auto">
+                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                    <span className="font-bold text-6xl">{totalComponents}</span>
+                    <p className="text-lg">Community-made UI elements</p>
+                  </div>
+                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                    <span className="font-bold text-6xl">{totalUsers}</span>
+                    <p  className="text-lg">Contributors</p>
+                  </div>
+                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                    <span className="font-bold text-6xl">100%</span>
+                    <p  className="text-lg">Free for personal and commercial use</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -42,8 +70,8 @@ const index = ({ components }: Props) => {
               Meet our contributors
             </h2>
             <div className="grid md:grid-cols-4 gap-2">
-              {components.map((component) => (
-                <CardUser key={component.id} username={component.username} />
+              {users.map((user) => (
+                <CardUser key={user.id} username={user.username} />
               ))}
             </div>
           </section>
@@ -52,24 +80,20 @@ const index = ({ components }: Props) => {
     </div>
   );
 };
+
 export default index;
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`
-    );
-    const components = await res.json();
-    return {
-      props: {
-        components,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        components: [],
-      },
-    };
-  }
+export const getStaticProps: GetStaticProps<Props> = async ({}) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
+  const users: User[] = await res.json();
+
+  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+  const components: Component[] = await componentRes.json();
+
+  return {
+    props: {
+      users,
+      components,
+    },
+  };
 };
