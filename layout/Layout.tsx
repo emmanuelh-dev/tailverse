@@ -3,9 +3,10 @@ import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 interface Props {
   title?: string;
+  description?:string;
   children: React.ReactNode;
 }
-const Layout = ({ title, children }: Props) => {
+const Layout = ({ title, children, description }: Props) => {
   return (
     <>
       <Head>
@@ -13,6 +14,7 @@ const Layout = ({ title, children }: Props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <link rel="icon" type="image/png" href="/img/logo.png" />
+        <meta name="description" content={description} />
       </Head>
       <Header />
       <div className=" bg-white dark:bg-black px-4 overflow-hidden">{children}</div>

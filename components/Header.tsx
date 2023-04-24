@@ -47,7 +47,7 @@ export const Header: FC = ({}) => {
           {({ open }) => (
             <>
               <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black px-4">
-                <div className="flex items-center container mx-auto max-w-8xl sm:px-6 overflow-hidden justify-between w-full">
+                <div className="flex items-center container mx-auto max-sm:px-6 overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link
                       href="/"
@@ -61,7 +61,7 @@ export const Header: FC = ({}) => {
                       {navigation.map(
                         (item: { name: string; href: string }) => (
                           <Link
-                            href={`/type/${item.href}`}
+                            href={`/${item.href}`}
                             key={item.name}
                             className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
                           >
@@ -69,12 +69,6 @@ export const Header: FC = ({}) => {
                           </Link>
                         )
                       )}
-                      <Link
-                        className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
-                        href="/all"
-                      >
-                        All
-                      </Link>
                       {user ? (
                         <div className="">
                           <UserComponent user={user} />
@@ -125,7 +119,7 @@ export const Header: FC = ({}) => {
               <Disclosure.Panel className="md:hidden ">
                 <div className="space-y-1 px-2 top-16 pb-3 sm:px-3 fixed bg-white dark:bg-black w-full">
                   {navigation.map((item: { name: string; href: string }) => (
-                    <Link href={`/type/${item.href}`} key={item.name}>
+                    <Link href={`/${item.href}`} key={item.name}>
                       <ul className="">
                         <li className="text-neutral-300 hover:bg-neutral-600 hover:text-white px-3 py-2  text-xl font-medium">
                           {item.name}
@@ -133,12 +127,6 @@ export const Header: FC = ({}) => {
                       </ul>
                     </Link>
                   ))}
-                  <Link
-                    className="text-neutral-300 hover:bg-neutral-600 hover:text-white px-3 py-2  text-xl font-medium block w-full"
-                    href="/all"
-                  >
-                    All
-                  </Link>
                   <div className="flex flex-col border-t dark:border-white p-4">
                     {user ? (
                       <div>

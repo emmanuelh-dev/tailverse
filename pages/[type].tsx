@@ -17,6 +17,8 @@ interface Props {
 
 const ComponentsPage = ({ components }: Props) => {
   components.sort((a, b) => b.rate - a.rate);
+  const title: string = `Tailwind css ${components[0].type} | tailvese`;
+  const description: string = `Get started with a large variety of Tailwind CSS ${components[0].type} examples for your web project`;
 
   return (
     <div>
@@ -26,9 +28,14 @@ const ComponentsPage = ({ components }: Props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         />
       </Head>
-      <Layout title={`Tailverse ${components[0].type}`}>
+      <Layout title={title} description={description}>
         <div className="pt-14 container mx-auto min-h-screen">
-          <h1>Todos los componentes</h1>
+          <div className="py-2 dark:text-white">
+            <h1 className="py-4 dark:text-white font-bold lg:text-4xl">
+              {title}
+            </h1>
+            <p>{description}</p>
+          </div>
           <div className="flex flex-wrap">
             {components.map((component) => (
               <Card
@@ -48,7 +55,6 @@ const ComponentsPage = ({ components }: Props) => {
 };
 
 export default ComponentsPage;
-
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context

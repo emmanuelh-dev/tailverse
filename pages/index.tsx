@@ -90,14 +90,12 @@ const index = ({ components, users }: Props) => {
 
 export default index;
 
-export const getStaticProps: GetStaticProps<Props> = async ({}) => {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
-  const users: User[] = await res.json();
+  const users = await res.json();
 
-  const componentRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/components`
-  );
-  const components: Component[] = await componentRes.json();
+  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+  const components = await componentRes.json();
 
   return {
     props: {
@@ -105,4 +103,5 @@ export const getStaticProps: GetStaticProps<Props> = async ({}) => {
       components,
     },
   };
-};
+}
+
