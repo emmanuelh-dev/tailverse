@@ -98,7 +98,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
         {userName}
       </Link>
       <Link
-        href={`/type/${type.toLowerCase()}`}
+        href={`/${type.toLowerCase()}`}
         className="absolute bottom-4 left-1 dark:text-neutral-200 px-4 py-2 mr-2 text-xl"
         rel="noopener noreferrer"
       >
