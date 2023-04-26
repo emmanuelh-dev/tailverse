@@ -29,6 +29,9 @@ function ProtectedCode() {
     if (code.includes("w-screen") || code.includes("h-screen")) {
       toast.error("Please remove 'w-screen' or 'h-screen' from the code.");
       return;
+    } else if (code.includes("type=")) {
+      toast.error("Please use 'typeof' instead");
+      return;
     }
     const requestBody = {
       name: "Input user id 3 RGB mamalon",

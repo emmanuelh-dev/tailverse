@@ -75,13 +75,21 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
       prompt("Copy to clipboard: Ctrl+C or Cmd+C, Enter", source);
     }
   };
-  const newSource = source.replace(/screen/g, "full");
 
+  function validation(source: string) {
+    let newSource = source.replace(/screen/g, "full");
+    newSource = newSource.replace(/type=/g, "typeof");
+    return newSource;
+  }
+  
+
+  const newSource = validation(source);
+  
   return (
     <div className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center max-sm:w-full md:min-w-[23rem] min-h-[23rem] mx-auto">
       <div
         dangerouslySetInnerHTML={{ __html: newSource }}
-        className="rounded-xl py-16"
+        className="rounded-xl py-16 z"
       ></div>
       <button
         onClick={handleCopy}

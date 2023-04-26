@@ -22,7 +22,7 @@ const CodeBlock = ({ code, setCode }: Props) => {
           </div>
         </div>
         <div className="w-full bg-neutral-100 dark:bg-semi-black h-full flex items-center justify-center overflow-scroll">
-          <div>
+          <div className="">
             <LivePreview />
           </div>
         </div>

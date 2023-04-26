@@ -16,6 +16,8 @@ interface Props {
 
 const All = ({ components }: Props) => {
   components.sort((a, b) => b.rate - a.rate);
+  const title: string = `Tailwind CSS Components - 600+ Free examples ready to be used`;
+  const description: string = `Tailverse is a gallery of ready-to-use components created with TailwindCSS. With Tailverse, you can easily incorporate pre-designed components into your web projects by simply copying, pasting, and customizing to fit your needs. Say goodbye to time-consuming coding and hello to a faster, more efficient web development experience.`;
 
   return (
     <div>
@@ -25,9 +27,14 @@ const All = ({ components }: Props) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
         />
       </Head>
-      <Layout title="All Tailverse components">
+      <Layout title={title} description={description}>
         <div className="pt-14 container mx-auto min-h-screen">
-          <h1>All components</h1>
+        <div className="py-2 dark:text-white">
+            <h1 className="py-4 dark:text-white font-bold lg:text-4xl">
+              {title}
+            </h1>
+            <p>{description}</p>
+          </div>
           <div className="flex flex-wrap">
             {components.map((component) => (
               <Card

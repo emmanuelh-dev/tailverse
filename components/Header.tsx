@@ -63,7 +63,7 @@ export const Header: FC = ({}) => {
                           <Link
                             href={`/${item.href}`}
                             key={item.name}
-                            className="text-neutral-200 hover:text-black dark:hover:text-white px-3 py-2"
+                            className=" hover:text-black dark:hover:text-white px-3 py-2"
                           >
                             {item.name}
                           </Link>
@@ -138,7 +138,7 @@ export const Header: FC = ({}) => {
                         </Link>
                         <Link
                           href="/new"
-                          className="items-center justify-center px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black block w-full"
+                          className=" items-center justify-center px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black block w-full"
                         >
                           New
                         </Link>
