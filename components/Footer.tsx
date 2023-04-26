@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <div className="dark:bg-black  dark:text-white text-lg p-4">
+    <div className="dark:bg-black  dark:dark:text-white text-lg p-4">
       <div className="container mx-auto">
         <footer aria-labelledby="footer-heading" className="">
           <h2 className="sr-only" id="footer-heading ">
@@ -11,7 +11,7 @@ const Footer = () => {
           </h2>
           <div className="w-full items-center mx-auto px-4 py-12 lg:pt-32">
             <div className="xl:gap-8 xl:grid xl:grid-cols-3">
-              <div className="text-white xl:col-span-3">
+              <div className="dark:text-white xl:col-span-3">
                 <span className="text-lg lg:text-2xl font-semibold">
                   Tailverse
                 </span>
@@ -25,12 +25,12 @@ const Footer = () => {
               <div className="grid gap-8 grid-cols-2 lg:mt-24 mt-12 xl:col-span-3">
                 <div className="md:gap-8 md:grid md:grid-cols-2">
                   <div>
-                    <h3 className="text-white text-xl">Stay updated</h3>
+                    <h3 className="dark:text-white text-xl">Stay updated</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
                           href="/terms"
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                         >
                           Terms of use
                         </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/privacy-policy"
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                         >
                           Privacy Policy
                         </Link>
@@ -46,12 +46,12 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-white text-xl">Navigation</h3>
+                    <h3 className="dark:text-white text-xl">Navigation</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
                           href="/terms"
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                         >
                           Terms of use
                         </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/privacy-policy"
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                         >
                           Privacy Policy
                         </Link>
@@ -67,11 +67,11 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-white text-xl">Other projects</h3>
+                    <h3 className="dark:text-white text-xl">Other projects</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                           href="https://bysmax.com"
                         >
                           BysMax
@@ -82,11 +82,11 @@ const Footer = () => {
                 </div>
                 <div className="md:gap-8 md:grid md:grid-cols-2">
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-white text-xl">Emmanuel H.</h3>
+                    <h3 className="dark:text-white text-xl">Emmanuel H.</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                           href="https://github.com/emmanuelh-dev"
                         >
                           GitHub
@@ -94,7 +94,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <Link
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                           href="https://www.linkedin.com/in/emmanuelhdev/"
                         >
                           Linkedin
@@ -103,11 +103,11 @@ const Footer = () => {
                     </ul>
                   </div>
                   <div className="mt-12 md:mt-0">
-                    <h3 className="text-white text-xl">Juan Pablo</h3>
+                    <h3 className="dark:text-white text-xl">Juan Pablo</h3>
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                           href="https://www.instagram.com/emmanuelh.dev/"
                         >
                           Instagram
@@ -115,7 +115,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <Link
-                          className="text-white text-sm hover:text-white/70"
+                          className="dark:text-white text-sm hover:dark:text-white/70"
                           href="https://www.linkedin.com/in/juanpablohurtado/"
                         >
                           Linkedin
@@ -131,13 +131,13 @@ const Footer = () => {
             <div className="md:flex md:items-center md:justify-between">
               <div className="flex justify-center md:order-2 space-x-6">
                 <Link
-                  className="text-white text-sm hover:text-white/70 duration-500 ease-in-out p-3 transform transition"
+                  className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
                   href="https://www.linkedin.com/in/emmanuelhdev/"
                 >
                   @emmanuelhdev
                 </Link>
                 <Link
-                  className="text-white text-sm hover:text-white/70 duration-500 ease-in-out p-3 transform transition"
+                  className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
                   href="https://www.linkedin.com/in/juanpablohurtado/"
                 >
                   @juanpablohurtado
@@ -145,7 +145,7 @@ const Footer = () => {
               </div>
               <div className="mt-8 md:mt-0 md:order-1">
                 <p className="text-center">
-                  <span className="text-white text-sm mt-2 mx-auto">
+                  <span className="dark:text-white text-sm mt-2 mx-auto">
                     © {new Date().getFullYear()} Tailverse. All rights reserved
                   </span>
                 </p>
