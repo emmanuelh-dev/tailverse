@@ -40,18 +40,18 @@ const index = ({ components, users }: Props) => {
         />
       </Head>
       <Layout title="Free and Premium UI components ready to built with Tailwind CSS.">
-        <div className="pt-14 container mx-auto min-h-screen">
+        <div className="pt-14 px-4 container mx-auto min-h-screen">
           <div className="">
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-7xl ">
               <div>
-                <h1 className="text-6xl font-bold text-center text-transparent uppercase bg-clip-text animate-gradient-x bg-gradient-to-r from-pink-500 to-blue-500">
+                <h1 className="text-4xl lg:text-6xl font-bold text-center text-transparent uppercase bg-clip-text animate-gradient-x bg-gradient-to-r from-pink-500 to-blue-500">
                   Open-Source tailwind components for any project
                 </h1>
                 <p className="py-6 text-3xl text-center text-black dark:text-white">
                   Create, share, and use beautiful custom elements made with
                   tailwindcss.
                 </p>
-                <div className="grid grid-cols-3 gap-2 max-w-5xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-5xl mx-auto">
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">
                       {totalComponents}

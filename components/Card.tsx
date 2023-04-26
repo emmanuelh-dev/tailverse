@@ -6,7 +6,7 @@ import {
   AiOutlineEdit,
   AiOutlineHeart,
 } from "react-icons/ai";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaTrash } from "react-icons/fa";
 
 import Link from "next/link";
 
@@ -22,14 +22,23 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
   const [copied, setCopied] = useState(false);
   const [liked, setLiked] = useState(false);
   const [rates, setRates] = useState<number>(rate);
-
+  const [user, setUser] = useState<string>("");
+  let token: string | null = null;
   useEffect(() => {
     const likedInLocalStorage = localStorage.getItem(`liked_${id}`);
+    const storedUser = localStorage.getItem("user");
+    if (typeof storedUser === "string") {
+      setUser(storedUser);
+    }
     if (likedInLocalStorage !== null) {
       setLiked(likedInLocalStorage === "true");
     }
   }, [id]);
-
+  try {
+    token = localStorage.getItem("token");
+  } catch (error) {
+    console.error(error);
+  }
   const handleLike = async () => {
     const newLiked = !liked;
     const newRates = newLiked ? rates + 1 : rates - 1;
@@ -45,6 +54,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ id: id, rate: newRates }),
         }
@@ -61,6 +71,32 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
       toast.error(
         newLiked ? "Could not like the item" : "Could not unlike the item"
       );
+    }
+  };
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this component?")) {
+      // El usuario ha confirmado que quiere borrar el componente
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/components/deleteComponent`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ id: id }),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        toast.success("Component deleted");
+        window.location.reload();
+      } catch (error) {
+        console.error("Error:", error);
+        toast.error("Could not delete component");
+      }
     }
   };
 
@@ -81,15 +117,24 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
     newSource = newSource.replace(/type=/g, "typeof");
     return newSource;
   }
-  
 
   const newSource = validation(source);
-  
+  let box;
+  const getWidth = () => {
+    if (type === "buttons") {
+      return "18rem";
+    } else {
+      return "22rem";
+    }
+  };
+  box = getWidth();
   return (
-    <div className="mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center max-sm:w-full md:min-w-[23rem] min-h-[23rem] mx-auto">
+    <div
+      className={`mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center max-sm:w-full md:min-w-[${box}] min-h-[${box}] mx-auto`}
+    >
       <div
         dangerouslySetInnerHTML={{ __html: newSource }}
-        className="rounded-xl py-16 z"
+        className="rounded-xl py-16"
       ></div>
       <button
         onClick={handleCopy}
@@ -115,11 +160,28 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
       <div className="flex justify-center absolute right-6 bottom-4 items-center text-2xl">
         <button
           onClick={handleLike}
-          className="dark:text-neutral-200 mr-2 flex items-center"
+          className="dark:text-neutral-200 mr-2 flex items-center text-2xl"
           title="Copy content to clipboard"
         >
-          {rates} {liked ? <FaHeart /> : <AiOutlineHeart />}
+          {rates}
+          {liked ? (
+            <FaHeart className="pl-1" />
+          ) : (
+            <AiOutlineHeart className="pl-1" />
+          )}
         </button>
+        {user === userName ? (
+          <button
+            onClick={handleDelete}
+            className="text-red-600 mr-2 flex items-center"
+            title="Copy content to clipboard"
+          >
+            <FaTrash />
+          </button>
+        ) : (
+          ""
+        )}
+
         <Link
           href={`/item/${id}`}
           onClick={() => toast("We are working on this section")}
