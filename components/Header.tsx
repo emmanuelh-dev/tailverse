@@ -41,7 +41,7 @@ export const Header: FC = ({}) => {
   }, [user]);
 
   return (
-    <header className="bg-white dark:bg-black fixed z-[100] text-sm">
+    <header className="bg-white dark:bg-black fixed z-[100] text-sm dark:text-white">
       <div className="min-h-full">
         <Disclosure as="nav">
           {({ open }) => (
@@ -57,13 +57,13 @@ export const Header: FC = ({}) => {
                     </Link>
                   </div>
                   <div className="hidden md:block bg-white dark:bg-black">
-                    <div className="ml-10 flex items-center space-x-4 ">
+                    <div className="ml-10 flex items-center space-x-4">
                       {navigation.map(
                         (item: { name: string; href: string }) => (
                           <Link
                             href={`/${item.href}`}
                             key={item.name}
-                            className=" hover:text-black dark:hover:text-white px-3 py-2"
+                            className="px-3 py-2"
                           >
                             {item.name}
                           </Link>
