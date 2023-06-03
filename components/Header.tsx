@@ -29,7 +29,7 @@ export const Header: FC = ({}) => {
   };
 
   const checkUserInLocalStorage = () => {
-    return localStorage.getItem("user");
+    return sessionStorage.getItem("user");
   };
 
   // Call checkUserInLocalStorage when the component is mounted
