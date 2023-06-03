@@ -48,7 +48,7 @@ const Modal = ({ setContentType, contentType, setCode }: Props) => {
                 renderCodeInput(e.currentTarget.dataset.type);
               }}
               key={item.name}
-              className="text-neutral-600 hover:text-black dark:hover:text-white px-3 py-2 text-sm font-medium dark:text-white bg-neutral-100 dark:bg-semi-black w-44 h-44 hover:scale-105"
+              className="text-neutral-600 hover:text-black dark:hover:text-white px-3 py-2 text-sm font-medium dark:text-white bg-neutral-200 dark:bg-neutral-900 w-44 h-44 hover:scale-105"
               data-type={item.name.toLowerCase()}
             >
               {item.name.toLowerCase()}

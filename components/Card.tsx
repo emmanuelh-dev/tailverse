@@ -26,7 +26,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
   let token: string | null = null;
   useEffect(() => {
     const likedInLocalStorage = localStorage.getItem(`liked_${id}`);
-    const storedUser = localStorage.getItem("user");
+    const storedUser = sessionStorage.getItem("user");
     if (typeof storedUser === "string") {
       setUser(storedUser);
     }

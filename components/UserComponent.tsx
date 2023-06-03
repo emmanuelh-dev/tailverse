@@ -6,7 +6,7 @@ interface Props {
 }
 
 const UserComponent = ({ user }: Props) => {
-  const userUrl = localStorage.getItem("user");
+  const userUrl = sessionStorage.getItem("user");
   return (
     <div className="flex items-center dark:text-white">
       <div>
