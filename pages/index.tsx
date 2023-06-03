@@ -44,12 +44,12 @@ const index = ({ components, users }: Props) => {
           <div className="">
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl ">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-extrabold text-center  text-black dark:text-white ">
-                  Open-Source tailwind components for any project
+                <h1 className="text-4xl lg:text-6xl font-extrabold text-center text-black dark:text-white">
+                  Open-Source Tailwind Components for Any Project
                 </h1>
-                <p className="py-6 text-xl text-center font-light text-neutral-400">
-                  Create, share, and use beautiful custom elements made with
-                  tailwindcss.
+                <p className="text-xl text-center font-light text-neutral-400 border-dashed border border-neutral-500 my-10 py-2 w-full">
+                  Create, Share, and Use Beautiful Custom Elements Built with
+                  Tailwind CSS.
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-5xl mx-auto">
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
@@ -57,7 +57,7 @@ const index = ({ components, users }: Props) => {
                       {totalComponents}
                     </span>
                     <p className="py-6 text-xl text-center font-light text-neutral-400">
-                      Community-made UI elements
+                      Community-Crafted UI Elements
                     </p>
                   </div>
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
@@ -69,25 +69,32 @@ const index = ({ components, users }: Props) => {
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">100%</span>
                     <p className="py-6 text-xl text-center font-light text-neutral-400">
-                      Free for personal and commercial use
+                      Free for Personal and Commercial Use
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <section className="max-w-6xl mx-auto">
-            <h2 className="dark:text-white font-bold text-center text-6xl py-10">
-              Meet our contributors
-            </h2>
-            <div className="grid md:grid-cols-4 gap-2">
-              {users.map((user) => (
-                <CardUser
-                  key={user.id}
-                  username={user.username}
-                  totalPosts={components.length}
-                />
-              ))}
+          <section>
+            <div className="max-w-6xl mx-auto px-4 py-10">
+<div className="py-10">              <h2 className="dark:text-white font-bold text-center text-6xl ">
+                Meet our Contributors
+              </h2>
+              <p className="text-center text-xl text-neutral-400">
+      Discover the talented individuals who have contributed to our project.
+    </p></div>
+              <div className="grid md:grid-cols-4 gap-2">
+                {users.map((user) => (
+                  <CardUser
+                    key={user.id}
+                    username={user.username}
+                    totalPosts={components.length} profileLink={user.username}                  />
+                ))}
+              </div>
+              <p className="text-center mt-8 text-neutral-500">
+                Join our community and become a contributor too!
+              </p>
             </div>
           </section>
         </div>

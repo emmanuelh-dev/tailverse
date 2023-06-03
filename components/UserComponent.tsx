@@ -32,35 +32,36 @@ const UserComponent = ({ user }: Props) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute origin-bottom py-1 bg-neutral-100 dark:bg-neutral-800 flex flex-col rounded-b-xl">
-            <Menu.Item>
-              <Link
-                href={`/user/${userUrl}`}
-                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
-              >
-                Profile
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link
-                href="#"
-                className=" hover:bg-neutral-300 dark:hover:bg-semi-black px-2 dark:text-white font-bold rounded-xl"
-              >
-                Settings
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <button
-                onClick={() => {
-                  sessionStorage.removeItem("user");
-                  window.location.reload();
-                }}
-                className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"
-              >
-                Log Out
-              </button>
-            </Menu.Item>
-          </Menu.Items>
+<Menu.Items className="absolute origin-bottom py-1 bg-neutral-100 dark:bg-neutral-800 flex flex-col rounded-b-xl shadow-lg">
+  <Menu.Item>
+    <Link
+      href={`/user/${userUrl}`}
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+    >
+      Profile
+    </Link>
+  </Menu.Item>
+  <Menu.Item>
+    <Link
+      href="#"
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+    >
+      Settings
+    </Link>
+  </Menu.Item>
+  <Menu.Item>
+    <button
+      onClick={() => {
+        sessionStorage.removeItem("user");
+        window.location.reload();
+      }}
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+    >
+      Log Out
+    </button>
+  </Menu.Item>
+</Menu.Items>
+
         </Transition>
       </Menu>
     </div>
