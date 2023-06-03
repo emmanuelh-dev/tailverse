@@ -33,13 +33,13 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                 const errors: any = {};
 
                 if (!values.email) {
-                  errors.email = "Email es requerido";
+                  errors.email = "Email is required";
                 } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-                  errors.email = "Email inválido";
+                  errors.email = "Invalid email";
                 }
 
                 if (!values.password) {
-                  errors.password = "Contraseña es requerida";
+                  errors.password = "Password is required";
                 }
 
                 return errors;

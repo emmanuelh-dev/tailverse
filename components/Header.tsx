@@ -144,7 +144,7 @@ export const Header: FC = ({}) => {
                         </Link>
                         <button
                           onClick={() => {
-                            localStorage.removeItem("user");
+                            sessionStorage.removeItem("user");
                             window.location.reload();
                           }}
                           className="dark:text-white font-bold w-full block py-2 text-center rounded-xl"

@@ -52,7 +52,7 @@ const UserComponent = ({ user }: Props) => {
             <Menu.Item>
               <button
                 onClick={() => {
-                  localStorage.removeItem("user");
+                  sessionStorage.removeItem("user");
                   window.location.reload();
                 }}
                 className=" hover:bg-neutral-300 dark:hover:bg-semi-blackyarn start:dev dark:text-white font-bold rounded-xl"

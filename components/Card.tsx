@@ -122,7 +122,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
   const newSource = validation(source);
   return (
     <div
-      className={`mb-4 bg-neutral-50 dark:bg-semi-black rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center max-sm:w-full md:min-w-[22rem] min-h-[22rem] mx-auto`}
+      className={`mb-4 bg-neutral-50 dark:bg-neutral-900 rounded-xl relative cursor-pointer hover:z-10 hover:opacity-100 hover:scale-105 shadow-md transition-all duration-500 ease-in-out  flex items-center justify-center max-sm:w-full md:min-w-[22rem] min-h-[22rem] mx-auto`}
     >
       <div
         dangerouslySetInnerHTML={{ __html: newSource }}
