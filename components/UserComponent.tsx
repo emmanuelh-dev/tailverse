@@ -12,7 +12,7 @@ const UserComponent = ({ user }: Props) => {
       <div>
         <Link
           href="/new"
-          className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full text-sm"
+          className="block bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full text-sm"
         >
           New +
         </Link>
