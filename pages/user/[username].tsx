@@ -13,7 +13,7 @@ interface Component {
 }
 
 type User = {
-  username: string; // Change any to string for better type safety
+  username: string;
   name: string;
   email: string;
   id: number;
