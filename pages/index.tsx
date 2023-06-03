@@ -47,7 +47,7 @@ const index = ({ components, users }: Props) => {
                 <h1 className="text-4xl lg:text-6xl font-extrabold text-center  text-black dark:text-white ">
                   Open-Source tailwind components for any project
                 </h1>
-                <p className="py-6 text-xl text-center font-light text-neutral-800 dark:text-neutral-400">
+                <p className="py-6 text-xl text-center font-light text-neutral-400">
                   Create, share, and use beautiful custom elements made with
                   tailwindcss.
                 </p>
@@ -56,15 +56,19 @@ const index = ({ components, users }: Props) => {
                     <span className="font-bold text-6xl">
                       {totalComponents}
                     </span>
-                    <p className="text-lg">Community-made UI elements</p>
+                    <p className="py-6 text-xl text-center font-light text-neutral-400">
+                      Community-made UI elements
+                    </p>
                   </div>
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">{totalUsers}</span>
-                    <p className="text-lg">Contributors</p>
+                    <p className="py-6 text-xl text-center font-light text-neutral-400">
+                      Contributors
+                    </p>
                   </div>
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">100%</span>
-                    <p className="text-lg">
+                    <p className="py-6 text-xl text-center font-light text-neutral-400">
                       Free for personal and commercial use
                     </p>
                   </div>
@@ -78,7 +82,11 @@ const index = ({ components, users }: Props) => {
             </h2>
             <div className="grid md:grid-cols-4 gap-2">
               {users.map((user) => (
-                <CardUser key={user.id} username={user.username} totalPosts={components.length}/>
+                <CardUser
+                  key={user.id}
+                  username={user.username}
+                  totalPosts={components.length}
+                />
               ))}
             </div>
           </section>
@@ -94,7 +102,9 @@ export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
   const users = await res.json();
 
-  const componentRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
+  const componentRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/components`
+  );
   const components = await componentRes.json();
 
   return {
@@ -104,4 +114,3 @@ export async function getServerSideProps() {
     },
   };
 }
-

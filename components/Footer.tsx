@@ -16,7 +16,7 @@ const Footer = () => {
                   Tailverse
                 </span>
                 <p className="lg:w-1/4 mt-2">
-                  <span className="text-sm font-normal mt-6">
+                  <span className="text-sm font-normal mt-6 text-neutral-500">
                     Free and Premium UI components ready to built with Tailwind
                     CSS.
                   </span>
@@ -30,7 +30,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/terms"
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                         >
                           Terms of use
                         </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/privacy-policy"
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                         >
                           Privacy Policy
                         </Link>
@@ -51,7 +51,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/terms"
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                         >
                           Terms of use
                         </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
                       <li>
                         <Link
                           href="/privacy-policy"
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                         >
                           Privacy Policy
                         </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                           href="https://bysmax.com"
                         >
                           BysMax
@@ -86,7 +86,7 @@ const Footer = () => {
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                           href="https://github.com/emmanuelh-dev"
                         >
                           GitHub
@@ -94,7 +94,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <Link
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                           href="https://www.linkedin.com/in/emmanuelhdev/"
                         >
                           Linkedin
@@ -107,7 +107,7 @@ const Footer = () => {
                     <ul className="space-y-2 mt-4" role="list">
                       <li>
                         <Link
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                           href="https://www.instagram.com/emmanuelh.dev/"
                         >
                           Instagram
@@ -115,7 +115,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <Link
-                          className="dark:text-white text-sm hover:dark:text-white/70"
+                          className="text-sm text-neutral-400"
                           href="https://www.linkedin.com/in/juanpablohurtado/"
                         >
                           Linkedin
