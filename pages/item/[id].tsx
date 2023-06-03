@@ -32,8 +32,8 @@ const Component = ({ components }: Props) => {
   let token: string | null = null;
   let user: string | null = null;
   try {
-    token = localStorage.getItem("token");
-    user = localStorage.getItem("user");
+    token = sessionStorage.getItem("token");
+    user = sessionStorage.getItem("user");
   } catch (error) {
     console.error(error);
   }

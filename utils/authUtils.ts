@@ -20,13 +20,16 @@ export const registerUser = async ({
   email,
   password,
 }: RegisterUserArgs): Promise<RegisterUserResult> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, email, password }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password }),
+    }
+  );
 
   if (response.ok) {
     toast.success("Congratulations! The user has been added to the system!");
@@ -41,34 +44,32 @@ export const loginUser = async ({
   email,
   password,
 }: LoginUserArgs): Promise<LoginUserResult> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`,{
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    }
+  );
 
   if (response.ok) {
     const data = await response.json();
     const { token, user } = data;
 
-    // Obtener la hora actual en milisegundos
-    const currentTime = Date.now();
-
-    // Almacenar la hora actual en que se creó el token
-    localStorage.setItem("tokenCreationTime", currentTime.toString());
-
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", user.username);
+    // Almacenar el token en sessionStorage
+    sessionStorage.setItem("token", token);
+    sessionStorage.setItem("user", user.username);
 
     toast.success(
-      "The user has successfully authenticated and is now logged in to the app."
+      "The user has been successfully authenticated and has logged into the application."
     );
     window.location.reload();
     return true;
   } else {
-    toast("Oh no. Something went wrong.");
+    toast("Oh no. Algo salió mal.");
     return false;
   }
 };

@@ -78,7 +78,7 @@ const index = ({ components, users }: Props) => {
             </h2>
             <div className="grid md:grid-cols-4 gap-2">
               {users.map((user) => (
-                <CardUser key={user.id} username={user.username} />
+                <CardUser key={user.id} username={user.username} totalPosts={components.length}/>
               ))}
             </div>
           </section>

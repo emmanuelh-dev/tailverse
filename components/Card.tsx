@@ -35,7 +35,8 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
     }
   }, [id]);
   try {
-    token = localStorage.getItem("token");
+    token = sessionStorage.getItem("token");
+
   } catch (error) {
     console.error(error);
   }
