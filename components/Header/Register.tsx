@@ -1,14 +1,14 @@
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registerUser, loginUser } from "@/utils/authUtils";
-import { useState } from "react";
 
-type LoginModalProps = {
-  open: boolean;
-  onClose: () => void;
-};
-
-function LoginModal({ open, onClose }: LoginModalProps) {
+const Register = () => {
+  const [register, setRegister] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = () => {
+    setRegister(!register);
+  };
   const handleSubmit = async (values: {
     username: string;
     email: string;
@@ -17,15 +17,23 @@ function LoginModal({ open, onClose }: LoginModalProps) {
     const register = await registerUser(values);
     if (register) {
       const login = await loginUser(values);
-      onClose();
+      setRegister(!register);
     } else {
       // Si el register falló, hacemos algo aquí...
     }
   };
-
+  const handleCheckbox = () => {
+    setShowPassword(!showPassword);
+  };
   return (
-    <>
-      {open && (
+    <div>
+      <button
+        onClick={handleRegister}
+        className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full  text-sm"
+      >
+        Sign up
+      </button>
+      {register && (
         <div className="fixed top-0 left-0 flex items-center justify-center w-full h-screen dark:bg-black bg-white">
           <div className="bg-white dark:bg-black min-w-[20rem]">
             <h2 className="mb-2 text-4xl font-bold text-center dark:text-white">
@@ -106,31 +114,32 @@ function LoginModal({ open, onClose }: LoginModalProps) {
                         type={showPassword ? "text" : "password"}
                         placeholder="Password"
                         className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-full appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-                        />
+                      />
                       <ErrorMessage
                         name="password"
                         component="div"
                         className="text-red-500"
                       />
-                      {/* <button
-                        className=""
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (showPassword === false) {
-                            setShowPassword(true);
-                          } else {
-                            setShowPassword(false);
-                          }
-                        }}
-                      >
-                        Show
-                      </button> */}
+                      <div className="flex mt-3">
+                        <input
+                          id="showPassword"
+                          type="checkbox"
+                          className="h-5 w-5 text-white rounded-xl checked:bg-black border-black dark:bg-black dark:border-white dark:checked:bg-white"
+                          onChange={handleCheckbox}
+                        />
+                        <label
+                          className="ml-2 text-black dark:text-white"
+                          htmlFor="showPassword"
+                        >
+                          Show password
+                        </label>
+                      </div>
                     </div>
                   </div>
                   <div className="">
                     <button
                       type="button"
-                      onClick={onClose}
+                      onClick={handleRegister}
                       className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                     >
                       Cancel
@@ -148,8 +157,8 @@ function LoginModal({ open, onClose }: LoginModalProps) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
-}
+};
 
-export default LoginModal;
+export default Register;

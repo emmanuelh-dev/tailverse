@@ -4,30 +4,12 @@ import { useState, useEffect } from "react";
 import { BiMenu } from "react-icons/bi";
 import UserComponent from "./UserComponent";
 import { Disclosure } from "@headlessui/react";
-import Register from "./Register";
-import Login from "./Login";
+import Login from "./Header/Login";
+import Register from "./Header/Register";
 const navigation = require("@/data/navigation.json");
 
 export const Header: FC = ({}) => {
-  const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
-  const [isLogInOpen, setIsLogInOpen] = useState<boolean>(false);
   const [user, setUser] = useState<string>("");
-
-  const handleOpenRegister = () => {
-    setIsRegisterOpen(true);
-  };
-
-  const handleCloseRegister = () => {
-    setIsRegisterOpen(false);
-  };
-  const handleOpenLogIn = () => {
-    setIsLogInOpen(true);
-  };
-
-  const handleCloseLogIn = () => {
-    setIsLogInOpen(false);
-  };
-
   const checkUserInLocalStorage = () => {
     return sessionStorage.getItem("user");
   };
@@ -75,26 +57,8 @@ export const Header: FC = ({}) => {
                         </div>
                       ) : (
                         <div className="flex">
-                          <button
-                            onClick={handleOpenRegister}
-                            className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full  text-sm"
-                          >
-                            Sign up
-                          </button>
-                          <Register
-                            open={isRegisterOpen}
-                            onClose={handleCloseRegister}
-                          />
-                          <button
-                            className="dark:text-white mx-4 block "
-                            onClick={handleOpenLogIn}
-                          >
-                            Log In
-                          </button>
-                          <Login
-                            open={isLogInOpen}
-                            onClose={handleCloseLogIn}
-                          />
+                          <Register/>
+                          <Login/>
                         </div>
                       )}
                     </div>
@@ -154,23 +118,8 @@ export const Header: FC = ({}) => {
                       </div>
                     ) : (
                       <div className="flex flex-col">
-                        <button
-                          onClick={handleOpenRegister}
-                          className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full inline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
-                        >
-                          Sign up
-                        </button>
-                        <Register
-                          open={isRegisterOpen}
-                          onClose={handleCloseRegister}
-                        />
-                        <button
-                          className="dark:text-white mx-4 mt-2"
-                          onClick={handleOpenLogIn}
-                        >
-                          Log In
-                        </button>
-                        <Login open={isLogInOpen} onClose={handleCloseLogIn} />
+                          <Register/>
+                          <Login/>
                       </div>
                     )}
                   </div>
