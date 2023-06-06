@@ -3,7 +3,7 @@ import Layout from "@/layout/Layout";
 const terms = () => {
   return (
     <Layout title="Terms of use">
-      <div className="px-4 dark:text-white pt-16 max-w-6xl mx-auto">
+      <div className="px-4 dark:text-white pt-20 max-w-6xl mx-auto">
         <h1 className="font-bold py-4 text-4xl text-center">Terms of use</h1>
         <h3 className="font-bold text-2xl py-2">General Terms</h3>
         <p className="py-2">

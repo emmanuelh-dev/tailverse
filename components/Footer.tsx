@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="dark:bg-black  dark:dark:text-white text-lg p-4">
-      <div className="container mx-auto pt-16">
+      <div className="container mx-auto pt-20">
         <footer aria-labelledby="footer-heading" className="">
           <h2 className="sr-only" id="footer-heading ">
             Footer

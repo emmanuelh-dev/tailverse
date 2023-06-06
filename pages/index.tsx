@@ -49,18 +49,18 @@ const index = ({ components, users }: Props) => {
         />
       </Head>
       <Layout title="Free and Premium UI components ready to built with Tailwind CSS.">
-        <div className="pt-14 px-4 container mx-auto min-h-screen">
+        <div className="pt-20 px-4 container mx-auto min-h-screen">
           <div className="">
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl ">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-extrabold text-center text-black dark:text-white">
+                <h1 className="text-5xl lg:text-6xl font-extrabold text-center text-black dark:text-white">
                   Open-Source Tailwind Components for Any Project
                 </h1>
                 <p className="text-xl text-center font-light text-neutral-400 border-dashed border border-neutral-500 my-10 py-2 w-full">
                   Create, Share, and Use Beautiful Custom Elements Built with
                   Tailwind CSS.
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-2 max-w-5xl mx-auto">
                   <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">
                       {totalComponents}
@@ -160,7 +160,7 @@ const index = ({ components, users }: Props) => {
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
               <div className="py-10">
-                <h2 className="dark:text-white font-bold text-center text-6xl ">
+                <h2 className="dark:text-white font-bold text-center text-5xl md:text-6xl ">
                   Meet our Contributors
                 </h2>
                 <p className="text-center text-xl text-neutral-400">
@@ -186,7 +186,7 @@ const index = ({ components, users }: Props) => {
           <section className="py-10">
             <div className="container mx-auto px-4">
               <div className="text-center">
-                <h2 className="text-4xl lg:text-6xl font-bold text-neutral-800 dark:text-white mb-4">
+                <h2 className="text-5xl lg:text-6xl font-bold text-neutral-800 dark:text-white mb-4">
                   Need a more professional service?
                 </h2>
                 <p className="text-xl text-neutral-600 dark:text-neutral-400">
@@ -308,7 +308,7 @@ const index = ({ components, users }: Props) => {
           </section>
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
-              <h2 className="dark:text-white font-bold text-center text-6xl py-10">
+              <h2 className="dark:text-white font-bold text-center text-5xl md:text-6xl py-10">
                 Testimonials
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
