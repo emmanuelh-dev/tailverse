@@ -61,7 +61,7 @@ const index = ({ components, users }: Props) => {
                   Tailwind CSS.
                 </p>
                 <div className="grid md:grid-cols-3 gap-2 max-w-5xl mx-auto">
-                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">
                       {totalComponents}
                     </span>
@@ -69,13 +69,13 @@ const index = ({ components, users }: Props) => {
                       Community-Crafted UI Elements
                     </p>
                   </div>
-                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">{totalUsers}</span>
                     <p className="py-6 text-xl text-center font-light text-neutral-400">
                       Contributors
                     </p>
                   </div>
-                  <div className="pt-10 rounded-2xl dark:text-white justify-center text-center py-2 text-3xl">
+                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
                     <span className="font-bold text-6xl">100%</span>
                     <p className="py-6 text-xl text-center font-light text-neutral-400">
                       Free for Personal and Commercial Use

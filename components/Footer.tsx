@@ -23,20 +23,20 @@ const Footer = () => {
                     </span>
                   </p>
                 </div>
-                <form className="border-black bg-white border-2 justify-between mt-4 p-2 rounded-2xl shadow sm:flex items-center">
+                <form className="border-black bg-white border-2 justify-between mt-4 p-2 rounded-3xl shadow sm:flex items-center">
                   <label className="sr-only" htmlFor="email-address">
                     Email address
                   </label>
                   <input
                     autoComplete="email"
-                    className="w-full focus:ring-black px-5 py-3 rounded-3xl bg-transparent border-transparent focus:border-black placeholder-black sm:max-w-xs"
+                    className="text-sm w-full focus:ring-black px-5 py-3 rounded-3xl bg-transparent border-transparent focus:border-black placeholder-black sm:max-w-xs"
                     id="email-address"
                     name="email"
                     placeholder="Enter your email"
                   />
                   <div className="mt-3 ml-auto rounded-md sm:flex-shrink-0 sm:ml-3 sm:mt-0">
                     <button
-                      className="border-black border-2 focus:outline-none bg-black flex focus:ring-2 focus:ring-black focus:ring-offset-2 font-medium hover:bg-lila-500 hover:text-black items-center justify-center px-5 py-3 rounded-3xl text-base text-white w-full dark:hover:text-black dark:hover:bg-white"
+                      className="border-black border-2 focus:outline-none bg-black flex focus:ring-2 focus:ring-black focus:ring-offset-2 font-medium hover:bg-lila-500 hover:text-black items-center justify-center px-5 py-3 rounded-3xl text-white w-full dark:hover:text-black dark:hover:bg-white text-sm"
                       typeof="submit"
                     >
                       Subscribe for free

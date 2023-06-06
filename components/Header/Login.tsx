@@ -88,7 +88,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type={!showPassword? "password" : "text"}
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   />
                   <ErrorMessage

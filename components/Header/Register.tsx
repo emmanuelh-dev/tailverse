@@ -46,13 +46,13 @@ const Register = () => {
                 const errors: any = {};
 
                 if (!values.email) {
-                  errors.email = "Email es requerido";
+                  errors.email = "Email is required";
                 } else if (!/\S+@\S+\.\S+/.test(values.email)) {
                   errors.email = "Email inválido";
                 }
 
                 if (!values.password) {
-                  errors.password = "Contraseña es requerida";
+                  errors.password = "Email is required";
                 }
 
                 return errors;
