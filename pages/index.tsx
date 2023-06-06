@@ -3,6 +3,7 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import CardUser from "@/components/CardUser";
 import Image from "next/image";
+import Link from "next/link";
 interface Component {
   source: string;
   id: number;
@@ -28,16 +29,16 @@ const index = ({ components, users }: Props) => {
   const totalComponents = components.length;
   const totalUsers = users.length;
   // Función de comparación
-// Función de comparación
-function compararPorComponentCount(a: User, b: User) {
-  return b.component_count - a.component_count;
-}
+  // Función de comparación
+  function compararPorComponentCount(a: User, b: User) {
+    return b.component_count - a.component_count;
+  }
 
-// Ordenamiento
-users.sort(compararPorComponentCount);
+  // Ordenamiento
+  users.sort(compararPorComponentCount);
 
-// Imprimir el arreglo ordenado
-console.log(users);
+  // Imprimir el arreglo ordenado
+  console.log(users);
 
   return (
     <div>
@@ -103,10 +104,10 @@ console.log(users);
                       clipRule="evenodd"
                     />
                   </svg>
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Easy to Use
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     Utilize our ready-to-use components with ease, saving
                     development time and effort.
                   </p>
@@ -124,10 +125,10 @@ console.log(users);
                       clipRule="evenodd"
                     />
                   </svg>
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Customizable
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     Tailor the components to match your projects design with
                     easy-to-use customization options.
                   </p>
@@ -145,10 +146,10 @@ console.log(users);
                       clipRule="evenodd"
                     />
                   </svg>
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Responsive Design
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     Create responsive layouts with ease using our components
                     that adapt to various screen sizes.
                   </p>
@@ -159,7 +160,6 @@ console.log(users);
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
               <div className="py-10">
-                {" "}
                 <h2 className="dark:text-white font-bold text-center text-6xl ">
                   Meet our Contributors
                 </h2>
@@ -183,6 +183,129 @@ console.log(users);
               </p>
             </div>
           </section>
+          <section className="py-10">
+            <div className="container mx-auto px-4">
+              <div className="text-center">
+                <h2 className="text-4xl lg:text-6xl font-bold text-neutral-800 dark:text-white mb-4">
+                  Need a more professional service?
+                </h2>
+                <p className="text-xl text-neutral-600 dark:text-neutral-400">
+                  Contact us for all your professional needs.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300 my-10"
+                >
+                  Contact Us
+                </Link>
+              </div>
+              <div className="flex flex-wrap gap-10 justify-evenly">
+                <div className="md:max-w-[250px] flex flex-col h-full bg-black rounded-3xl dark:border-white border">
+                  <div className="px-6 py-8 sm:p-10 sm:pb-6">
+                    <div className="grid items-center justify-center w-full grid-cols-1 text-left">
+                      <div className="">
+                        <h2 className="text-lg font-medium tracking-tighter text-white lg:text-3xl">
+                          Starter
+                        </h2>
+                        <p className="mt-2 text-sm text-neutral-100">
+                          Tailor-made landing page design using Tailwind.
+                        </p>
+                      </div>
+                      <div className="mt-6">
+                        <p>
+                          <span className="text-5xl font-light tracking-tight text-white">
+                            $100
+                          </span>
+                          <span className="text-base font-medium text-white">
+                            /mo
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex px-6 pb-8 sm:px-8">
+                    <Link
+                      href="/contact"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-full nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
+                      aria-describedby="tier-starter"
+                    >
+                      Get started
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="md:max-w-[250px] flex flex-col h-full bg-white rounded-3xl border-black border">
+                  <div className="px-6 py-8 sm:p-10 sm:pb-6">
+                    <div className="grid items-center justify-center w-full grid-cols-1 text-left">
+                      <div className="">
+                        <h2 className="text-lg font-medium tracking-tighter text-neutral-600 lg:text-3xl">
+                          Starter
+                        </h2>
+                        <p className="mt-2 text-sm text-neutral-500">
+                          Complete website design and development using
+                          Tailwind.
+                        </p>
+                      </div>
+                      <div className="mt-6">
+                        <p>
+                          <span className="text-5xl font-light tracking-tight text-black">
+                            $150
+                          </span>
+                          <span className="text-base font-medium text-neutral-500">
+                            /mo
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex px-6 pb-8 sm:px-8">
+                    <Link
+                      href="/contact"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                      aria-describedby="tier-company"
+                    >
+                      Get started
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="md:max-w-[250px] flex flex-col h-full bg-black rounded-3xl dark:border-white border">
+                  <div className="px-6 py-8 sm:p-10 sm:pb-6">
+                    <div className="grid items-center justify-center w-full grid-cols-1 text-left">
+                      <div className="">
+                        <h2 className="text-lg font-medium tracking-tighter text-white lg:text-3xl">
+                          Corporate
+                        </h2>
+                        <p className="mt-2 text-sm text-neutral-100">
+                          Comprehensive Tailwind-based web application
+                          development.
+                        </p>
+                      </div>
+                      <div className="mt-6">
+                        <p>
+                          <span className="text-5xl font-light tracking-tight text-white">
+                            $250
+                          </span>
+                          <span className="text-base font-medium text-white">
+                            /mo
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex px-6 pb-8 sm:px-8">
+                    <Link
+                      href="/contact"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-full nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
+                      aria-describedby="tier-starter"
+                    >
+                      Get started
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
               <h2 className="dark:text-white font-bold text-center text-6xl py-10">
@@ -197,10 +320,10 @@ console.log(users);
                     alt="Testimonial 1"
                     className="w-24 h-24 rounded-full object-cover mb-4"
                   />
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     John Doe
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     &ldquo;The Tailwind components have greatly improved the
                     efficiency and aesthetics of our web projects. Highly
                     recommended!&ldquo;
@@ -214,10 +337,10 @@ console.log(users);
                     alt="Testimonial 2"
                     className="w-24 h-24 rounded-full object-cover mb-4"
                   />
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Jane Smith
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     &ldquo;As a developer, I love the flexibility and
                     time-saving aspects of using the Tailwind components.
                     They&apos;ve become an essential part of my toolkit.&ldquo;
@@ -231,10 +354,10 @@ console.log(users);
                     alt="Testimonial 3"
                     className="w-24 h-24 rounded-full object-cover mb-4"
                   />
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Sarah Johnson
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-300 text-center">
+                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
                     &ldquo;The Tailwind components have allowed us to rapidly
                     develop and launch beautiful websites. The clean code and
                     extensive documentation are a developer&apos;s dream.&ldquo;

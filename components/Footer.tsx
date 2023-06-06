@@ -11,16 +11,38 @@ const Footer = () => {
           </h2>
           <div className="w-full items-center mx-auto px-4 py-12 lg:pt-32">
             <div className="xl:gap-8 xl:grid xl:grid-cols-3">
-              <div className="dark:text-white xl:col-span-3">
-                <span className="text-lg lg:text-2xl font-semibold">
-                  Tailverse
-                </span>
-                <p className="lg:w-1/4 mt-2">
-                  <span className="text-sm font-normal mt-6 text-neutral-500">
-                    Free and Premium UI components ready to built with Tailwind
-                    CSS.
+              <div className="dark:text-white xl:col-span-3 md:flex justify-between">
+                <div className="w-80">
+                  <span className="text-lg lg:text-2xl font-semibold">
+                    Tailverse
                   </span>
-                </p>
+                  <p className=" mt-2">
+                    <span className="text-sm font-normal mt-6 text-neutral-500">
+                      Free and Premium UI components ready to built with
+                      Tailwind CSS.
+                    </span>
+                  </p>
+                </div>
+                <form className="border-black bg-white border-2 justify-between mt-4 p-2 rounded-2xl shadow sm:flex items-center">
+                  <label className="sr-only" htmlFor="email-address">
+                    Email address
+                  </label>
+                  <input
+                    autoComplete="email"
+                    className="w-full focus:ring-black px-5 py-3 rounded-xl bg-transparent border-transparent focus:border-black placeholder-black sm:max-w-xs"
+                    id="email-address"
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                  <div className="mt-3 ml-auto rounded-md sm:flex-shrink-0 sm:ml-3 sm:mt-0">
+                    <button
+                      className="border-black border-2 focus:outline-none bg-black flex focus:ring-2 focus:ring-black focus:ring-offset-2 font-medium hover:bg-lila-500 hover:text-black items-center justify-center px-5 py-3 rounded-xl text-base text-white w-full dark:hover:text-white"
+                      typeof="submit"
+                    >
+                      Subscribe for free
+                    </button>
+                  </div>
+                </form>
               </div>
               <div className="grid gap-8 grid-cols-2 lg:mt-24 mt-12 xl:col-span-3">
                 <div className="md:gap-8 md:grid md:grid-cols-2">
