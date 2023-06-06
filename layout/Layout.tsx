@@ -23,7 +23,6 @@ const Layout = ({ title, children, description }: Props) => {
         <meta name="author" content="Emmanuel Hernandez | Tailverse | BysMax" />
         <meta name="language" content="en" />
         <meta name="robots" content="index,follow" />
-        <meta http-equiv="refresh" content="60" />
       </Head>
 
       <Header />

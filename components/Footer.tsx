@@ -127,14 +127,7 @@ const Footer = () => {
                   <div className="mt-12 md:mt-0">
                     <h3 className="dark:text-white text-xl">Juan Pablo</h3>
                     <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <Link
-                          className="text-sm text-neutral-400"
-                          href="https://www.instagram.com/emmanuelh.dev/"
-                        >
-                          Instagram
-                        </Link>
-                      </li>
+
                       <li>
                         <Link
                           className="text-sm text-neutral-400"

@@ -19,7 +19,6 @@ const Layout = ({ title, children }: Props) => {
         <meta name="author" content="Emmanuel Hernandez | Tailverse | BysMax" />
         <meta name="language" content="en" />
         <meta name="robots" content="index,follow" />
-        <meta http-equiv="refresh" content="60" />
       </Head>
       <Header />
       <div className="min-h-screen bg-white dark:bg-black px-4">{children}</div>
