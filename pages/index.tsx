@@ -168,8 +168,8 @@ const index = ({ components, users }: Props) => {
                   project.
                 </p>
               </div>
-              <div className="grid md:grid-cols-4 gap-2">
-                {users.map((user) => (
+              <div className="grid md:grid-cols-3 gap-2">
+                {users.slice(0, 6).map((user) => (
                   <CardUser
                     key={user.id}
                     username={user.username}
@@ -194,7 +194,7 @@ const index = ({ components, users }: Props) => {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300 my-10"
+                  className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-3xl shadow-lg transition-colors duration-300 my-10"
                 >
                   Contact Us
                 </Link>
@@ -226,7 +226,7 @@ const index = ({ components, users }: Props) => {
                   <div className="flex px-6 pb-8 sm:px-8">
                     <Link
                       href="/contact"
-                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-full nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-3xl nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
                       aria-describedby="tier-starter"
                     >
                       Get started
@@ -261,7 +261,7 @@ const index = ({ components, users }: Props) => {
                   <div className="flex px-6 pb-8 sm:px-8">
                     <Link
                       href="/contact"
-                      className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                       aria-describedby="tier-company"
                     >
                       Get started
@@ -296,7 +296,7 @@ const index = ({ components, users }: Props) => {
                   <div className="flex px-6 pb-8 sm:px-8">
                     <Link
                       href="/contact"
-                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-full nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
+                      className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-3xl nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
                       aria-describedby="tier-starter"
                     >
                       Get started
@@ -318,7 +318,7 @@ const index = ({ components, users }: Props) => {
                     height={300}
                     src="/images/testimonial1.jpg"
                     alt="Testimonial 1"
-                    className="w-24 h-24 rounded-full object-cover mb-4"
+                    className="w-24 h-24 rounded-3xl object-cover mb-4"
                   />
                   <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     John Doe
@@ -335,7 +335,7 @@ const index = ({ components, users }: Props) => {
                     height={300}
                     src="/images/testimonial2.jpg"
                     alt="Testimonial 2"
-                    className="w-24 h-24 rounded-full object-cover mb-4"
+                    className="w-24 h-24 rounded-3xl object-cover mb-4"
                   />
                   <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Jane Smith
@@ -352,7 +352,7 @@ const index = ({ components, users }: Props) => {
                     height={300}
                     src="/images/testimonial3.jpg"
                     alt="Testimonial 3"
-                    className="w-24 h-24 rounded-full object-cover mb-4"
+                    className="w-24 h-24 rounded-3xl object-cover mb-4"
                   />
                   <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
                     Sarah Johnson

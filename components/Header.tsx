@@ -96,13 +96,13 @@ export const Header: FC = ({}) => {
                       <div>
                         <Link
                           href={`/user/${user}`}
-                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl uppercase"
+                          className="dark:text-white font-bold w-full block py-2 text-center rounded-3xl uppercase"
                         >
                           {user}
                         </Link>
                         <Link
                           href="/new"
-                          className=" items-center justify-center px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black block w-full"
+                          className=" items-center justify-center px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black block w-full"
                         >
                           New
                         </Link>
@@ -111,7 +111,7 @@ export const Header: FC = ({}) => {
                             sessionStorage.removeItem("user");
                             window.location.reload();
                           }}
-                          className="dark:text-white font-bold w-full block py-2 text-center rounded-xl"
+                          className="dark:text-white font-bold w-full block py-2 text-center rounded-3xl"
                         >
                           Log Out
                         </button>

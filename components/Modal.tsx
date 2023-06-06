@@ -20,7 +20,7 @@ const Modal = ({ setContentType, contentType, setCode }: Props) => {
         setCode(`<input type="text" placeholder="Input code" />`);
         break;
       case "cards":
-        setCode(` <div class="bg-white w-48 h-64 rounded-lg"> </div>`);
+        setCode(` <div class="bg-white w-48 h-64 rounded-3xl"> </div>`);
         break;
       case "forms":
         return <input type="text" placeholder="Form code" />;

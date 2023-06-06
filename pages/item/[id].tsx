@@ -87,7 +87,7 @@ const Component = ({ components }: Props) => {
           <CodeBlock code={code} setCode={setCode} />
           <button
             onClick={handlePostToApi}
-            className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-xl font-bold max-sm:block max-sm:w-full"
+            className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-3xl font-bold max-sm:block max-sm:w-full"
             style={{
               display: user === components[0].author ? "block" : "none",
             }}

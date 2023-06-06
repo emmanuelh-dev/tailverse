@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="dark:bg-black  dark:dark:text-white text-lg p-4">
-      <div className="container mx-auto">
+      <div className="container mx-auto pt-16">
         <footer aria-labelledby="footer-heading" className="">
           <h2 className="sr-only" id="footer-heading ">
             Footer
@@ -29,14 +29,14 @@ const Footer = () => {
                   </label>
                   <input
                     autoComplete="email"
-                    className="w-full focus:ring-black px-5 py-3 rounded-xl bg-transparent border-transparent focus:border-black placeholder-black sm:max-w-xs"
+                    className="w-full focus:ring-black px-5 py-3 rounded-3xl bg-transparent border-transparent focus:border-black placeholder-black sm:max-w-xs"
                     id="email-address"
                     name="email"
                     placeholder="Enter your email"
                   />
                   <div className="mt-3 ml-auto rounded-md sm:flex-shrink-0 sm:ml-3 sm:mt-0">
                     <button
-                      className="border-black border-2 focus:outline-none bg-black flex focus:ring-2 focus:ring-black focus:ring-offset-2 font-medium hover:bg-lila-500 hover:text-black items-center justify-center px-5 py-3 rounded-xl text-base text-white w-full dark:hover:text-white"
+                      className="border-black border-2 focus:outline-none bg-black flex focus:ring-2 focus:ring-black focus:ring-offset-2 font-medium hover:bg-lila-500 hover:text-black items-center justify-center px-5 py-3 rounded-3xl text-base text-white w-full dark:hover:text-black dark:hover:bg-white"
                       typeof="submit"
                     >
                       Subscribe for free

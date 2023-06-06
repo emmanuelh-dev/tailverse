@@ -12,7 +12,7 @@ const UserComponent = ({ user }: Props) => {
       <div>
         <Link
           href="/new"
-          className="block bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-full text-sm"
+          className="block bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-3xl text-sm"
         >
           New +
         </Link>
@@ -36,7 +36,7 @@ const UserComponent = ({ user }: Props) => {
   <Menu.Item>
     <Link
       href={`/user/${userUrl}`}
-      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-3xl transition-colors duration-300"
     >
       Profile
     </Link>
@@ -44,7 +44,7 @@ const UserComponent = ({ user }: Props) => {
   <Menu.Item>
     <Link
       href="#"
-      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-3xl transition-colors duration-300"
     >
       Settings
     </Link>
@@ -55,7 +55,7 @@ const UserComponent = ({ user }: Props) => {
         sessionStorage.removeItem("user");
         window.location.reload();
       }}
-      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-xl transition-colors duration-300"
+      className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-3xl transition-colors duration-300"
     >
       Log Out
     </button>

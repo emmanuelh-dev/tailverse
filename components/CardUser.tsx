@@ -9,7 +9,7 @@ interface Props {
 
 const CardUser = ({ username, totalPosts, profileLink }: Props) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-4">
+    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow p-4">
       <Link href={`/user/${username}`} className="flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -17,7 +17,7 @@ const CardUser = ({ username, totalPosts, profileLink }: Props) => {
               height={300}
               src={"/img/bg.png"}
               alt={`Profile Picture of ${username}`}
-              className="w-12 h-12 rounded-full object-cover mr-4"
+              className="w-12 h-12 rounded-3xl object-cover mr-4"
             />
 
             <div>
