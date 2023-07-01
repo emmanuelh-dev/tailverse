@@ -4,6 +4,8 @@ import Head from "next/head";
 import CardUser from "@/components/CardUser";
 import Image from "next/image";
 import Link from "next/link";
+import KeyFeatures from "@/components/KeyFeatures";
+import Testimonials from "@/components/Testimonials";
 interface Component {
   source: string;
   id: number;
@@ -83,78 +85,7 @@ const index = ({ components, users }: Props) => {
               </div>
             </div>
           </div>
-          <section>
-            <div className="max-w-6xl mx-auto px-4 py-10">
-              <h2 className="dark:text-white font-bold text-center text-6xl py-10">
-                Key Features
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="flex flex-col items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-blue-500 mb-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm1 2h10v10H5V4zm1 1v8h8V5H6zm3 3v2h2V8h-2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    Easy to Use
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    Utilize our ready-to-use components with ease, saving
-                    development time and effort.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-blue-500 mb-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm1-8a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0v1zm0 2a1 1 0 0 1-2 0V9a1 1 0 0 1 2 0v1zm0 2a1 1 0 0 1-2 0v-1a1 1 0 0 1 2 0v1zm2-4a1 1 0 0 1-1 1h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 1 1zm-4 0a1 1 0 0 1-1 1H7a1 1 0 0 1 0-2h1a1 1 0 0 1 1 1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    Customizable
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    Tailor the components to match your projects design with
-                    easy-to-use customization options.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-blue-500 mb-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M14 2a2 2 0 0 1 2 2v4.586l1.707-1.707a1 1 0 1 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-8-8A1 1 0 0 1 6 1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-2zm-4 7V4h3l.001 3H15a1 1 0 0 1 1 1v7h-2v-3H8v3H6v-7a1 1 0 0 1 1-1h3.001L10 4h3v5h-2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    Responsive Design
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    Create responsive layouts with ease using our components
-                    that adapt to various screen sizes.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <KeyFeatures/>
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
               <div className="py-10">
@@ -304,66 +235,7 @@ const index = ({ components, users }: Props) => {
               </div>
             </div>
           </section>
-          <section>
-            <div className="max-w-6xl mx-auto px-4 py-10">
-              <h2 className="dark:text-white font-bold text-center text-5xl md:text-6xl py-10">
-                Testimonials
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="flex flex-col items-center">
-                  <Image
-                    width={300}
-                    height={300}
-                    src="/images/testimonial1.jpg"
-                    alt="Testimonial 1"
-                    className="w-24 h-24 rounded-3xl object-cover mb-4"
-                  />
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    John Doe
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    &ldquo;The Tailwind components have greatly improved the
-                    efficiency and aesthetics of our web projects. Highly
-                    recommended!&ldquo;
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Image
-                    width={300}
-                    height={300}
-                    src="/images/testimonial2.jpg"
-                    alt="Testimonial 2"
-                    className="w-24 h-24 rounded-3xl object-cover mb-4"
-                  />
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    Jane Smith
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    &ldquo;As a developer, I love the flexibility and
-                    time-saving aspects of using the Tailwind components.
-                    They&apos;ve become an essential part of my toolkit.&ldquo;
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <Image
-                    width={300}
-                    height={300}
-                    src="/images/testimonial3.jpg"
-                    alt="Testimonial 3"
-                    className="w-24 h-24 rounded-3xl object-cover mb-4"
-                  />
-                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2">
-                    Sarah Johnson
-                  </h3>
-                  <p className="text-neutral-500 dark:text-neutral-300 text-center">
-                    &ldquo;The Tailwind components have allowed us to rapidly
-                    develop and launch beautiful websites. The clean code and
-                    extensive documentation are a developer&apos;s dream.&ldquo;
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Testimonials/>
         </div>
       </Layout>
     </div>
@@ -386,5 +258,6 @@ export async function getServerSideProps() {
       users,
       components,
     },
+    revalidate: 3600,
   };
 }

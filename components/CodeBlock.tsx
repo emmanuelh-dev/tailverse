@@ -17,7 +17,7 @@ const CodeBlock = ({ code, setCode }: Props) => {
       <LiveProvider code={code} scope={{}}>
         <div className="w-full overflow-y-scroll bg-neutral-100 dark:bg-semi-black h-screen">
           <div className="pt-20">
-            <LiveEditor onChange={setCode} className="w-full" />
+            <LiveEditor onChange={setCode} className="w-full text-sm" />
             <LiveError />
           </div>
         </div>
