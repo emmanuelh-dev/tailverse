@@ -26,19 +26,34 @@ type StaticProps = {
 
 const Component = ({ components }: Props) => {
   const [code, setCode] = useState<string>("");
+  const [token, setToken] = useState<string | null>(null);
+  const [user, setUser] = useState<string | null>(null);
+
   useEffect(() => {
     setCode(components[0].source);
+    try {
+      setToken(sessionStorage.getItem("token"));
+      setUser(sessionStorage.getItem("user"));
+    } catch (error) {
+      console.error(error);
+    }
   }, [components]);
-  let token: string | null = null;
-  let user: string | null = null;
-  try {
-    token = sessionStorage.getItem("token");
-    user = sessionStorage.getItem("user");
-  } catch (error) {
-    console.error(error);
-  }
-  const handlePostToApi = () => {
-    // Verificar si el código contiene "w-screen" o "h-screen"
+
+  const fetchWithAuth = async (url: string, options: object) => {
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return res;
+  };
+
+  const handlePostToApi = async () => {
     if (code.includes("w-screen") || code.includes("h-screen")) {
       toast.error("Please remove 'w-screen' or 'h-screen' from the code.");
       return;
@@ -50,29 +65,17 @@ const Component = ({ components }: Props) => {
       source: code,
       type: components[0].type.toLowerCase(),
     };
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/components/updateComponent`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(requestBody),
-    })
-      .then((response) => {
-        console.log(response);
-
-        if (response.ok) {
-          toast.success(
-            "Congratulations! The component has been update to the system!"
-          );
-        } else {
-          throw new Error("Network response was not ok.");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+    try {
+      const response = await fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/components/updateComponent`, {
+        method: "POST",
+        body: JSON.stringify(requestBody),
       });
+      toast.success("Congratulations! The component has been update to the system!");
+    } catch (error) {
+    }
   };
+
+  const editButtonStyle = user === components[0].author ? "block" : "none";
 
   return (
     <Layout title="Create a new component">
@@ -89,7 +92,7 @@ const Component = ({ components }: Props) => {
             onClick={handlePostToApi}
             className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-3xl font-bold max-sm:block max-sm:w-full"
             style={{
-              display: user === components[0].author ? "block" : "none",
+              display: editButtonStyle,
             }}
           >
             Edit component

@@ -38,8 +38,6 @@ const index = ({ components, users }: Props) => {
   users.sort(compararPorComponentCount);
 
   // Imprimir el arreglo ordenado
-  console.log(users);
-
   return (
     <div>
       <Head>

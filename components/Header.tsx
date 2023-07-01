@@ -6,7 +6,8 @@ import UserComponent from "./UserComponent";
 import { Disclosure } from "@headlessui/react";
 import Login from "./Header/Login";
 import Register from "./Header/Register";
-const navigation = require("@/data/navigation.json");
+import navigation from "@/data/navigation.js"
+
 
 export const Header: FC = ({}) => {
   const [user, setUser] = useState<string>("");
@@ -41,13 +42,13 @@ export const Header: FC = ({}) => {
                   <div className="hidden md:block bg-white dark:bg-black">
                     <div className="ml-10 flex items-center space-x-4">
                       {navigation.map(
-                        (item: { name: string; href: string }) => (
+                        (item: { title: string; href: string }) => (
                           <Link
                             href={`/${item.href}`}
-                            key={item.name}
+                            key={item.title}
                             className="px-3 py-2"
                           >
-                            {item.name}
+                            {item.title}
                           </Link>
                         )
                       )}
@@ -82,11 +83,11 @@ export const Header: FC = ({}) => {
               </div>
               <Disclosure.Panel className="md:hidden ">
                 <div className="space-y-1 px-2 top-16 pb-3 sm:px-3 fixed bg-white dark:bg-black w-full">
-                  {navigation.map((item: { name: string; href: string }) => (
-                    <Link href={`/${item.href}`} key={item.name}>
+                  {navigation.map((item: { title: string; href: string }) => (
+                    <Link href={`/${item.href}`} key={item.title}>
                       <ul className="">
                         <li className="text-neutral-300 hover:bg-neutral-600 hover:text-white px-3 py-2  text-xl font-medium">
-                          {item.name}
+                          {item.title}
                         </li>
                       </ul>
                     </Link>
