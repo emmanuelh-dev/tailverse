@@ -1,8 +1,8 @@
 import Layout from "@/layout/Layout";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Card from "@/components/Card";
-import { Inter } from 'next/font/google'
+
 interface Component {
   source: string;
   id: number;
@@ -10,6 +10,7 @@ interface Component {
   type: string;
   rate: number;
 }
+
 interface Props {
   components: Component[];
 }
@@ -29,7 +30,7 @@ const All = ({ components }: Props) => {
       </Head>
       <Layout title={title} description={description}>
         <div className="pt-20 container mx-auto min-h-screen">
-        <div className="py-2 dark:text-white">
+          <div className="py-2 dark:text-white">
             <h1 className="py-4 dark:text-white font-bold lg:text-4xl">
               {title}
             </h1>
@@ -53,7 +54,7 @@ const All = ({ components }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components`);
     const components = await res.json();
@@ -61,6 +62,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       props: {
         components,
       },
+      revalidate: 3600, // Volver a generar la página cada 1 hora (3600 segundos)
     };
   } catch (error) {
     console.error("Error fetching components:", error);

@@ -87,7 +87,7 @@ const Login = () => {
                   <Field
                     id="password"
                     name="password"
-                    type={!showPassword? "password" : "text"}
+                    type={!showPassword ? "password" : "text"}
                     placeholder="Password"
                     className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   />
@@ -98,19 +98,19 @@ const Login = () => {
                   />
                 </div>
                 <div className="flex my-3">
-                        <input
-                          id="showPassword"
-                          type="checkbox"
-                          className="h-5 w-5 text-white rounded-3xl checked:bg-black border-black dark:bg-black dark:border-white dark:checked:bg-white"
-                          onChange={handleCheckbox}
-                        />
-                        <label
-                          className="ml-2 text-black dark:text-white"
-                          htmlFor="showPassword"
-                        >
-                          Show password
-                        </label>
-                      </div>
+                  <input
+                    id="showPassword"
+                    type="checkbox"
+                    className="h-5 w-5 text-white rounded-3xl checked:bg-black border-black dark:bg-black dark:border-white dark:checked:bg-white"
+                    onChange={handleCheckbox}
+                  />
+                  <label
+                    className="ml-2 text-black dark:text-white"
+                    htmlFor="showPassword"
+                  >
+                    Show password
+                  </label>
+                </div>
                 <div>
                   <button
                     type="button"
