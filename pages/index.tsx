@@ -244,7 +244,7 @@ const index = ({ components, users }: Props) => {
 
 export default index;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/getUsers`);
   const users = await res.json();
 
