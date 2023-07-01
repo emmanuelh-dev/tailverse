@@ -70,8 +70,10 @@ const Component = ({ components }: Props) => {
         method: "POST",
         body: JSON.stringify(requestBody),
       });
+      console.log(response);
       toast.success("Congratulations! The component has been update to the system!");
     } catch (error) {
+      console.log(error);
     }
   };
 
@@ -113,7 +115,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
     params: { id: component.id.toString() },
   }));
 
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: "blocking"}; // Revalidar cada hora (3600 segundos)
 };
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
@@ -137,5 +139,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     props: {
       components,
     },
+    revalidate: 3600,
   };
 };
