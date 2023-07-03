@@ -122,7 +122,7 @@ const index = ({ components, users }: Props) => {
                   Contact us for all your professional needs.
                 </p>
                 <a
-                  href="https://www.bysmax.comhttps://www.bysmax.com/contact"
+                  href="https://www.bysmax.com/contact"
                   className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-3xl shadow-lg transition-colors duration-300 my-10"
                 >
                   Contact Us
