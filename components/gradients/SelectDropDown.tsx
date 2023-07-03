@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 
 interface Option {
   title: string;
-  value: string;
+  value: string | boolean;
 }
 
 interface SelectDropdownProps {
   options: Option[];
-  defaultValue?: string;
+  defaultValue?: string | boolean;
   defaultTitle?: string;
   tabindex?: number;
 }
@@ -18,7 +18,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
   defaultTitle,
   tabindex,
 }) => {
-  const [selected, setSelected] = useState<string | null>(
+  const [selected, setSelected] = useState<string | boolean | null>(
     defaultValue || (options.length > 0 ? options[0].value : null)
   );
   const [selectedTitle, setSelectedTitle] = useState<string | null>(
@@ -26,13 +26,14 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
   );
   const [open, setOpen] = useState(false);
 
-  const handleInput = (value: string | null) => {
+  const handleInput = (value: string | boolean | null) => {
     setSelected(value);
     const newOption = options.find((option) => option.value === value);
     if (newOption) {
       setSelectedTitle(newOption.title);
     }
   };
+
   useEffect(() => {
     handleInput(selected);
   }, [selected]);
@@ -47,9 +48,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between w-full h-full"
       >
-        <div
-          className={`flex items-center w-full h-full ${open ? "open" : ""}`}
-        >
+        <div className={`flex items-center w-full h-full ${open ? "open" : ""}`}>
           {selectedTitle}
         </div>
 
@@ -61,11 +60,7 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
           stroke="currentColor"
           className="w-4 h-4 text-neutral-700"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
       </button>
 
