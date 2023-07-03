@@ -121,12 +121,12 @@ const index = ({ components, users }: Props) => {
                 <p className="text-xl text-neutral-600 dark:text-neutral-400">
                   Contact us for all your professional needs.
                 </p>
-                <Link
-                  href="/contact"
+                <a
+                  href="https://www.bysmax.comhttps://www.bysmax.com/contact"
                   className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-3xl shadow-lg transition-colors duration-300 my-10"
                 >
                   Contact Us
-                </Link>
+                </a>
               </div>
               <div className="flex flex-wrap gap-10 justify-evenly">
                 <div className="md:max-w-[250px] flex flex-col h-full bg-black rounded-3xl dark:border-white border">
@@ -153,13 +153,13 @@ const index = ({ components, users }: Props) => {
                     </div>
                   </div>
                   <div className="flex px-6 pb-8 sm:px-8">
-                    <Link
-                      href="/contact"
+                    <a
+                      href="https://www.bysmax.com/contact"
                       className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-3xl nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
                       aria-describedby="tier-starter"
                     >
                       Get started
-                    </Link>
+                    </a>
                   </div>
                 </div>
 
@@ -188,13 +188,13 @@ const index = ({ components, users }: Props) => {
                     </div>
                   </div>
                   <div className="flex px-6 pb-8 sm:px-8">
-                    <Link
-                      href="/contact"
+                    <a
+                      href="https://www.bysmax.com/contact"
                       className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                       aria-describedby="tier-company"
                     >
                       Get started
-                    </Link>
+                    </a>
                   </div>
                 </div>
 
@@ -223,13 +223,13 @@ const index = ({ components, users }: Props) => {
                     </div>
                   </div>
                   <div className="flex px-6 pb-8 sm:px-8">
-                    <Link
-                      href="/contact"
+                    <a
+                      href="https://www.bysmax.com/contact"
                       className="items-center justify-center w-full px-6 py-2.5 text-center text-black duration-200 bg-white border-2 border-white rounded-3xl nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-white text-sm focus-visible:ring-white"
                       aria-describedby="tier-starter"
                     >
                       Get started
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
