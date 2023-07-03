@@ -9,7 +9,7 @@ interface Props {
 
 const CardUser = ({ username, totalPosts, profileLink }: Props) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow p-4">
+    <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow p-4">
       <Link href={`/user/${username}`} className="flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -21,10 +21,10 @@ const CardUser = ({ username, totalPosts, profileLink }: Props) => {
             />
 
             <div>
-              <h3 className="text-lg font-bold text-gray-800 dark:text-white">
+              <h3 className="text-lg font-bold text-neutral-800 dark:text-white">
                 {username}
               </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-300">
+              <p className="text-sm text-neutral-500 dark:text-neutral-300">
                 {totalPosts} posts
               </p>
             </div>
