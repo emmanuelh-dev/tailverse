@@ -16,6 +16,12 @@ const enlaces = [
     icono: FaTiktok,
   },
   {
+    color: "rose",
+    link: "https://ngl.link/isaacdiazzz",
+    texto: "Enviame un mensaje anonimo | NGL",
+    icono: FaGlobe,
+  },
+  {
     color: "black",
     link: "https://www.threads.net/@isaacdiaazzz",
     texto: "threads",
