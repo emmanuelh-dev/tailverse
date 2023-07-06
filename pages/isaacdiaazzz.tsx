@@ -16,6 +16,12 @@ const enlaces = [
     icono: FaTiktok,
   },
   {
+    color: "black",
+    link: "https://www.threads.net/@isaacdiaazzz",
+    texto: "threads",
+    icono: FaGlobe,
+  },
+  {
     color: "blue",
     link: "https://www.facebook.com/profile.php?id=100070076196241",
     texto: "Facebook",
