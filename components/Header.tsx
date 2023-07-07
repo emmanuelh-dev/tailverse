@@ -6,8 +6,7 @@ import UserComponent from "./UserComponent";
 import { Disclosure } from "@headlessui/react";
 import Login from "./Header/Login";
 import Register from "./Header/Register";
-import navigation from "@/data/navigation.js"
-
+import navigation from "@/data/navigation.js";
 
 export const Header: FC = ({}) => {
   const [user, setUser] = useState<string>("");
@@ -24,13 +23,13 @@ export const Header: FC = ({}) => {
   }, [user]);
 
   return (
-    <header className="bg-white dark:bg-black fixed z-[100] text-sm dark:text-white">
+    <header className="bg-white dark:bg-black fixed z-[100] text-sm dark:text-white w-screen">
       <div className="min-h-full">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="flex h-16 items-center justify-between fixed w-full bg-white dark:bg-black px-4">
-                <div className="flex items-center container mx-auto max-sm:px-6 overflow-hidden justify-between w-full">
+              <div className="flex h-16 items-center justify-between fixed w-screen bg-white dark:bg-black px-4">
+                <div className="flex items-center container mx-auto  overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link
                       href="/"
@@ -58,8 +57,8 @@ export const Header: FC = ({}) => {
                         </div>
                       ) : (
                         <div className="flex">
-                          <Register/>
-                          <Login/>
+                          <Register />
+                          <Login />
                         </div>
                       )}
                     </div>
@@ -119,8 +118,8 @@ export const Header: FC = ({}) => {
                       </div>
                     ) : (
                       <div className="flex flex-col">
-                          <Register/>
-                          <Login/>
+                        <Register />
+                        <Login />
                       </div>
                     )}
                   </div>
