@@ -50,7 +50,7 @@ const Emmanuel = () => {
       </div>
       <div className="max-w-xl mx-auto">
         <Enlace enlaces={enlaces} />
-      </div>{" "}
+      </div>
     </div>
   );
 };

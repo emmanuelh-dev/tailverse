@@ -1,19 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import footerlinks from "@/data/footerlinks";
+
 const Footer = () => {
   return (
-    <div className="dark:bg-black  dark:dark:text-white text-lg p-4">
+    <div className="text-lg p-4 dark:bg-black">
       <div className="container mx-auto pt-20">
         <footer aria-labelledby="footer-heading" className="">
-          <h2 className="sr-only" id="footer-heading ">
-            Footer
+          <h2 className="sr-only " id="footer-heading ">
+            Tailverse
           </h2>
           <div className="w-full items-center mx-auto px-4 py-12 lg:pt-32">
             <div className="xl:gap-8 xl:grid xl:grid-cols-3">
-              <div className="dark:text-white xl:col-span-3 md:flex justify-between">
+              <div className="xl:col-span-3 md:flex justify-between">
                 <div className="w-80">
-                  <span className="text-lg lg:text-2xl font-semibold">
+                  <span className="text-lg lg:text-2xl font-semibold dark:text-white">
                     Tailverse
                   </span>
                   <p className=" mt-2">
@@ -23,7 +25,8 @@ const Footer = () => {
                     </span>
                   </p>
                 </div>
-                <form className="border-black bg-white border-2 justify-between mt-4 p-2 rounded-3xl shadow sm:flex items-center">
+                <form className="border-black bg-white border-2 justify-between mt-4 p-2 rounded-3xl shadow items-center hidden">
+                  {/* Add flex when need */}
                   <label className="sr-only" htmlFor="email-address">
                     Email address
                   </label>
@@ -44,126 +47,55 @@ const Footer = () => {
                   </div>
                 </form>
               </div>
-              <div className="grid gap-8 grid-cols-2 lg:mt-24 mt-12 xl:col-span-3">
-                <div className="md:gap-8 md:grid md:grid-cols-2">
-                  <div>
-                    <h3 className="dark:text-white text-xl">Stay updated</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-8 col-span-3">
+                {footerlinks.map((section, index) => (
+                  <div key={index}>
+                    <h3 className="text-xl dark:text-white">{section.title}</h3>
                     <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <Link
-                          href="/terms"
-                          className="text-sm text-neutral-400"
-                        >
-                          Terms of use
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/privacy-policy"
-                          className="text-sm text-neutral-400"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </li>
+                      {section.links.map((link, linkIndex) => (
+                        <li key={linkIndex}>
+                          <a
+                            className="text-sm text-neutral-400"
+                            href={link.url}
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="dark:text-white text-xl">Navigation</h3>
-                    <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <Link
-                          href="/terms"
-                          className="text-sm text-neutral-400"
-                        >
-                          Terms of use
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/privacy-policy"
-                          className="text-sm text-neutral-400"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="mt-12 md:mt-0">
-                    <h3 className="dark:text-white text-xl">Other projects</h3>
-                    <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <Link
-                          className="text-sm text-neutral-400"
-                          href="https://bysmax.com"
-                        >
-                          BysMax
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="md:gap-8 md:grid md:grid-cols-2">
-                  <div className="mt-12 md:mt-0">
-                    <h3 className="dark:text-white text-xl">Emmanuel H.</h3>
-                    <ul className="space-y-2 mt-4" role="list">
-                      <li>
-                        <Link
-                          className="text-sm text-neutral-400"
-                          href="https://github.com/emmanuelh-dev"
-                        >
-                          GitHub
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          className="text-sm text-neutral-400"
-                          href="https://www.linkedin.com/in/emmanuelhdev/"
-                        >
-                          Linkedin
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="mt-12 md:mt-0">
-                    <h3 className="dark:text-white text-xl">Juan Pablo</h3>
-                    <ul className="space-y-2 mt-4" role="list">
-
-                      <li>
-                        <Link
-                          className="text-sm text-neutral-400"
-                          href="https://www.linkedin.com/in/juanpablohurtado/"
-                        >
-                          Linkedin
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
           <div className="w-full items-center  max-w-7xl mx-auto px-4">
             <div className="md:flex md:items-center md:justify-between">
-              <div className="flex justify-center md:order-2 space-x-6">
-                <Link
-                  className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
-                  href="https://www.linkedin.com/in/emmanuelhdev/"
-                >
-                  @emmanuelhdev
-                </Link>
-                <Link
-                  className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
-                  href="https://www.linkedin.com/in/juanpablohurtado/"
-                >
-                  @juanpablohurtado
-                </Link>
-              </div>
-              <div className="mt-8 md:mt-0 md:order-1">
-                <p className="text-center">
-                  <span className="dark:text-white text-sm mt-2 mx-auto">
-                    © {new Date().getFullYear()} Tailverse. All rights reserved
-                  </span>
-                </p>
+              <div className="flex justify-center md:order-2 space-x-6 text-sm"></div>
+              <div className="w-full items-center  max-w-7xl mx-auto px-4">
+                <div className="md:flex md:items-center md:justify-between">
+                  <div className="flex justify-center md:order-2 space-x-6">
+                    <Link
+                      className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
+                      href="https://www.linkedin.com/in/emmanuelhdev/"
+                    >
+                      @emmanuelhdev
+                    </Link>
+                    <Link
+                      className="dark:text-white text-sm hover:dark:text-white/70 duration-500 ease-in-out p-3 transform transition"
+                      href="https://www.linkedin.com/in/juanpablohurtado/"
+                    >
+                      @juanpablohurtado
+                    </Link>
+                  </div>
+                  <div className="mt-8 md:mt-0 md:order-1">
+                    <p className="text-center">
+                      <span className="dark:text-white text-sm mt-2 mx-auto">
+                        © {new Date().getFullYear()} Tailverse. All rights
+                        reserved
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
