@@ -19,7 +19,7 @@ const footerLinks = [
   },
   {
     title: "Tools",
-    links: [{ label: "Free QR Genrator Online", url: "/free-qr-generator-online" }],
+    links: [{ label: "Free QR Genrator Online", url: "/tools/free-qr-generator-online" }],
   },
   {
     title: "Emmanuel H.",
