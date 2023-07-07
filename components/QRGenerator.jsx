@@ -31,7 +31,7 @@ const QRGenerator = () => {
     };
 
     generateQRCode();
-  }, [contactData, wifiData]);
+  }, [contactData, wifiData, text]);
 
   const handleInputChange = (e) => {
     if (type === "contact") {
@@ -68,7 +68,7 @@ const QRGenerator = () => {
   const formatData = () => {
     switch (type) {
       case "text":
-        return "";
+        return  text;
       case "contact":
         // Formatear los datos de contacto según el estándar vCard
         const { name, phone, email } = contactData;

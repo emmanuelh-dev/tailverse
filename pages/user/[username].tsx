@@ -46,14 +46,16 @@ const User = ({ user, components }: Props) => {
       </Head>
       <Layout title={`User ${user.username}`}>
         <div className="container mx-auto">
-          <div className="container mx-auto text-4xl">
-            <div className="pt-20 text-white">
-              <h1 className="font-bold text-4xl max-sm:text-center lg:text-8xl">{user.username}</h1>
-              <p className=" text-4xl"><span className="font-bold">People like their posts</span> : {ranking}</p>
-              <p>Email: {user.email}</p>
+          <div className="mx-auto py-16 sm:py-24 lg:py-32">
+            <div className="mx-auto flex flex-col">
+              <h1 className="mt-1 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-5xl font-extrabold uppercase tracking-tighter text-transparent sm:text-5xl lg:text-7xl">
+                {user.username}
+              </h1>
+              <h2 className="order-first bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text font-medium tracking-wide text-transparent">
+                People like their posts <span>: {ranking}</span>
+              </h2>
             </div>
           </div>
-
           <div className="flex flex-wrap">
             {components.map((component) => (
               <Card
