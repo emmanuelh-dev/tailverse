@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { RiFileCopyLine } from "react-icons/ri";
 import ColorPalette from "./ColorPalette";
-import SelectDropdown from "./SelectDropDown";
+import SelectDropdown from "../SelectDropDown";
 import { toast } from "react-hot-toast";
 
 const GradientGenerator = () => {
   const [fromColor, setFromColor] = useState("from-pink-500");
-  const [via, updateViaColor] = useState("");
+  const [via, updateViaColor] = useState("Inactive");
+  const [viaValue, updateViaValue] = useState(false);
   const [toColor, updateToColor] = useState("to-rose-500");
-  const hola = "bg-white";
-  const [Class, setClass] = useState(
-    "bg-gradient-to-r from-blue-600 to-violet-600"
-  );
+  const [gradientTitle, setGradientTitle] = useState("To Right");
+  const [gradientValue, setGradientValue] = useState("bg-gradient-to-r");
+  const [viaColor, setViaColor] = useState("via-rose-500");
+  const [Class, setClass] = useState("");
+
   useEffect(() => {
-    setClass(`bg-gradient-to-r ${fromColor} ${toColor}`);
-  }, [fromColor, toColor, via]);
+    setClass(
+      `${gradientValue} ${fromColor} ${viaValue ? viaColor : null} ${toColor}`
+    );
+  }, [fromColor, toColor, via, gradientValue, viaValue, viaColor]);
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(Class);
@@ -36,16 +40,16 @@ const GradientGenerator = () => {
       <div className="flex gap-10">
         <div className="w-full flex gap-10 max-sm:flex-wrap">
           <div
-            className={`h-96 w-full lg:w-2/5 ${hola} rounded-lg bg-gradient-to-r ${fromColor} ${toColor}`}
+            className={`h-96 w-full lg:w-2/5 rounded-lg ${Class}`}
           ></div>
           <div className="w-full lg:w-3/5">
             <ColorPalette
               from={fromColor}
               to={toColor}
               via={via}
-              viaActive={false}
+              viaActive={viaValue}
               setFromColor={setFromColor}
-              updateViaColor={updateViaColor}
+              updateViaColor={setViaColor}
               updateToColor={updateToColor}
             />
             <div className="flex gap-4">
@@ -54,9 +58,10 @@ const GradientGenerator = () => {
                   { title: "Inactive", value: false },
                   { title: "Active", value: true },
                 ]}
-                defaultValue={"Inactive"}
-                defaultTitle={undefined}
-                tabindex={undefined}
+                value={viaValue}
+                title={via}
+                setTitle={updateViaColor}
+                setValue={updateViaValue}
               />
               <SelectDropdown
                 options={[
@@ -69,9 +74,10 @@ const GradientGenerator = () => {
                   { title: "To Left", value: "bg-gradient-to-l" },
                   { title: "To Top Left", value: "bg-gradient-to-tl" },
                 ]}
-                defaultValue={"To Right"}
-                defaultTitle={"To Right"}
-                tabindex={undefined}
+                value={viaValue}
+                title={gradientTitle}
+                setTitle={setGradientTitle}
+                setValue={setGradientValue}
               />
             </div>
             <div className="flex gap-2 items-center mt-4">
@@ -81,7 +87,7 @@ const GradientGenerator = () => {
                 className="flex-1 w-full h-12 px-4 font-medium text-neutral-700 bg-white border border-neutral-200 rounded-md lg:w-full xl:w-auto sm:w-auto cursor-text focus:border-indigo-500 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-opacity-20"
               />
               <button
-                className="flex lg:w-full xl:w-auto duration-300 transition-color lg:mt-4 xl:mt-0 sm:mt-0 bg-neutral-950 dark:bg-white dark:text-black text-white items-center justify-center px-4 py-2.5 space-x-3 font-semibold rounded-md focus:outline-none"
+                className="max-w-[10rem] flex lg:w-full xl:w-auto duration-300 transition-color lg:mt-4 xl:mt-0 sm:mt-0 bg-neutral-950 dark:bg-white dark:text-black text-white items-center justify-center px-4 py-2.5 space-x-3 font-semibold rounded-md focus:outline-none"
                 onClick={handleCopyClick}
               >
                 <RiFileCopyLine />
