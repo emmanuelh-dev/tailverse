@@ -13,6 +13,17 @@ interface ToastOptions {
       };
     };
   }
+  interface Options {
+    title: string | number;
+    value: string | boolean | number;
+  }
+  interface SelectDropdownProps {
+    value: string | number | boolean;
+    title: string | number;
+    setValue: any;
+    setTitle: any;
+    options: Options[];
+  }
 
   declare module 'react-hot-toast' {
     export const toast: any;

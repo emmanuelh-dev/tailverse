@@ -1,17 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-interface Options {
-  title: string | number;
-  value: string | boolean | number;
-}
-interface SelectDropdownProps {
-  value: string | number | boolean;
-  title: string | number;
-  setValue: any;
-  setTitle: any;
-  options: Options[];
-}
-
 const SelectDropdown: React.FC<SelectDropdownProps> = ({
   value,
   title,

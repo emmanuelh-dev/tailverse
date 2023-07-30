@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
+import { NextSeo } from "next-seo";
 interface Props {
   title?: string;
   description?: string;
   children: React.ReactNode;
 }
+
 const Layout = ({ title, children, description }: Props) => {
   return (
     <>
@@ -24,7 +26,10 @@ const Layout = ({ title, children, description }: Props) => {
         <meta name="language" content="en" />
         <meta name="robots" content="index,follow" />
       </Head>
-
+      <NextSeo
+        title={title}
+        description={description}
+      />
       <Header />
       <div className=" bg-white dark:bg-black px-4 overflow-hidden">
         {children}
