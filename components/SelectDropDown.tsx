@@ -11,7 +11,6 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
   const handleSelectOption = (option: any) => {
     setTitle(option.title);
     setValue(option.value);
-    console.log("handleSelectOption is called", option.title, option.value);
   };
   return (
     <div

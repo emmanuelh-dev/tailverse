@@ -51,13 +51,15 @@ export const Header: FC = ({}) => {
                             >
                               {item.title}
                             </Link>
-
                           </>
                         )
                       )}
-                                                 <Link href="https://github.com/emmanuelh-dev/tailverse" className="text-2xl">
-                              <FaGithub/>
-                            </Link>
+                      <Link
+                        href="https://github.com/emmanuelh-dev/tailverse"
+                        className="text-2xl"
+                      >
+                        <FaGithub />
+                      </Link>
                       {user ? (
                         <div className="">
                           <UserComponent user={user} />
@@ -76,11 +78,11 @@ export const Header: FC = ({}) => {
                   <Disclosure.Button className="inline-flex items-center  p-2 text-neutral-400 hover:bg-neutral-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-600">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
-                      <span>
+                      <span className="text-xl">
                         <BiMenu />
                       </span>
                     ) : (
-                      <span>
+                      <span className="text-xl">
                         <BiMenu />
                       </span>
                     )}
@@ -98,6 +100,12 @@ export const Header: FC = ({}) => {
                       </ul>
                     </Link>
                   ))}
+                  <Link
+                    href="https://github.com/emmanuelh-dev/tailverse"
+                    className="text-xl  px-3 py-2 flex items-center gap-2"
+                  >
+                    Repo <FaGithub />
+                  </Link>
                   <div className="flex flex-col border-t dark:border-white p-4">
                     {user ? (
                       <div>
