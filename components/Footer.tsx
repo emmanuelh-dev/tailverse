@@ -56,9 +56,9 @@ const Footer = () => {
                         <li key={linkIndex}>
                           <a
                             className="text-sm text-neutral-400"
-                            href={link.url}
+                            href={link.href}
                           >
-                            {link.label}
+                            {link.title}
                           </a>
                         </li>
                       ))}
