@@ -7,6 +7,7 @@ import { Disclosure } from "@headlessui/react";
 import Login from "./Header/Login";
 import Register from "./Header/Register";
 import navigation from "@/data/navigation.js";
+import { FaGithub } from "react-icons/fa";
 
 export const Header: FC = ({}) => {
   const [user, setUser] = useState<string>("");
@@ -42,15 +43,21 @@ export const Header: FC = ({}) => {
                     <div className="ml-10 flex items-center space-x-4">
                       {navigation.map(
                         (item: { title: string; href: string }) => (
-                          <Link
-                            href={`/${item.href}`}
-                            key={item.title}
-                            className="px-3 py-2"
-                          >
-                            {item.title}
-                          </Link>
+                          <>
+                            <Link
+                              href={`/${item.href}`}
+                              key={item.title}
+                              className="px-3 py-2"
+                            >
+                              {item.title}
+                            </Link>
+
+                          </>
                         )
                       )}
+                                                 <Link href="https://github.com/emmanuelh-dev/tailverse" className="text-2xl">
+                              <FaGithub/>
+                            </Link>
                       {user ? (
                         <div className="">
                           <UserComponent user={user} />
