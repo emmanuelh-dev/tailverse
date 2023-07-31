@@ -69,7 +69,7 @@ export const loginUser = async ({
     window.location.reload();
     return true;
   } else {
-    toast("Oh no. Algo salió mal.");
+    toast("Oh no. Something went wrong.");
     return false;
   }
 };

@@ -186,7 +186,7 @@ const gradientGenerator = () => {
   ];
   return (
     <Layout
-    title="Gradient Generator with Tailwind | Your Website"
+    title="Tailwind Gradient Generator | Tailverse"
     description="Create beautiful gradients for your projects with the Tailwind Gradient Generator! Easily customize your color combinations."
    >
       <GradientGenerator />
