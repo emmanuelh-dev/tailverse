@@ -13,10 +13,16 @@ const GradientGenerator = () => {
   const [gradientValue, setGradientValue] = useState("bg-gradient-to-r");
   const [viaColor, setViaColor] = useState("via-rose-500");
   const [Class, setClass] = useState("");
+  const [ClassClip, setClassClip] = useState("");
 
   useEffect(() => {
     setClass(
       `${gradientValue} ${fromColor} ${viaValue ? viaColor : null} ${toColor}`
+    );
+    setClassClip(
+      `bg-clip-text text-transparent ${gradientValue} ${fromColor} ${
+        viaValue ? viaColor : null
+      } ${toColor}`
     );
   }, [fromColor, toColor, via, gradientValue, viaValue, viaColor]);
 
@@ -39,9 +45,10 @@ const GradientGenerator = () => {
       </div>
       <div className="flex gap-10">
         <div className="w-full flex gap-10 max-sm:flex-wrap">
-          <div
-            className={`h-96 w-full lg:w-2/5 rounded-lg ${Class}`}
-          ></div>
+          <div className={`h-96 w-full lg:w-2/5 rounded-lg ${Class}`}></div>
+          <div className="text-5xl font-extrabold ...">
+            <span className={` ${ClassClip}`}>Hello world</span>
+          </div>
           <div className="w-full lg:w-3/5">
             <ColorPalette
               from={fromColor}
