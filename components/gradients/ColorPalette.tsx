@@ -177,23 +177,6 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
             </div>
           </div>
         ))}
-
-        <div
-          className={`absolute inset-x-0 flex items-center justify-center w-full h-full bg-white/70 -top-6 ${
-            isChange ? "" : "hidden"
-          }`}
-        >
-          <div className="flex flex-col items-center">
-            <BiCheck className="w-12 h-12 text-emerald-500" />
-
-            <h4
-              className="mt-2 text-2xl font-semibold text-neutral-700 capitalize"
-              key={select}
-            >
-              {select} Color Selected
-            </h4>
-          </div>
-        </div>
       </div>
     </div>
   );

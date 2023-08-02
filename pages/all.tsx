@@ -30,12 +30,6 @@ const All = ({ components }: Props) => {
       </Head>
       <Layout title={title} description={description}>
         <div className="pt-20 container mx-auto min-h-screen">
-          <div className="py-2 dark:text-white">
-            <h1 className="py-4 dark:text-white font-bold lg:text-4xl">
-              {title}
-            </h1>
-            <p>{description}</p>
-          </div>
           <div className="flex flex-wrap">
             {components.map((component) => (
               <Card

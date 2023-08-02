@@ -29,16 +29,6 @@ const ComponentsPage = ({ components }: Props) => {
         />
       </Head>
       <Layout title={title} description={description}>
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-        <div className="mx-auto flex max-w-4xl flex-col pt-16">
-          <h1 className="mt-1 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-5xl font-extrabold uppercase tracking-tighter text-transparent sm:text-5xl lg:text-7xl">
-          {title}
-          </h1>
-          <h2 className="order-first bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text font-medium tracking-wide text-transparent">
-          {description}
-          </h2>
-        </div>
-      </div>
         <div className="pt-20 container mx-auto min-h-screen">
           <div className="flex flex-wrap">
             {components.map((component) => (
