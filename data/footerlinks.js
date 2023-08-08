@@ -3,8 +3,8 @@ const footerLinks = [
   {
     title: "Stay updated",
     links: [
-      { title: "Terms", href: "/terms" },
-      { title: "Privacy Policy", href: "/privacy-policy" },
+      { title: "Terms", href: "terms" },
+      { title: "Privacy Policy", href: "privacy-policy" },
     ],
   },
   {

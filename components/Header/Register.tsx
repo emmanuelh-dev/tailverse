@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registerUser, loginUser } from "@/utils/authUtils";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const [register, setRegister] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  async function onSubmit(
+    token: any,
+    values: {
+      username: string;
+      email: string;
+      password: string;
+    }
+  ) {
+    setRecaptchaToken(token);
 
-  const handleRegister = () => {
-    setRegister(!register);
-  };
-  const handleSubmit = async (values: {
-    username: string;
-    email: string;
-    password: string;
-  }) => {
     const register = await registerUser(values);
     if (register) {
       const login = await loginUser(values);
@@ -21,14 +24,15 @@ const Register = () => {
     } else {
       // Si el register falló, hacemos algo aquí...
     }
-  };
+  }
+
   const handleCheckbox = () => {
     setShowPassword(!showPassword);
   };
   return (
     <div>
       <button
-        onClick={handleRegister}
+        onClick={() => setRegister(!register)}
         className="bg-black text-white hover:dark:bg-black hover:dark:text-white border-2 border-black dark:border-white hover:text-black hover:bg-white dark:bg-white dark:text-black px-4 py-2.5 rounded-3xl  text-sm max-sm:w-full max-sm:text-center"
       >
         Sign up
@@ -41,7 +45,20 @@ const Register = () => {
             </h2>
             <Formik
               initialValues={{ username: "", email: "", password: "" }}
-              onSubmit={handleSubmit}
+              onSubmit={async (values, { setSubmitting, setErrors }) => {
+                if (!recaptchaToken) {
+                  toast.error("An error was orcurred");
+                  setSubmitting(false);
+                  return;
+                }
+                const register = await registerUser(values);
+                if (register) {
+                  const login = await loginUser(values);
+                  setRegister(!register);
+                } else {
+                  // Si el register falló, hacemos algo aquí...
+                }
+              }}
               validate={(values) => {
                 const errors: any = {};
 
@@ -139,14 +156,16 @@ const Register = () => {
                   <div className="">
                     <button
                       type="button"
-                      onClick={handleRegister}
+                      onClick={() => setRegister(!register)}
                       className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                      className="items-center justify-center w-full px-6 py-2.5  text-center hover:dark:border-neutral-100 dark:text-black hover:dark:text-white  dark:bg-white text-white duration-200 p-3 mb-3 bg-black border-2 border-black rounded-3xl nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black "
+                      data-sitekey="6LdJHo8nAAAAAEdfnFJucPDjxyOF-Cwf7LchjwQs"
+                      data-callback={onSubmit}
                     >
                       Register
                     </button>

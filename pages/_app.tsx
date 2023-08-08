@@ -1,11 +1,15 @@
 import "@/styles/globals.css";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import type { AppProps } from "next/app";
-
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="afterInteractive"
+      />
       <Analytics />
       <Component {...pageProps} />
       <Toaster

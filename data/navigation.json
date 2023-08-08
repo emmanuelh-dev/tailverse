@@ -1,6 +1,6 @@
 [
-  { "name": "Buttons", "href": "/buttons" },
-  { "name": "Inputs", "href": "/inputs" },
-  { "name": "Cards", "href": "/cards" },
-  { "name": "Forms", "href": "/forms" }
+  { "name": "Buttons", "href": "buttons" },
+  { "name": "Inputs", "href": "inputs" },
+  { "name": "Cards", "href": "cards" },
+  { "name": "Forms", "href": "forms" }
 ]

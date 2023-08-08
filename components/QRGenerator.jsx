@@ -83,15 +83,15 @@ const QRGenerator = () => {
   };
 
   return (
-    <div class="p-4">
+    <div className="p-4">
       <div className="md:flex md:grid-cols-2 items-center justify-center min-h-screen">
         <div className="md:flex md:w-1/2 items-center justify-center flex-col">
-          <div class="mb-4">
-            <label class="dark:text-white mr-2" htmlFor="type-select">
+          <div className="mb-4">
+            <label className="dark:text-white mr-2" htmlFor="type-select">
               Tipo:
             </label>
             <select
-              class="border rounded p-1"
+              className="border rounded p-1"
               id="type-select"
               value={type}
               onChange={handleSelectChange}
@@ -103,9 +103,9 @@ const QRGenerator = () => {
           </div>
           <div className="max-w-sm w-full">
             {type === "contact" && (
-              <div class="mb-4 flex flex-col w-full">
+              <div className="mb-4 flex flex-col w-full">
                 <input
-                  class="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   type="text"
                   name="name"
                   value={contactData.name}
@@ -113,7 +113,7 @@ const QRGenerator = () => {
                   placeholder="Nombre"
                 />
                 <input
-                  class="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   type="text"
                   name="phone"
                   value={contactData.phone}
@@ -121,7 +121,7 @@ const QRGenerator = () => {
                   placeholder="Teléfono"
                 />
                 <input
-                  class="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   type="text"
                   name="email"
                   value={contactData.email}
@@ -131,9 +131,9 @@ const QRGenerator = () => {
               </div>
             )}
             {type === "wifi" && (
-              <div class="mb-4 flex flex-col w-full">
+              <div className="mb-4 flex flex-col w-full">
                 <input
-                  class="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block  border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   type="text"
                   name="ssid"
                   value={wifiData.ssid}
@@ -141,7 +141,7 @@ const QRGenerator = () => {
                   placeholder="SSID"
                 />
                 <input
-                  class="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   type="password"
                   name="password"
                   value={wifiData.password}
@@ -149,7 +149,7 @@ const QRGenerator = () => {
                   placeholder="Contraseña"
                 />
                 <select
-                  class="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                   name="authentication"
                   value={wifiData.authentication}
                   onChange={handleInputChange}
@@ -162,7 +162,7 @@ const QRGenerator = () => {
             )}
             {type === "text" && (
               <input
-                class="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                className="block w-full border border-black bg-white text-black rounded-md p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                 type="text"
                 name="name"
                 value={text}
@@ -172,7 +172,7 @@ const QRGenerator = () => {
             )}
           </div>
         </div>
-        <div clawssName="md:w-1/2 items-center md:flex justify-center">
+        <div className="md:w-1/2 items-center md:flex justify-center">
           <canvas className="border" ref={qrCanvasRef}></canvas>
         </div>
       </div>
