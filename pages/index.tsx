@@ -20,16 +20,10 @@ const index = ({ components, users }: Props) => {
   // Imprimir el arreglo ordenado
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        />
-      </Head>
       <Layout title="Free and Premium UI components ready to built with Tailwind CSS.">
         <div >
           <div className="">
-            <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl ">
+            <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl container">
               <div>
                 <h1 className="text-5xl lg:text-6xl font-extrabold text-center text-black dark:text-white">
                   Open-Source Tailwind Components for Any Project

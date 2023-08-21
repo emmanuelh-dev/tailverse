@@ -904,6 +904,9 @@ module.exports = {
         'regal-blue': '#243c5a',
         'semi-black': '#0a0a0a'
       },
+      container: {
+        padding: '1rem', // Padding para el contenedor
+      },
     },
   },
   plugins: [],
