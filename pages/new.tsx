@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CodeBlock from "../components/CodeBlock";
-import Layout from "@/layout/Layout2";
+import Layout from "@/layout/LayoutHome";
 import Modal from "@/components/Modal";
 import { toast } from "react-hot-toast";
 

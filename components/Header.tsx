@@ -24,12 +24,12 @@ export const Header: FC = ({}) => {
   }, [user]);
 
   return (
-    <header className="bg-white dark:bg-black fixed z-[100] text-sm dark:text-white w-screen">
+    <header className="bg-white dark:bg-black sticky top-0 z-[100] text-sm dark:text-white w-screen">
       <div className="min-h-full">
         <Disclosure as="nav">
           {({ open }) => (
             <>
-              <div className="flex h-16 items-center justify-between fixed w-screen bg-white dark:bg-black px-4">
+              <div className="flex h-16 items-center justify-between w-screen bg-white dark:bg-black px-4">
                 <div className="flex items-center container mx-auto  overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link
@@ -74,7 +74,7 @@ export const Header: FC = ({}) => {
                   </div>
                 </div>
 
-                <div className="-mr-2 flex md:hidden right-10 top-3 ">
+                <div className="-mr-2 flex md:hidden right-10 ">
                   <Disclosure.Button className="inline-flex items-center  p-2 text-neutral-400 hover:bg-neutral-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-600">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -90,7 +90,7 @@ export const Header: FC = ({}) => {
                 </div>
               </div>
               <Disclosure.Panel className="md:hidden ">
-                <div className="space-y-1 px-2 top-16 pb-3 sm:px-3 fixed bg-white dark:bg-black w-full">
+                <div className="space-y-1 px-2 top-16 pb-3 sm:px-3 sticky bg-white dark:bg-black w-full">
                   {navigation.map((item: { title: string; href: string }) => (
                     <Link href={`/${item.href}`} key={item.title}>
                       <ul className="">

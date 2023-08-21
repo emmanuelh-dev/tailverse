@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import Layout from "@/layout/Layout2";
+import Layout from "@/layout/LayoutHome";
 import Head from "next/head";
 import CodeBlock from "@/components/CodeBlock";
 import { toast } from "react-hot-toast";

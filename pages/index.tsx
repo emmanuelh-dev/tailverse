@@ -1,4 +1,4 @@
-import Layout from "@/layout/Layout";
+import Layout from "@/layout/LayoutHome";
 import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import CardUser from "@/components/CardUser";
@@ -6,30 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import KeyFeatures from "@/components/KeyFeatures";
 import Testimonials from "@/components/Testimonials";
-interface Component {
-  source: string;
-  id: number;
-  author: string;
-  type: string;
-  rate: number;
-}
-
-type User = {
-  username: string;
-  name: string;
-  email: string;
-  id: number;
-  component_count: number;
-};
-
-type Props = {
-  users: User[];
-  components: Component[];
-};
-
+import Grid from "@/components/index/Grid";
 const index = ({ components, users }: Props) => {
-  const totalComponents = components.length;
-  const totalUsers = users.length;
   // Función de comparación
   // Función de comparación
   function compararPorComponentCount(a: User, b: User) {
@@ -49,7 +27,7 @@ const index = ({ components, users }: Props) => {
         />
       </Head>
       <Layout title="Free and Premium UI components ready to built with Tailwind CSS.">
-        <div className="pt-20 px-4 container mx-auto min-h-screen">
+        <div >
           <div className="">
             <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl ">
               <div>
@@ -60,32 +38,10 @@ const index = ({ components, users }: Props) => {
                   Create, Share, and Use Beautiful Custom Elements Built with
                   Tailwind CSS.
                 </p>
-                <div className="grid md:grid-cols-3 gap-2 max-w-5xl mx-auto">
-                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
-                    <span className="font-bold text-6xl">
-                      {totalComponents}
-                    </span>
-                    <p className="py-6 text-xl text-center font-light text-neutral-400">
-                      Community-Crafted UI Elements
-                    </p>
-                  </div>
-                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
-                    <span className="font-bold text-6xl">{totalUsers}</span>
-                    <p className="py-6 text-xl text-center font-light text-neutral-400">
-                      Contributors
-                    </p>
-                  </div>
-                  <div className="pt-10 rounded-3xl dark:text-white justify-center text-center py-2 text-3xl">
-                    <span className="font-bold text-6xl">100%</span>
-                    <p className="py-6 text-xl text-center font-light text-neutral-400">
-                      Free for Personal and Commercial Use
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <KeyFeatures/>
+          <Grid users={users} components={components} />
           <section>
             <div className="max-w-6xl mx-auto px-4 py-10">
               <div className="py-10">
@@ -112,7 +68,11 @@ const index = ({ components, users }: Props) => {
               </p>
             </div>
           </section>
-          <section className="py-10">
+          <KeyFeatures />
+
+          <Testimonials />
+        </div>
+        <section className="py-10">
             <div className="container mx-auto px-4">
               <div className="text-center">
                 <h2 className="text-5xl lg:text-6xl font-bold text-neutral-800 dark:text-white mb-4">
@@ -235,8 +195,6 @@ const index = ({ components, users }: Props) => {
               </div>
             </div>
           </section>
-          <Testimonials/>
-        </div>
       </Layout>
     </div>
   );
