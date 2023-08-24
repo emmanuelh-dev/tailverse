@@ -24,7 +24,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
         <h2>{title}</h2>
         <div className="flex items-center">
 
-        <CopyButton textToCopy={style} info={undefined}/>
+        <CopyButton textToCopy={style} info={undefined} className="text-black dark:text-white"/>
         </div>
       </div>
     </div>

@@ -45,7 +45,6 @@ type Props = {
   components: Component[];
 };
 
-
 interface Component {
   source: string;
   id: number;
