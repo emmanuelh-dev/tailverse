@@ -3,8 +3,7 @@ export function ValidationCard(source: string) {
       if (match === "screen") return "full";
       if (match === "type=") return "type=";
       if (match === "z-") return "";
-      if (match === "h-full") return "";
-
+      if (match === "relative") return "";
       return match;
     });
   }

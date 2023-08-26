@@ -2,7 +2,7 @@ import Layout from "@/layout/Layout";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Card from "@/components/Card";
-
+import Script from "next/script";
 interface Component {
   source: string;
   id: number;
@@ -22,8 +22,9 @@ const All = ({ components }: Props) => {
 
   return (
     <div>
+      <Script src="https://cdn.tailwindcss.com"></Script>
       <Layout title={title} description={description}>
-      <div className="container mx-auto min-h-screen">
+        <div className="container mx-auto min-h-screen">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {components.map((component) => (
               <Card
