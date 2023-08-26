@@ -96,60 +96,55 @@ const Component = ({ components }: Props) => {
 
   return (
     <Layout title="Create a new component">
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        />
-      </Head>
       <div className="h-screen flex items-center justify-center">
         <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />
           {form && (
-      <div className="fixed top-0 left-0 w-screen h-screen justify-center z-[100] bg-white dark:bg-black items-center flex">
-        <div className="max-w-xl text-white">
-          <h1 className="font-bold text-xl pb-8">
-            Before saving your component, there are just a few details left.
-          </h1>
-          <label
-            htmlFor="name"
-            className="block mb-2 font-bold dark:text-white text-sm w-full"
-          >
-            Name:
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Component Name"
-            className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-            value={componentName}
-            onChange={(e) => setComponentName(e.target.value)}
-          />
-          <label
-            htmlFor="author"
-            className="block mb-2 font-bold dark:text-white text-sm w-full"
-          >
-            Author:
-          </label>
-          <input
-            id="author"
-            name="author"
-            type="text"
-            placeholder="Author Name"
-            className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-            value={user}
-            disabled={true}
-          />
-          <button
-            onClick={handlePostToApi}
-            className="block w-full mt-4 bg-black dark:bg-white text-white dark:text-black z-50 bottom-11 lg:right-14 p-3 rounded-3xl font-bold max-sm:block max-sm:w-full"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    )}
+            <div className="fixed top-0 left-0 w-screen h-screen justify-center z-[100] bg-white dark:bg-black items-center flex">
+              <div className="max-w-xl text-white">
+                <h1 className="font-bold text-xl pb-8">
+                  Before saving your component, there are just a few details
+                  left.
+                </h1>
+                <label
+                  htmlFor="name"
+                  className="block mb-2 font-bold dark:text-white text-sm w-full"
+                >
+                  Name:
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Component Name"
+                  className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                  value={componentName}
+                  onChange={(e) => setComponentName(e.target.value)}
+                />
+                <label
+                  htmlFor="author"
+                  className="block mb-2 font-bold dark:text-white text-sm w-full"
+                >
+                  Author:
+                </label>
+                <input
+                  id="author"
+                  name="author"
+                  type="text"
+                  placeholder="Author Name"
+                  className="block w-full px-6 py-3 dark:text-white dark:bg-black text-black bg-white border border-neutral-100 rounded-3xl appearance-none placeholder:text-neutral-400 dark:placeholder:text-neutral-100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                  value={user}
+                  disabled={true}
+                />
+                <button
+                  onClick={handlePostToApi}
+                  className="block w-full mt-4 bg-black dark:bg-white text-white dark:text-black z-50 bottom-11 lg:right-14 p-3 rounded-3xl font-bold max-sm:block max-sm:w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
 
           <button
             onClick={showForm}

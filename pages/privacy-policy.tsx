@@ -3,7 +3,7 @@ import Layout from "@/layout/Layout";
 const privacy = () => {
   return (
     <Layout>
-      <div className="dark:bg-black h-screen dark:text-white pt-20 text-xl max-w-6xl mx-auto">
+      <div className="dark:bg-black h-screen dark:text-white   text-xl max-w-6xl mx-auto">
         <h2 className="font-bold text-center text-6xl py-6">Privacy Policy</h2>
         <p>
           At our website, we take the privacy of our users very seriously. Below

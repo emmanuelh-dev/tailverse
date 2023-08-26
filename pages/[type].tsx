@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import Card from "@/components/Card";
 import Layout from "@/layout/Layout";
+import Script from "next/script";
 
 interface Component {
   source: string;
@@ -22,15 +23,10 @@ const ComponentsPage = ({ components }: Props) => {
 
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        />
-      </Head>
+      <Script src="https://cdn.tailwindcss.com"></Script>
       <Layout title={title} description={description}>
-        <div className="pt-20 container mx-auto min-h-screen">
-          <div className="flex flex-wrap">
+        <div className="container mx-auto min-h-screen">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {components.map((component) => (
               <Card
                 source={component.source}
@@ -39,7 +35,7 @@ const ComponentsPage = ({ components }: Props) => {
                 type={component.type}
                 rate={component.rate}
                 id={component.id}
-              />
+              ></Card>
             ))}
           </div>
         </div>
@@ -52,7 +48,9 @@ export default ComponentsPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/components/types`);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/components/types`
+    );
     const types: string[] = await res.json();
 
     const paths = types.map((type) => ({

@@ -9,7 +9,6 @@ interface Props {
 }
 
 const LikeButton = ({ id, rate }: Props) => {
-  console.log(id, rate);
   const [liked, setLiked] = useState(false);
   const [rates, setRates] = useState<number>(rate);
 
@@ -35,7 +34,7 @@ const LikeButton = ({ id, rate }: Props) => {
   return (
     <button className=" flex items-center dark:text-white" onClick={handleLike}>
       {rates}
-      <span className="text-red-600 text-3xl">
+      <span className="text-red-600 text-2xl">
         {liked ? (
           <AiFillHeart className="pl-1" />
         ) : (

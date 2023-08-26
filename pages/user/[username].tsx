@@ -38,12 +38,6 @@ const User = ({ user, components }: Props) => {
   );
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        />
-      </Head>
       <Layout title={`User ${user.username}`}>
         <div className="container mx-auto">
           <div className="mx-auto py-16 sm:py-24 lg:py-32">
@@ -56,18 +50,20 @@ const User = ({ user, components }: Props) => {
               </h2>
             </div>
           </div>
-          <div className="flex flex-wrap">
+          <div className="container mx-auto min-h-screen">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {components.map((component) => (
               <Card
                 source={component.source}
                 key={component.id}
                 userName={component.author}
-                type={component.type.toLowerCase()}
+                type={component.type}
                 rate={component.rate}
                 id={component.id}
-              />
+              ></Card>
             ))}
           </div>
+        </div>
           <div>Ranking: {ranking}</div>
         </div>
       </Layout>

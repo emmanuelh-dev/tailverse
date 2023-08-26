@@ -22,24 +22,18 @@ const All = ({ components }: Props) => {
 
   return (
     <div>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        />
-      </Head>
       <Layout title={title} description={description}>
-        <div className="pt-20 container mx-auto min-h-screen">
-          <div className="flex flex-wrap">
+      <div className="container mx-auto min-h-screen">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {components.map((component) => (
               <Card
-                id={component.id}
                 source={component.source}
                 key={component.id}
                 userName={component.author}
                 type={component.type}
                 rate={component.rate}
-              />
+                id={component.id}
+              ></Card>
             ))}
           </div>
         </div>

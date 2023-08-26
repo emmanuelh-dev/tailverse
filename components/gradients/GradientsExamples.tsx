@@ -13,7 +13,7 @@ interface Props {
 
 const GradientsExamples: React.FC<Props> = ({ gradients }) => {
   return (
-    <div className="pt-20 px-4 container mx-auto">
+    <div className="  px-4 container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {gradients.map((gradient, index) => (
           <GradientCard

@@ -26,7 +26,7 @@ const GradientGenerator = () => {
   }, [fromColor, toColor, via, gradientValue, viaValue, viaColor]);
 
   return (
-    <div className="pt-20 px-4 container mx-auto">
+    <div className="  px-4 container mx-auto">
       <div className="flex gap-10">
         <div className="w-full flex gap-10 max-sm:flex-wrap">
           <div className=" lg:w-2/5 mt-10">
