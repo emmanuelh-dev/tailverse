@@ -12,11 +12,14 @@ const gradientGenerator = () => {
     <Layout title={title} description={description}>
       <GradientGenerator />
       <div className=" text-center  pt-40 ">
-          <h2 className="text-4xl lg:text-6xl font-semibold dark:text-white">
-            Gradients Ready To Be Used
-          </h2>
-          <p className="dark:text-white">Choose from our ready-made Tailwind CSS gradients to create beautiful things.</p>
-        </div>
+        <h2 className="text-4xl lg:text-6xl font-semibold dark:text-white">
+          Gradients Ready To Be Used
+        </h2>
+        <p className="dark:text-white">
+          Choose from our ready-made Tailwind CSS gradients to create beautiful
+          things.
+        </p>
+      </div>
       <GradientsExamples gradients={gradients} />
     </Layout>
   );

@@ -1,20 +1,23 @@
-import React from 'react';
-import { FaUser } from 'react-icons/fa';
+import React from "react";
+import { FaUser } from "react-icons/fa";
 
 const Testimonials = () => {
   const testimonials = [
     {
       name: "John Doe",
-      testimonial: "The Tailwind components have greatly improved the efficiency and aesthetics of our web projects. Highly recommended!"
+      testimonial:
+        "The Tailwind components have greatly improved the efficiency and aesthetics of our web projects. Highly recommended!",
     },
     {
       name: "Jane Smith",
-      testimonial: "As a developer, I love the flexibility and time-saving aspects of using the Tailwind components. They've become an essential part of my toolkit."
+      testimonial:
+        "As a developer, I love the flexibility and time-saving aspects of using the Tailwind components. They've become an essential part of my toolkit.",
     },
     {
       name: "Sarah Johnson",
-      testimonial: "The Tailwind components have allowed us to rapidly develop and launch beautiful websites. The clean code and extensive documentation are a developer's dream."
-    }
+      testimonial:
+        "The Tailwind components have allowed us to rapidly develop and launch beautiful websites. The clean code and extensive documentation are a developer's dream.",
+    },
   ];
 
   return (

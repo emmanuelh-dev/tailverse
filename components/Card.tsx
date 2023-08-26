@@ -31,7 +31,9 @@ const CardActions = ({ id, rate, userName, source, type, children }: Props) => {
           className="dark:text-neutral-200 "
         />
       </div>
-      <div className=" bg-neutral-200 dark:bg-neutral-950 rounded-xl">{children}</div>
+      <div className=" bg-neutral-200 dark:bg-neutral-950 rounded-xl">
+        {children}
+      </div>
       <div className="flex items-center justify-between">
         <LikeButton id={id} rate={rate} />
         <Link
@@ -41,7 +43,7 @@ const CardActions = ({ id, rate, userName, source, type, children }: Props) => {
         >
           {type.toLowerCase()}
         </Link>
-        <div >
+        <div>
           <DeleteButton id={id} userName={userName} />
           <Link href={`/item/${id}`} className="dark:text-white">
             <AiOutlineEdit />
@@ -56,7 +58,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
   console.error(type);
   const newSource = ValidationCard(source);
   return (
-    <div className="">
+    <div className=" overflow-hidden">
       <CardActions
         source={source}
         userName={userName}
@@ -66,7 +68,7 @@ const Card = ({ source, userName, type, rate, id }: Props) => {
       >
         <div
           dangerouslySetInnerHTML={{ __html: newSource }}
-          className="flex items-center justify-center h-full min-h-[20rem] max-sm:w-full"
+          className="flex items-center justify-center h-full min-h-[20rem] max-sm:w-full w-full"
         ></div>
       </CardActions>
     </div>

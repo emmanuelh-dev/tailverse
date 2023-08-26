@@ -1,5 +1,12 @@
 import React from "react";
-import { FaInstagram, FaTiktok, FaTwitter, FaFacebook, FaGlobe, FaUserSecret } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaTiktok,
+  FaTwitter,
+  FaFacebook,
+  FaGlobe,
+  FaUserSecret,
+} from "react-icons/fa";
 import Enlace from "@/components/Enlaces";
 
 const enlaces = [

@@ -64,7 +64,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
     setTimeout(() => setIsChange(false), 500);
   }, [select]);
 
-  const selectedColor = (color:string) => {
+  const selectedColor = (color: string) => {
     if (select === "from" && from === color) {
       return true;
     }
@@ -80,7 +80,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
     return false;
   };
 
-  const handleUpdateColor = (color:string) => {
+  const handleUpdateColor = (color: string) => {
     if (select === "from") {
       setFromColor(color);
     }
@@ -102,7 +102,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
           onClick={() => setSelect("from")}
           className={
             select === "from"
-            ? "text-neutral-800 dark:text-neutral-400 font-thin"
+              ? "text-neutral-800 dark:text-neutral-400 font-thin"
               : "text-neutral-400 hover:text-neutral-600 font-semibold focus:outline-none"
           }
         >
@@ -115,8 +115,8 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
             onClick={() => setSelect("via")}
             className={
               select === "via"
-              ? "text-neutral-800 dark:text-neutral-400 font-thin"
-              : "text-neutral-400 hover:text-neutral-600 font-semibold transition-colors duration-300 focus:outline-none"
+                ? "text-neutral-800 dark:text-neutral-400 font-thin"
+                : "text-neutral-400 hover:text-neutral-600 font-semibold transition-colors duration-300 focus:outline-none"
             }
           >
             Via Color
@@ -128,8 +128,8 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
           onClick={() => setSelect("to")}
           className={
             select === "to"
-            ? "text-neutral-800 dark:text-neutral-400 font-thin"
-            : "text-neutral-400 hover:text-neutral-600 font-semibold transition-colors duration-300 focus:outline-none"
+              ? "text-neutral-800 dark:text-neutral-400 font-thin"
+              : "text-neutral-400 hover:text-neutral-600 font-semibold transition-colors duration-300 focus:outline-none"
           }
         >
           To Color

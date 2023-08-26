@@ -51,19 +51,19 @@ const User = ({ user, components }: Props) => {
             </div>
           </div>
           <div className="container mx-auto min-h-screen">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {components.map((component) => (
-              <Card
-                source={component.source}
-                key={component.id}
-                userName={component.author}
-                type={component.type}
-                rate={component.rate}
-                id={component.id}
-              ></Card>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {components.map((component) => (
+                <Card
+                  source={component.source}
+                  key={component.id}
+                  userName={component.author}
+                  type={component.type}
+                  rate={component.rate}
+                  id={component.id}
+                ></Card>
+              ))}
+            </div>
           </div>
-        </div>
           <div>Ranking: {ranking}</div>
         </div>
       </Layout>

@@ -1,6 +1,6 @@
-import React from 'react';
-import { IconType } from 'react-icons';
-import { FaInstagram, FaTiktok, FaTwitter, FaFacebook } from 'react-icons/fa';
+import React from "react";
+import { IconType } from "react-icons";
+import { FaInstagram, FaTiktok, FaTwitter, FaFacebook } from "react-icons/fa";
 
 interface Enlace {
   color: string;

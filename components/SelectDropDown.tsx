@@ -50,9 +50,9 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
               className={`px-4 py-3 cursor-pointer hover:bg-neutral-100 ${
                 title === option.title ? " bg-neutral-100" : ""
               }`}
-              onClick={()=>{
-                handleSelectOption(option)
-                setOpen(false)
+              onClick={() => {
+                handleSelectOption(option);
+                setOpen(false);
               }}
             >
               {option.title}

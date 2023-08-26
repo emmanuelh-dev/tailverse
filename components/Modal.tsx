@@ -40,7 +40,10 @@ const Modal = ({ setContentType, contentType, setCode }: Props) => {
   };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen justify-center z-[100] bg-white dark:bg-black">
-      <button className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-3xl font-bold max-sm:block max-sm:w-full" onClick={handleModal}>
+      <button
+        className="fixed bg-black dark:bg-white text-white dark:text-black  z-50 bottom-11 lg:right-14 p-4 rounded-3xl font-bold max-sm:block max-sm:w-full"
+        onClick={handleModal}
+      >
         Add component
       </button>
       {openModal === true ? (

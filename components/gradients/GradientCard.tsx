@@ -23,8 +23,11 @@ const GradientCard: React.FC<GradientCardProps> = ({
       <div className="pt-2 dark:text-white flex justify-between">
         <h2>{title}</h2>
         <div className="flex items-center">
-
-        <CopyButton textToCopy={style} info={undefined} className="text-black dark:text-white"/>
+          <CopyButton
+            textToCopy={style}
+            info={undefined}
+            className="text-black dark:text-white"
+          />
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ const qr = () => {
   return (
     <Layout>
       <div className="pt-16">
-      <QRView />
+        <QRView />
       </div>
     </Layout>
   );
