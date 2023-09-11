@@ -4,10 +4,9 @@ import Image from "next/image";
 interface Props {
   username: string;
   totalPosts: number;
-  profileLink: string;
 }
 
-const CardUser = ({ username, totalPosts, profileLink }: Props) => {
+const CardUser = ({ username, totalPosts }: Props) => {
   return (
     <div className="bg-white dark:bg-neutral-800 rounded-3xl shadow p-4">
       <Link

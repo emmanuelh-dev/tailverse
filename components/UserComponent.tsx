@@ -6,7 +6,6 @@ interface Props {
 }
 
 const UserComponent = ({ user }: Props) => {
-  const userUrl = sessionStorage.getItem("user");
   return (
     <div className="flex items-center dark:text-white">
       <div>
@@ -35,7 +34,7 @@ const UserComponent = ({ user }: Props) => {
           <Menu.Items className="absolute origin-bottom py-1 bg-neutral-100 dark:bg-neutral-800 flex flex-col rounded-b-xl shadow-lg">
             <Menu.Item>
               <Link
-                href={`/user/${userUrl}`}
+                href={`/user/${user}`}
                 className="hover:bg-neutral-300 dark:hover:bg-semi-black py-2 px-4 dark:text-white font-bold rounded-3xl transition-colors duration-300"
               >
                 Profile

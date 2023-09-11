@@ -6,7 +6,7 @@ import footerlinks from "@/data/footerlinks";
 const Footer = () => {
   return (
     <div className="text-lg p-4 dark:bg-black">
-      <div className="container mx-auto  ">
+      <div className="">
         <footer aria-labelledby="footer-heading" className="">
           <h2 className="sr-only " id="footer-heading ">
             Tailverse

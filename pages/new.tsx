@@ -4,18 +4,11 @@ import CodeBlock from "../components/CodeBlock";
 import Layout from "@/layout/LayoutHome";
 import Modal from "@/components/Modal";
 import { toast } from "react-hot-toast";
+import UserStore from "@/store/user";
 
 function ProtectedCode() {
+  const [user, token] = UserStore(state => [state.user, state.token]);
   const router = useRouter();
-  let token: string | null = null;
-  let user: string | null = null;
-  try {
-    token = sessionStorage.getItem("token");
-
-    user = sessionStorage.getItem("user");
-  } catch (error) {
-    console.error(error);
-  }
   const [modalOpen, setModalOpen] = useState<boolean>(true);
   const [contentType, setContentType] = useState<string>("");
   const [code, setCode] = useState<string>(`

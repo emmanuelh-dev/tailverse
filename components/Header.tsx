@@ -8,21 +8,10 @@ import Login from "./Header/Login";
 import Register from "./Header/Register";
 import navigation from "@/data/navigation.js";
 import { FaGithub } from "react-icons/fa";
+import UserState from "@/store/user";
 
 export const Header: FC = ({}) => {
-  const [user, setUser] = useState<string>("");
-  const checkUserInLocalStorage = () => {
-    return sessionStorage.getItem("user");
-  };
-
-  // Call checkUserInLocalStorage when the component is mounted
-  useEffect(() => {
-    const storedUser = checkUserInLocalStorage();
-    if (typeof storedUser === "string") {
-      setUser(storedUser);
-    }
-  }, [user]);
-
+  const user = UserState((state) => state.user);
   return (
     <header className="bg-white dark:bg-black sticky top-0 z-[100] text-sm dark:text-white w-screen">
       <div className="min-h-full">
@@ -30,7 +19,7 @@ export const Header: FC = ({}) => {
           {({ open }) => (
             <>
               <div className="flex h-16 items-center justify-between w-screen bg-white dark:bg-black px-4">
-                <div className="flex items-center container mx-auto  overflow-hidden justify-between w-full">
+                <div className="flex items-center overflow-hidden justify-between w-full">
                   <div className="flex-shrink-0 ">
                     <Link
                       href="/"

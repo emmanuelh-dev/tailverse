@@ -23,7 +23,7 @@ const index = ({ components, users }: Props) => {
       <Layout title="Free and Premium UI components ready to built with Tailwind CSS.">
         <div>
           <div className="">
-            <div className="flex items-center justify-center min-h-screen mx-auto max-w-5xl container">
+            <div className="flex items-center justify-center min-h-screen">
               <div>
                 <h1 className="text-5xl lg:text-6xl font-extrabold text-center text-black dark:text-white">
                   Open-Source Tailwind Components for Any Project
@@ -53,7 +53,6 @@ const index = ({ components, users }: Props) => {
                     key={user.id}
                     username={user.username}
                     totalPosts={user.component_count}
-                    profileLink={user.username}
                   />
                 ))}
               </div>

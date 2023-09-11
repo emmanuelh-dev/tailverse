@@ -43,7 +43,7 @@ const CardActions = ({ id, rate, userName, source, type, children }: Props) => {
         >
           {type.toLowerCase()}
         </Link>
-        <div>
+        <div className="flex">
           <DeleteButton id={id} userName={userName} />
           <Link href={`/item/${id}`} className="dark:text-white">
             <AiOutlineEdit />

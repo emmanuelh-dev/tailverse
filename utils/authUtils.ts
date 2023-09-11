@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import UserStore from "@/store/user";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 type RegisterUserArgs = {
@@ -13,7 +14,7 @@ type LoginUserArgs = {
 };
 
 type RegisterUserResult = boolean;
-type LoginUserResult = boolean;
+type LoginUserResult = any;
 
 export const registerUser = async ({
   username,
@@ -56,21 +57,10 @@ export const loginUser = async ({
   );
 
   if (response.ok) {
-    const data = await response.json();
-    const { token, user } = data;
-
-    // Almacenar el token en sessionStorage
-    sessionStorage.setItem("token", token);
-    sessionStorage.setItem("user", user.username);
-
-    toast.success(
-      "The user has been successfully authenticated and has logged into the application."
-    );
-    window.location.reload();
-    return true;
-  } else {
+    return await response.json();
+      } else {
     toast("Oh no. Something went wrong.");
-    return false;
+    return "An error occurred";
   }
 };
 

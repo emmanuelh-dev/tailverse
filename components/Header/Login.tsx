@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { loginUser, useTokenObserver } from "@/utils/authUtils";
+import { loginUser } from "@/utils/authUtils";
+import UserStore from "@/store/user";
 
 const Login = () => {
   const [login, setLogin] = useState<boolean>(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleLoginClick = () => {
     setLogin(!login);
   };
+  const setInitialData = UserStore((state) => state.setInitialData);
 
   const handleSubmit = async (values: { email: string; password: string }) => {
-    const loginSuccess = await loginUser(values);
+    const data = await loginUser(values);
+    console.log(data);
+    const { token, user } = data;
 
-    if (loginSuccess) {
-      // Si el login también fue exitoso, hacemos algo aquí...
-      setLogin(!login);
-    } else {
-      // Si el login falló, hacemos algo aquí...
-    }
+    // Correct the typo here: username instead of usernamem
+    setInitialData(user.username, token);
   };
   const handleCheckbox = () => {
     setShowPassword(!showPassword);
