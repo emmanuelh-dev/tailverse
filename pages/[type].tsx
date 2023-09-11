@@ -24,7 +24,6 @@ const ComponentsPage = ({ components }: Props) => {
 
   return (
     <div>
-<Script src="/tailwind.js"></Script>
       <Layout title={title} description={description}>
         <div className="min-h-screen">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">

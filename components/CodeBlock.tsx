@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
-import Head from "next/head";
-import Script from "next/script";
+import React from "react";
+import { LiveProvider, LivePreview } from "react-live";
 interface Props {
   code?: string;
   setCode?: any;
@@ -19,7 +17,6 @@ const App = dynamic(
 const CodeBlock = ({ code, setCode }: Props) => {
   return (
     <div className="lg:flex h-screen w-screen bg-neutral-100 dark:bg-semi-black">
-      <Script src="https://cdn.tailwindcss.com"></Script>
       <LiveProvider code={code} scope={{}}>
         <div className="w-full overflow-y-scroll bg-neutral-100 dark:bg-semi-black h-screen">
           <div className="">

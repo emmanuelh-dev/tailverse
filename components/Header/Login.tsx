@@ -14,7 +14,6 @@ const Login = () => {
 
   const handleSubmit = async (values: { email: string; password: string }) => {
     const data = await loginUser(values);
-    console.log(data);
     const { token, user } = data;
 
     // Correct the typo here: username instead of usernamem

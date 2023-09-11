@@ -5,6 +5,7 @@ import Layout from "@/layout/LayoutHome";
 import Modal from "@/components/Modal";
 import { toast } from "react-hot-toast";
 import UserStore from "@/store/user";
+import Script from "next/script";
 
 function ProtectedCode() {
   const [user, token] = UserStore(state => [state.user, state.token]);
@@ -63,6 +64,8 @@ function ProtectedCode() {
 
   return (
     <Layout title="Create a new component">
+                  <Script src="https://cdn.tailwindcss.com"></Script>
+
       <div className="max-h-screen flex items-center justify-center">
         <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />

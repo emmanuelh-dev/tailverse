@@ -4,6 +4,7 @@ import Layout from "@/layout/LayoutHome";
 import Head from "next/head";
 import CodeBlock from "@/components/CodeBlock";
 import { toast } from "react-hot-toast";
+import Script from "next/script";
 
 interface Component {
   source: string;
@@ -82,13 +83,11 @@ const Component = ({ components }: Props) => {
           body: JSON.stringify(requestBody),
         }
       );
-      console.log(response);
       toast.success(
         "Congratulations! The component has been updated in the system!"
       );
       setForm(!form);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -96,6 +95,8 @@ const Component = ({ components }: Props) => {
 
   return (
     <Layout title="Create a new component">
+            <Script src="https://cdn.tailwindcss.com"></Script>
+
       <div className="h-screen flex items-center justify-center">
         <div className="static mx-4">
           <CodeBlock code={code} setCode={setCode} />

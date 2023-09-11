@@ -66,7 +66,7 @@ const index = ({ components, users }: Props) => {
           <Testimonials />
         </div>
         <section className="py-10">
-          <div className="container mx-auto px-4">
+          <div className="px-4">
             <div className="text-center">
               <h2 className="text-5xl lg:text-6xl font-bold text-neutral-800 dark:text-white mb-4">
                 Need a more professional service?

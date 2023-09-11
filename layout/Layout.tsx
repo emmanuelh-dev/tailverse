@@ -25,6 +25,10 @@ const Layout = ({ title, children, description }: Props) => {
         <meta name="author" content="Emmanuel Hernandez | Tailverse | BysMax" />
         <meta name="language" content="en" />
         <meta name="robots" content="index,follow" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        />
       </Head>
       <NextSeo title={title} description={description} />
       <Header />

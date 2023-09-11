@@ -22,9 +22,8 @@ const All = ({ components }: Props) => {
 
   return (
     <div>
-      <Script src="https://cdn.tailwindcss.com"></Script>
       <Layout title={title} description={description}>
-        <div className="container mx-auto min-h-screen">
+        <div className="min-h-screen">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {components.map((component) => (
               <Card
