@@ -5,12 +5,8 @@ interface Props {
   generatedCode: any;
 }
 
-const Generator = ({ generatedCode }: Props) => {
-  return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: generatedCode }}></div>
-    </>
-  );
-};
+const Generator = ({ generatedCode }: Props) => (
+  <div dangerouslySetInnerHTML={{ __html: generatedCode }}></div>
+);
 
 export default Generator;

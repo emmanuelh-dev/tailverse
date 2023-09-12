@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registerUser, loginUser } from "@/utils/authUtils";
-import { toast } from "react-hot-toast";
-
+const INITIAL_VALUES = {
+  username: "",
+  email: "",
+  password: "",
+};
 const Register = () => {
   const [register, setRegister] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
-  async function onSubmit(
-    token: any,
-    values: {
-      username: string;
-      email: string;
-      password: string;
-    }
-  ) {
-    setRecaptchaToken(token);
 
-    const register = await registerUser(values);
+  1;
+  async function onSubmit(values: {
+    username: string;
+    email: string;
+    password: string;
+  }) {
+    const register =  await registerUser(values)
     if (register) {
-      const login = await loginUser(values);
-      setRegister(!register);
+      
     } else {
       // Si el register falló, hacemos algo aquí...
     }
@@ -44,21 +42,8 @@ const Register = () => {
               Register
             </h2>
             <Formik
-              initialValues={{ username: "", email: "", password: "" }}
-              onSubmit={async (values, { setSubmitting, setErrors }) => {
-                if (!recaptchaToken) {
-                  toast.error("An error was orcurred");
-                  setSubmitting(false);
-                  return;
-                }
-                const register = await registerUser(values);
-                if (register) {
-                  const login = await loginUser(values);
-                  setRegister(!register);
-                } else {
-                  // Si el register falló, hacemos algo aquí...
-                }
-              }}
+              initialValues={INITIAL_VALUES}
+              onSubmit={onSubmit}
               validate={(values) => {
                 const errors: any = {};
 

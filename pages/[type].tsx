@@ -59,7 +59,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return { paths, fallback: "blocking" };
   } catch (error) {
-    console.error(error);
     return { paths: [], fallback: "blocking" };
   }
 };
@@ -86,7 +85,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
       revalidate: 3600,
     };
   } catch (error) {
-    console.error(error);
     return {
       props: {
         components: [],

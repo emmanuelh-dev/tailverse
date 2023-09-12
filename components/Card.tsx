@@ -55,7 +55,6 @@ const CardActions = ({ id, rate, userName, source, type, children }: Props) => {
 };
 
 const Card = ({ source, userName, type, rate, id }: Props) => {
-  console.error(type);
   const newSource = ValidationCard(source);
   return (
     <div className=" overflow-hidden">
